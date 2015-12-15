@@ -5,10 +5,7 @@ ARCH=arm
 CROSS_COMPILE=arm-none-eabi-
 
 # Relative to the root of this repo
-BUILD=build/
-
-
-
+BUILD=build
 
 
 
