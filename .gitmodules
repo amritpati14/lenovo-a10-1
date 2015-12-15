@@ -1,0 +1,9 @@
+[submodule "submodules/rk3066-rom-scripts"]
+	path = submodules/rk3066-rom-scripts
+	url = https://github.com/durandmiller/rk3066-rom-scripts.git
+[submodule "submodules/u-boot-rockchip"]
+	path = submodules/u-boot-rockchip
+	url = https://github.com/durandmiller/u-boot-rockchip.git
+[submodule "submodules/rkflashtool"]
+	path = submodules/rkflashtool
+	url = https://github.com/durandmiller/rkflashtool.git
