@@ -7,3 +7,6 @@
 [submodule "submodules/u-boot-rockchip"]
 	path = submodules/u-boot-rockchip
 	url = https://github.com/durandmiller/u-boot-rockchip.git
+[submodule "submodules/rockchip-mkbootimg"]
+	path = submodules/rockchip-mkbootimg
+	url = https://github.com/durandmiller/rockchip-mkbootimg.git

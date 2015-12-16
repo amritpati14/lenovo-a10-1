@@ -44,11 +44,9 @@ dd if=${BUILDDIR}/unknown.2 of=${OFILE} conv=notrunc,sync,fsync \
 dd if=${BUILDDIR}/parameters.img of=${OFILE} conv=notrunc,sync,fsync \
 	seek=$((0x2000))
 
-dd if=${BUILDDIR}/kernel.img of=${OFILE} conv=notrunc,sync,fsync \
+dd if=${BUILDDIR}/boot.img of=${OFILE} conv=notrunc,sync,fsync \
 	seek=$((0x2000 + 0x4000))
 
-dd if=${BUILDDIR}/boot.img of=${OFILE} conv=notrunc,sync,fsync \
-	seek=$((0x2000 + 0x8000))
 
 
 
