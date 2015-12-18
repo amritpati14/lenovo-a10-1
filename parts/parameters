@@ -8,4 +8,4 @@ MACHINE: 3066
 CHECK_MASK: 0x80
 KERNEL_IMG: 0x60408000
 RECOVER_KEY: 1,1,0,60,0
-CMDLINE:console=ttyFIQ0 console=tty0 androidboot.console=ttyFIQ0 init=/init initrd=0x62000000,0x00800000 mtdparts=rk29xxnand:0x00002000@0x00002000(reserved),0x00010000@0x00004000(boot),-@0x00014000(linuxroot)
+CMDLINE:console=ttyFIQ0 androidboot.console=ttyFIQ0 init=/init initrd=0x62000000,0x00800000 mtdparts=rk29xxnand:0x00002000@0x00002000(reserved),0x00010000@0x00004000(boot),-@0x00014000(linuxroot)
