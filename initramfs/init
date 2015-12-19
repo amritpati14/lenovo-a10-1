@@ -1,14 +1,14 @@
 #!/bin/sh
 
 
-echo "Loading, please wait..."
-
 [ -d /dev ] || mkdir -m 0755 /dev
 [ -d /root ] || mkdir -m 0700 /root
 [ -d /run ] || mkdir -m 0755 /run
 [ -d /sys ] || mkdir /sys
 [ -d /proc ] || mkdir /proc
 [ -d /tmp ] || mkdir /tmp
+
+[ -d /sbin ] || mkdir -m 0755 /sbin
 [ -d /usr ] || mkdir -m 0755 /usr
 [ -d /usr/sbin ] || mkdir -m 0755 /usr/sbin
 [ -d /usr/bin ] || mkdir -m 0755 /usr/bin

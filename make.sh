@@ -68,6 +68,7 @@ cp -f ${DIR}/kernel/arch/arm/boot/Image ${BUILDDIR}/
 # Creating the initramfs
 
 (
+	rm -rf ${INITDIR}/
 	mkdir -p ${INITDIR}/
 	cp -rf ${DIR}/initramfs/* ${INITDIR}/
 	cd ${INITDIR}
