@@ -9,6 +9,9 @@ echo "Loading, please wait..."
 [ -d /sys ] || mkdir /sys
 [ -d /proc ] || mkdir /proc
 [ -d /tmp ] || mkdir /tmp
+[ -d /usr ] || mkdir -m 0755 /usr
+[ -d /usr/sbin ] || mkdir -m 0755 /usr/sbin
+[ -d /usr/bin ] || mkdir -m 0755 /usr/bin
 
 mkdir -p /var/lock
 
@@ -21,11 +24,11 @@ mount -t proc -o nodev,noexec,nosuid proc /proc
 
 echo 0 > /proc/sys/kernel/printk
 
+busybox --install -s
+
 mdev -s
 
 modprobe fbcon
-
-/bin/busybox --install -s
 
 /bin/sh
 
