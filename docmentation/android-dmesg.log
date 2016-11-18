@@ -1,0 +1,2394 @@
+<6>[    0.000000] Initializing cgroup subsys cpu
+<5>[    0.000000] Linux version 3.0.36+ (qicm@git-server) (gcc version 4.6.x-google 20120106 (prerelease) (GCC) ) #1 SMP PREEMPT Tue Dec 3 09:21:59 CST 2013
+<4>[    0.000000] CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=10c5387d
+<4>[    0.000000] CPU: VIPT nonaliasing data cache, VIPT aliasing instruction cache
+<4>[    0.000000] Machine: RK30board
+<4>[    0.000000] board_id_get_from_flash:
+<4>[    0.000000] board_id_get_from_flash GUID:90a98639-d368-6542-8bfe-0e8781537727
+<4>[    0.000000] board_id_get_from_flash:vendor data is valid
+<6>[    0.000000] memory reserve: Memory(base:0x91800000 size:80M) reserved for <ion>
+<4>[    0.000000] board_id_get_from_flash:
+<4>[    0.000000] board_id_get_from_flash GUID:90a98639-d368-6542-8bfe-0e8781537727
+<4>[    0.000000] board_id_get_from_flash:vendor data is valid
+<6>[    0.000000] memory reserve: Memory(base:0x90b00000 size:13M) reserved for <fb0 buf>
+<4>[    0.000000] board_id_get_from_flash:
+<4>[    0.000000] board_id_get_from_flash GUID:90a98639-d368-6542-8bfe-0e8781537727
+<4>[    0.000000] board_id_get_from_flash:vendor data is valid
+<6>[    0.000000] memory reserve: Total reserved 93M
+<4>[    0.000000] Memory policy: ECC disabled, Data cache writeback
+<6>[    0.000000] bootconsole [earlycon0] enabled
+<4>[    0.000000] CPU SRAM: copied sram code from c0ba4000 to fef00100 - fef01ea0
+<4>[    0.000000] CPU SRAM: copied sram data from c0ba5da0 to fef01ea0 - fef025e8
+<4>[    0.000000] sram_log:      4q ?&     :     4q ?)     !?, # 0q    *!  ! 3q   @      3q 
+<4>[    0.000000] CLKDATA_MSG: pll_flag = 0x00
+<6>[    0.000000] L310 cache controller enabled
+<6>[    0.000000] l2x0: 16 ways, CACHE_ID 0x4100c0c8, AUX_CTRL 0x76050001, Cache size: 524288 B
+<4>[    0.000000] DDR DEBUG: version 1.00 20130510 
+<4>[    0.000000] DDR DEBUG: DDR3 Device
+<4>[    0.000000] DDR DEBUG: Bus Width=32 Col=10 Bank=8 Row=15 CS=2 Total Capability=2048MB
+<4>[    0.000000] DDR DEBUG: init success!!! freq=300MHz
+<4>[    0.000000] DDR DEBUG: DTONE=0x3, DTERR=0x0, DTIERR=0x0, DTPASS=0x24, DGSL=0 extra clock, DGPS=360
+<4>[    0.000000] DDR DEBUG: DTONE=0x3, DTERR=0x0, DTIERR=0x0, DTPASS=0x24, DGSL=0 extra clock, DGPS=360
+<4>[    0.000000] DDR DEBUG: DTONE=0x3, DTERR=0x0, DTIERR=0x0, DTPASS=0x24, DGSL=0 extra clock, DGPS=360
+<4>[    0.000000] DDR DEBUG: DTONE=0x3, DTERR=0x0, DTIERR=0x0, DTPASS=0x23, DGSL=1 extra clock, DGPS=90
+<4>[    0.000000] DDR DEBUG: ZERR=0, ZDONE=0, ZPD=0x0, ZPU=0x0, OPD=0x0, OPU=0x0
+<4>[    0.000000] DDR DEBUG: DRV Pull-Up=0xb, DRV Pull-Dwn=0xb
+<4>[    0.000000] DDR DEBUG: ODT Pull-Up=0x2, ODT Pull-Dwn=0x2
+<7>[    0.000000] On node 0 totalpages: 500480
+<7>[    0.000000] free_area_init_node: node 0, pgdat c0ba15c0, node_mem_map c2200000
+<7>[    0.000000]   Normal zone: 1744 pages used for memmap
+<7>[    0.000000]   Normal zone: 0 pages reserved
+<7>[    0.000000]   Normal zone: 197680 pages, LIFO batch:31
+<7>[    0.000000]   HighMem zone: 2352 pages used for memmap
+<7>[    0.000000]   HighMem zone: 298704 pages, LIFO batch:31
+<6>[    0.000000] PERCPU: Embedded 7 pages/cpu @c320f000 s6976 r8192 d13504 u32768
+<7>[    0.000000] pcpu-alloc: s6976 r8192 d13504 u32768 alloc=8*4096
+<7>[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+<4>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 496384
+<5>[    0.000000] Kernel command line: console=ttyFIQ0 androidboot.console=ttyFIQ0 init=/init initrd=0x62000000,0x00200000 mtdparts=rk29xxnand:0x00002000@0x00002000(misc),0x00004000@0x00004000(kernel),0x00008000@0x00008000(boot),0x00010000@0x00010000(recovery),0x00020000@0x00020000(backup),0x00040000@0x00040000(cache),0x00200000@0x00080000(userdata),0x00002000@0x00280000(kpanic),0x00200000@0x00282000(system),0x00100000@0x00482000(cust),-@0x00582000(user) bootver=2013-10-10#1.21 firmware_ver=4.1.1
+<6>[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+<6>[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+<6>[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+<6>[    0.000000] Memory: 779MB 1176MB = 1955MB total
+<5>[    0.000000] Memory: 1962740k/1962740k available, 134412k reserved, 1204224K highmem
+<5>[    0.000000] Virtual kernel memory layout:
+<5>[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+<5>[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+<5>[    0.000000]     DMA     : 0xff600000 - 0xffe00000   (   8 MB)
+<5>[    0.000000]     vmalloc : 0xf7000000 - 0xfe800000   ( 120 MB)
+<5>[    0.000000]     lowmem  : 0xc0000000 - 0xf6800000   ( 872 MB)
+<5>[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+<5>[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+<5>[    0.000000]       .init : 0xc0408000 - 0xc043e000   ( 216 kB)
+<5>[    0.000000]       .text : 0xc043e000 - 0xc0b10110   (6985 kB)
+<5>[    0.000000]       .data : 0xc0b12000 - 0xc0ba33c8   ( 581 kB)
+<5>[    0.000000]        .bss : 0xc0ba7024 - 0xc174dd90   (11932 kB)
+<6>[    0.000000] SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+<6>[    0.000000] Preemptible hierarchical RCU implementation.
+<6>[    0.000000] NR_IRQS:352
+<4>[    0.000000] rk30_gpio_init: 128 gpio irqs in 4 banks
+<6>[    0.000000] sched_clock: 32 bits at 24MHz, resolution 41ns, wraps every 178956ms
+<4>[    0.000000] rk_timer: version 1.2
+<6>[    0.000000] Console: colour dummy device 80x30
+<6>[    0.008762] Calibrating delay loop (skipped) preset value.. 1631.46 BogoMIPS (lpj=8157341)
+<6>[    0.017930] pid_max: default: 32768 minimum: 301
+<6>[    0.023258] Mount-cache hash table entries: 512
+<6>[    0.028814] Initializing cgroup subsys debug
+<6>[    0.033594] Initializing cgroup subsys cpuacct
+<6>[    0.038584] Initializing cgroup subsys freezer
+<6>[    0.043568] CPU: Testing write buffer coherency: ok
+<4>[    0.129814] CPU1: Booted secondary processor
+<4>[    0.169807] CPU2: Booted secondary processor
+<4>[    0.209806] CPU3: Booted secondary processor
+<6>[    0.209845] Brought up 4 CPUs
+<6>[    0.227508] SMP: Total of 4 processors activated (6525.87 BogoMIPS).
+<6>[    0.234889] devtmpfs: initialized
+<6>[    0.244482] NET: Registered protocol family 16
+<6>[    0.249578] last_log: 0xf0500000 map to 0xf7004000 and copy to 0xc0bab120 (version 2.1)
+<6>[    0.286939] lcdc0 is used as external display device contoller!
+<6>[    0.293589] lcdc1 is used as primary display device controller!
+<6>[    0.400458] rk29sdk_wifi_bt_gpio_control_init: init finished
+<6>[    0.408085] console [ttyFIQ0] enabled, bootconsole disabled
+<6>[    0.417241] Registered FIQ tty driver f043dcc0
+<4>[    0.417694] board_id_get_from_flash:
+<4>[    0.417755] board_id_get_from_flash GUID:90a98639-d368-6542-8bfe-0e8781537727
+<4>[    0.417843] board_id_get_from_flash:vendor data is valid
+<4>[    0.417909] board_id_resolve:area type=36,id=82,country_area=South Africa,locale_region=ZA,locale_language=en
+<4>[    0.418007] 
+<4>[    0.418022] board_id_add_devices:ignore type=0
+<4>[    0.418055] board_id_add_devices:ignore type=1
+<4>[    0.418102] board_id_add_devices:i2c0_info[1] name=angle_kxtik valid always
+<4>[    0.418158] board_id_add_devices:i2c0_info[2] name=angle_lis3dh valid always
+<4>[    0.418215] board_id_add_devices:i2c0_info[3] name=gs_kxtik valid always
+<4>[    0.418269] board_id_add_devices:i2c0_info[4] name=gs_lis3dh valid always
+<4>[    0.418323] board_id_add_devices:i2c1_info[0] name=act8846 valid always
+<4>[    0.418383] board_id_add_devices:i2c1_info[1] name=rtc_hym8563,type=66,id=1
+<4>[    0.418438] board_id_add_devices:i2c2_info[0] name=cat66121_hdmi,type=52,id=2
+<4>[    0.418493] board_id_add_devices:i2c2_info[1] name=lcd_edid_i2c,type=42,id=2
+<4>[    0.418549] board_id_add_devices:i2c2_info[2] name=elan-ktf2k,type=41,id=2
+<4>[    0.418605] board_id_add_devices:i2c3_info[0] name=blueberry_kb,type=43,id=5
+<4>[    0.418665] board_id_add_devices:i2c3_info[1] name=blueberry_bat,type=53,id=7
+<4>[    0.418723] board_id_add_devices:i2c4_info[0] name=blueberry_tp,type=63,id=1
+<4>[    0.418776] board_id_add_devices:i2c4_info[1] name=rt3261 valid always
+<4>[    0.418830] board_id_add_devices:i2c4_info[2] name=rt5640,type=44,id=11
+<4>[    0.418887] board_id_add_devices:i2c4_info[3] name=usb4604,type=62,id=1
+<4>[    0.418998] board_id_add_devices:devices[0] name=ion-rockchip valid always
+<4>[    0.419116] board_id_add_devices:devices[1] name=bcmdhd_wlan,type=45, id=1
+<4>[    0.419249] board_id_add_devices:devices[2] name=rfkill_rk,type=46, id=11
+<4>[    0.419355] board_id_add_devices:devices[3] name=rk_headsetdet,type=56, id=1
+<4>[    0.419451] board_id_add_devices:devices[4] name=mali400_ump valid always
+<4>[    0.419553] board_id_add_devices:devices[5] name=rk-lid valid always
+<4>[    0.419611] board_id_probe:init success
+<6>[    0.610764] bio: create slab <bio-0> at 0
+<5>[    0.615174] SCSI subsystem initialized
+<6>[    0.615373] usbcore: registered new interface driver usbfs
+<6>[    0.615481] usbcore: registered new interface driver hub
+<6>[    0.629747] usbcore: registered new device driver usb
+<6>[    0.630195] rk30_i2c rk30_i2c.0: i2c-0: RK30 I2C adapter
+<6>[    0.630422] rk30_i2c rk30_i2c.1: i2c-1: RK30 I2C adapter
+<6>[    0.630715] rk30_i2c rk30_i2c.2: i2c-2: RK30 I2C adapter
+<6>[    0.630945] rk30_i2c rk30_i2c.3: i2c-3: RK30 I2C adapter
+<3>[    0.631180] i2c i2c-4: 1 i2c clients have been registered at 0x1c
+<6>[    0.631338] rk30_i2c rk30_i2c.4: i2c-4: RK30 I2C adapter
+<6>[    0.667400] rk30-adc rk30-adc: rk30 adc: driver initialized
+<6>[    0.667645] Advanced Linux Sound Architecture Driver Version 1.0.24.
+<6>[    0.668082] Bluetooth: Core ver 2.16
+<6>[    0.668149] NET: Registered protocol family 31
+<6>[    0.668184] Bluetooth: HCI device and connection manager initialized
+<6>[    0.668231] Bluetooth: HCI socket layer initialized
+<6>[    0.668268] Bluetooth: L2CAP socket layer initialized
+<6>[    0.668317] Bluetooth: SCO socket layer initialized
+<4>[    0.669378] rk fb probe ok!
+<4>[    0.674239] act8846_set_init,line=17
+<4>[    0.674270] act8846_set_init:g_pmic_type=3
+<4>[    0.676054] act8846_set_init  act_dcdc1 =1200000mV end
+<4>[    0.677928] act8846_set_init  vdd_core =1000000mV end
+<4>[    0.679803] act8846_set_init  vdd_cpu =1000000mV end
+<4>[    0.681678] act8846_set_init  act_dcdc4 =3000000mV end
+<4>[    0.682916] act8846_set_init  act_ldo1 =1000000mV end
+<4>[    0.684688] act8846_set_init  act_ldo2 =1200000mV end
+<4>[    0.686459] act8846_set_init  act_ldo3 =1800000mV end
+<4>[    0.688228] act8846_set_init  act_ldo4 =3300000mV end
+<4>[    0.690000] act8846_set_init  act_ldo5 =3300000mV end
+<4>[    0.691769] act8846_set_init  act_ldo6 =3300000mV end
+<4>[    0.692907] act8846_set_init  act_ldo7 =1800000mV end
+<4>[    0.694675] act8846_set_init  act_ldo8 =1200000mV end
+<4>[    0.696445] act8846_set_init  act_ldo9 =1800000mV end
+<4>[    0.696490] act8846_set_init,line=78 END
+<4>[    0.696558] i2c-core: driver [act8846] using legacy suspend method
+<4>[    0.696603] i2c-core: driver [act8846] using legacy resume method
+<4>[    0.696750] board_id_init:
+<6>[    0.696811] blueberry_battery: blueberry_bat, idr_get_new:num=0x0
+<4>[    0.700212] get_battery_status:volt=4109000,charge=0,rsoc=95,ret=0
+<3>[    0.714243] blueberry_battery: register blueberry_bat succ.
+<6>[    0.714688] blueberry_battery: blueberry_bat proble completed successfully.
+<4>[    0.714772] i2c-core: driver [blueberry_bat] using legacy suspend method
+<4>[    0.714819] i2c-core: driver [blueberry_bat] using legacy resume method
+<4>[    0.714873] start_charge_logo_display
+<4>[    0.716623] val_status.intval=2,POWER_SUPPLY_STATUS_CHARGING=1
+<6>[    0.716683] Switching to clocksource rk_timer
+<6>[    0.719197] Switched to NOHz mode on CPU #0
+<6>[    0.719844] Switched to NOHz mode on CPU #2
+<6>[    0.719864] Switched to NOHz mode on CPU #3
+<6>[    0.719877] Switched to NOHz mode on CPU #1
+<4>[    0.723494] edid_i2c_init
+<4>[    0.729959] addr=0x0,len=128,rxdata:0x0,0xff,0xff,0xff,0xff,0xff,0xff,0x0,0x26,0xcf,0xfa,0x3,0x1,0x0,0x0,0x0,0x0,0x16,0x1,0x3,0x80,0x16,0xd,0x78,0xa,0x21,0xd0,0x94,0x58,0x56,0x8f,0x27,0x1f,0x50,0x54,0x0,0x0,0x0,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x5,0x1e,0x56,0xc2,0x50,0x0,0x35,0x30,0x30,0x20,0x3c,0x0,0xdf,0x7d,0x0,0x0,0x0,0x19,0x47,0x14,0x56,0xf0,0x50,0x0,0x28,0x30,0x30,0x20,0x3c,0x0,0x35,0xae,0x10,0x0,0x0,0x19,0x0,0x0,0x0,0xfe,0x0,0x49,0x6e,0x66,0x6f,0x56,0x69,0x73,0x69,0x6f,0x6e,0xa,0x20,0x20,0x0,0x0,0x0,0xfe,0x0,0x4d,0x31,0x30,0x31,0x4e,0x57,0x4e,0x38,0x20,0x52,0x30,0x20,0xa,0x0,0x26,
+<4>[    0.730689] edid_i2c_probe:ok
+<4>[    0.730750] i2c-core: driver [lcd_edid_i2c] using legacy suspend method
+<4>[    0.730797] i2c-core: driver [lcd_edid_i2c] using legacy resume method
+<4>[    0.730918] lcdc1:reg_phy_base = 0x1010e000,reg_vir_base:0xf711c000
+<4>[    0.730997] set_lcd_info_edid_i2c:type = 1
+<4>[    0.731005]  face = 33
+<4>[    0.731010]  x_res = 1368
+<4>[    0.731015]  y_res = 768
+<4>[    0.731020]  width = 223
+<4>[    0.731025]  height = 125
+<4>[    0.731031]  lcdc_aclk = 500000000
+<4>[    0.731037]  pixclock = 64000000
+<4>[    0.731043]  left_margin = 114
+<4>[    0.731049]  right_margin = 48
+<4>[    0.731055]  hsync_len = 32
+<4>[    0.731060]  upper_margin = 38
+<4>[    0.731066]  lower_margin = 3
+<4>[    0.731072]  vsync_len = 12
+<4>[    0.731077]  pin_hsync = 0
+<4>[    0.731082]  pin_vsync = 0
+<4>[    0.731088]  pin_den = 0
+<4>[    0.731093]  pin_dclk = 0
+<4>[    0.731098]  set_lcd_info_edid_i2c
+<4>[    0.786787] fb0:win0
+<4>[    0.786792] fb1:win1
+<4>[    0.786797] fb2:win2
+<4>[    0.786931] rk3188 lcdc1 clk enable...
+<4>[    0.812034] rk3188 lcdc1 clk disable...
+<4>[    0.844139] fb0:phy:90b00000>>vir:f8000000>>len:0xd00000
+<4>[    0.844368] rk_fb_register>>>>>fb0
+<4>[    0.844671] rk_fb_register>>>>>fb1
+<4>[    0.844765] rk3188 lcdc1 clk enable...
+<4>[    0.844804] lcdc1: dclk:64000000>>fps:50 
+<6>[    0.844838] rk30-lcdc rk30-lcdc.1: rk3188_load_screen for lcdc1 ok!
+<6>[    0.844884] lcdc1 wakeup from standby!
+<6>[    0.844914] lcdc1 win0 open,atv layer:1
+<4>[    0.845664] rk3188 lcdc1 probe ok!
+<4>[    0.845730] lcdc0:reg_phy_base = 0x1010c000,reg_vir_base:0xf7128000
+<4>[    0.845797] fb0:win0
+<4>[    0.845802] fb1:win1
+<4>[    0.845807] fb2:win2
+<4>[    0.845884] rk3188 lcdc0 clk enable...
+<4>[    0.870962] rk3188 lcdc0 clk disable...
+<4>[    0.870997] fb2:phy:90b00000>>vir:f8000000>>len:0xd00000
+<4>[    0.871207] rk_fb_register>>>>>fb2
+<4>[    0.871459] rk_fb_register>>>>>fb3
+<4>[    0.871488] rk3188 lcdc0 probe ok!
+<6>[    0.877755] NET: Registered protocol family 2
+<6>[    0.877902] IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+<6>[    0.878305] TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+<6>[    0.880185] TCP bind hash table entries: 65536 (order: 7, 786432 bytes)
+<6>[    0.881289] TCP: Hash tables configured (established 131072 bind 65536)
+<6>[    0.881338] TCP reno registered
+<6>[    0.881368] UDP hash table entries: 512 (order: 2, 16384 bytes)
+<6>[    0.881436] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+<6>[    0.881750] NET: Registered protocol family 1
+<4>[    1.096893] pwm_clk_rate= 48000000, divh=0,pre_div=20000
+<4>[    1.096943] RK29 Backlight Driver Initialized.
+<6>[    1.097164] Unpacking initramfs...
+<6>[    1.156933] cfg80211: Calling CRDA to update world regulatory domain
+<6>[    1.182824] Freeing initrd memory: 2048K
+<6>[    1.182933] PMU: registered new PMU device of type 0
+<4>[    1.183058] DVFS MSG: core: dvfs_adjust_table_lmtvolt get leakage_level = 6
+<4>[    1.183111] 		adjust table freq=1608000 KHz, index=1350000 mV to index=1250000 mV
+<4>[    1.183168] DVFS MSG: aclk_gpu: dvfs_adjust_table_lmtvolt get leakage_level = 6
+<4>[    1.213604] rk3188 cpufreq version 2.1, suspend freq 816 MHz
+<6>[    1.213988] Loaded driver for PL330 DMAC-1 rk29-pl330
+<6>[    1.214032] 	DBUFF-32x8bytes Num_Chans-6 Num_Peri-12 Num_Events-12
+<6>[    1.214232] Loaded driver for PL330 DMAC-2 rk29-pl330
+<6>[    1.214272] 	DBUFF-64x8bytes Num_Chans-7 Num_Peri-20 Num_Events-14
+<4>[    1.241827] highmem bounce pool size: 64 pages
+<6>[    1.242008] ashmem: initialized
+<6>[    1.250599] NTFS driver 2.1.30 [Flags: R/W DEBUG].
+<6>[    1.250833] fuse init (API version 7.16)
+<6>[    1.260037] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+<6>[    1.260092] io scheduler noop registered
+<6>[    1.260129] io scheduler deadline registered
+<6>[    1.260195] io scheduler cfq registered (default)
+<6>[    1.280467] rga: Driver loaded succesfully
+<4>[    1.280688] rk_serial.c v1.4 2013-04-16
+<6>[    1.280956] rk_serial rk_serial.0: dma_rx_buffer 0xffdfc000
+<6>[    1.280996] rk_serial rk_serial.0: dma_rx_phy 0x8f59c000
+<6>[    1.281037] rk_serial rk_serial.0: serial_rk_init_dma_rx sucess
+<6>[    1.281163] rk_serial rk_serial.0: dma_tx_buffer 0xffdfb000
+<6>[    1.281201] rk_serial rk_serial.0: dma_tx_phy 0x8f597000
+<6>[    1.281240] rk_serial rk_serial.0: serial_rk_init_dma_tx sucess
+<6>[    1.281283] rk_serial.0: ttyS0 at MMIO 0x10124000 (irq = 66) is a rk29_serial.0
+<6>[    1.281454] rk_serial rk_serial.0: membase 0xf7140000
+<6>[    1.281521] rk_serial.1: ttyS1 at MMIO 0x10126000 (irq = 67) is a rk29_serial.1
+<6>[    1.281686] rk_serial rk_serial.1: membase 0xf7144000
+<6>[    1.281758] rk_serial.3: ttyS3 at MMIO 0x20068000 (irq = 69) is a rk29_serial.3
+<6>[    1.281908] rk_serial rk_serial.3: membase 0xf7148000
+<6>[    1.282150] Rockchip ion module(version: 1.0) is successfully loaded
+<6>[    1.284280] loop: module loaded
+<6>[    1.284333] Android kernel panic handler initialized (bind=kpanic)
+<4>[    1.284410] usb4604_init,reset hub
+<4>[    1.540919] disable internal mcu of usb4604 [ step 1 ] ,ret is 0
+<4>[    1.541178] disable internal mcu of usb4604 [ step 2 ],ret is 0
+<4>[    1.541433] enable  communication of usb4604 ,ret is 0
+<6>[    1.541465] usb4604 4-002d: driver version 1.0 enabled
+<6>[    1.542023] PPP generic driver version 2.4.2
+<6>[    1.542170] PPP Deflate Compression module registered
+<6>[    1.542200] PPP BSD Compression module registered
+<6>[    1.577134] PPP MPPE Compression module registered
+<6>[    1.577172] NET: Registered protocol family 24
+<6>[    1.577209] tun: Universal TUN/TAP device driver, 1.6
+<6>[    1.577237] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+<6>[    1.577455] usbcore: registered new interface driver asix
+<6>[    1.577507] usbcore: registered new interface driver cdc_ether
+<6>[    1.577558] usbcore: registered new interface driver dm9620
+<6>[    1.577608] usbcore: registered new interface driver SR9700_android
+<6>[    1.577661] usbcore: registered new interface driver net1080
+<6>[    1.577712] usbcore: registered new interface driver cdc_subset
+<6>[    1.577776] usbcore: registered new interface driver zaurus
+<6>[    1.577816] cdc_ncm: 04-Aug-2011
+<6>[    1.577854] usbcore: registered new interface driver cdc_ncm
+<4>[    1.577886] Rockchip WiFi SYS interface (V1.00) ... 
+<6>[    1.577937] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+<4>[    1.578115] ehci_rk_probe f7180000 f7180010
+<6>[    1.578142] rk_hsusb_host rk_hsusb_host: Rockchip On-Chip EHCI Host Controller
+<6>[    1.578250] rk_hsusb_host rk_hsusb_host: new USB bus registered, assigned bus number 1
+<6>[    1.578629] rk_hsusb_host rk_hsusb_host: irq 37, io mem 0x10240000
+<6>[    1.596760] rk_hsusb_host rk_hsusb_host: USB 0.0 started, EHCI 1.00
+<6>[    1.596874] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+<6>[    1.596915] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+<6>[    1.596956] usb usb1: Product: Rockchip On-Chip EHCI Host Controller
+<6>[    1.596991] usb usb1: Manufacturer: Linux 3.0.36+ ehci_hcd
+<6>[    1.597022] usb usb1: SerialNumber: rk_hsusb_host
+<6>[    1.597315] hub 1-0:1.0: USB hub found
+<6>[    1.597345] hub 1-0:1.0: 1 port detected
+<4>[    1.626777] ehci_rk_probe ok
+<6>[    1.626822] Initializing USB Mass Storage driver...
+<6>[    1.626897] usbcore: registered new interface driver usb-storage
+<6>[    1.626930] USB Mass Storage support registered.
+<6>[    1.627021] usbcore: registered new interface driver usbserial
+<6>[    1.627073] USB Serial support registered for generic
+<6>[    1.627126] usbcore: registered new interface driver usbserial_generic
+<6>[    1.627161] usbserial: USB Serial Driver core
+<6>[    1.627202] USB Serial support registered for GSM modem (1-port)
+<6>[    1.627285] usbcore: registered new interface driver option
+<6>[    1.627316] option: v0.7.2:USB Driver for GSM modems
+<6>[    1.839312] DWC_OTG: ^^^^^^^^^^^^^^^^^Device Mode
+<6>[    1.839349] usb20_otg usb20_otg: DWC OTG Controller
+<6>[    1.839409] usb20_otg usb20_otg: new USB bus registered, assigned bus number 2
+<6>[    1.839465] usb20_otg usb20_otg: irq 48, io mem 0x00000000
+<6>[    1.839496] DWC_OTG: dwc_otg_hcd_start controller in device mode,everest
+<6>[    1.839559] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+<6>[    1.839598] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+<6>[    1.839638] usb usb2: Product: DWC OTG Controller
+<6>[    1.839667] usb usb2: Manufacturer: Linux 3.0.36+ dwc_otg_hcd
+<6>[    1.839701] usb usb2: SerialNumber: usb20_otg
+<6>[    1.839979] hub 2-0:1.0: USB hub found
+<6>[    1.840009] hub 2-0:1.0: 1 port detected
+<6>[    1.842591] DWC_OTG: host20_driver_probe host2.0 reg addr: 0x101c0000 remap:0xf7280000
+<6>[    1.956787] usb 1-1: new high speed USB device number 2 using rk_hsusb_host
+<6>[    2.053185] DWC_OTG: ^^^^^^^^^^^^^^^^^^Host Mode
+<6>[    2.053227] usb20_host usb20_host: DWC OTG Controller
+<6>[    2.053319] usb20_host usb20_host: new USB bus registered, assigned bus number 3
+<6>[    2.053380] usb20_host usb20_host: irq 49, io mem 0x00000000
+<6>[    2.053448] DWC_OTG: Init: Port Power? op_state=1
+<6>[    2.053474] DWC_OTG: Init: Power Port (0)
+<6>[    2.053524] usb usb3: New USB device found, idVendor=1d6b, idProduct=0002
+<6>[    2.053563] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+<6>[    2.053604] usb usb3: Product: DWC OTG Controller
+<6>[    2.053632] usb usb3: Manufacturer: Linux 3.0.36+ host20_hcd
+<6>[    2.053666] usb usb3: SerialNumber: usb20_host
+<6>[    2.053963] hub 3-0:1.0: USB hub found
+<6>[    2.054001] hub 3-0:1.0: 1 port detected
+<6>[    2.067059] android_usb gadget: Mass Storage Function, version: 2009/09/11
+<6>[    2.067119] android_usb gadget: Number of LUNs=2
+<6>[    2.067147]  lun0: LUN: removable file: (no medium)
+<6>[    2.067175]  lun1: LUN: removable file: (no medium)
+<6>[    2.067357] android_usb gadget: android_usb ready
+<6>[    2.067530] input: rk29-keypad as /devices/platform/rk29-keypad/input/input0
+<6>[    2.067751] usbcore: registered new interface driver xpad
+<6>[    2.067817] usbcore: registered new interface driver usb_acecad
+<6>[    2.067850] acecad: v3.2:USB Acecad Flair tablet driver
+<6>[    2.067903] usbcore: registered new interface driver aiptek
+<6>[    2.067934] aiptek: v2.3 (May 2, 2007):Aiptek HyperPen USB Tablet Driver (Linux 2.6.x)
+<6>[    2.067976] aiptek: Bryan W. Headley/Chris Atenasio/Cedric Brun/Rene van Paassen
+<6>[    2.068038] usbcore: registered new interface driver gtco
+<4>[    2.068068] GTCO usb driver version: 2.00.0006
+<6>[    2.068114] usbcore: registered new interface driver hanwang
+<6>[    2.068167] usbcore: registered new interface driver kbtab
+<6>[    2.068197] kbtab: v0.0.2:USB KB Gear JamStudio Tablet driver
+<6>[    2.068256] usbcore: registered new interface driver wacom
+<6>[    2.068286] wacom: v1.52:USB Wacom tablet driver
+<4>[    2.068335] ektf2k_ts probe start
+<6>[    2.096874] input: elan-ktf2k as /devices/virtual/input/input1
+<6>[    2.107206] usb 1-1: New USB device found, idVendor=0424, idProduct=4604
+<6>[    2.107246] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+<6>[    2.107642] hub 1-1:1.0: USB hub found
+<6>[    2.107827] hub 1-1:1.0: 4 ports detected
+<4>[    2.367059] hello packet 55:55:55:55:ff:ff:ff:ff
+<6>[    2.436757] usb 3-1: new high speed USB device number 2 using usb20_host
+<4>[    2.577628] ektf2k_ts probe end
+<4>[    2.577779] i2c-core: driver [elan-ktf2k] using legacy suspend method
+<4>[    2.577878] i2c-core: driver [elan-ktf2k] using legacy resume method
+<6>[    2.577976] enter blueberry_kb_init.
+<6>[    2.578086] enter blueberry_kb_probe
+<6>[    2.579283] input: A10 KEYBOARD as /devices/platform/rk30_i2c.3/i2c-3/3-0061/input/input2
+<4>[    2.579625] defalte enable keyboard
+<4>[    2.580350] blueberry_kb: misc register OK
+<7>[    2.580442] Registered led device: system_led
+<6>[    2.580461] blueberry_kb_probe OK
+<4>[    2.580516] i2c-core: driver [blueberry_kb] using legacy suspend method
+<4>[    2.580565] i2c-core: driver [blueberry_kb] using legacy resume method
+<6>[    2.580620] blueberry_tp: enter blueberry_tp_init.
+<6>[    2.580682] blueberry_tp: enter blueberry_tp_probe
+<6>[    2.582428] blueberry_tp: blueberry_tp_who_am_i: id=0x1 (elan).
+<3>[    2.582537] blueberry_tp: calculated sensitivity_factor=256 from sensitivity=10
+<4>[    2.584360] blueberry_tp_probe: tell ec to set rel mode
+<6>[    2.584581] input: blueberry_tp_abs as /devices/platform/rk30_i2c.4/i2c-4/4-0063/input/input3
+<6>[    2.584914] input: blueberry_tp_rel as /devices/platform/rk30_i2c.4/i2c-4/4-0063/input/input4
+<4>[    2.585118] i2c-core: driver [blueberry_tp] using legacy suspend method
+<4>[    2.585167] i2c-core: driver [blueberry_tp] using legacy resume method
+<4>[    2.585433] sensor_register_slave:kxtik,id=10
+<4>[    2.585469] sensor_register_slave:lis3dh,id=7
+<4>[    2.585505] sensor_register_slave:angle_kxtik,id=2
+<4>[    2.585539] angle_kxtik_init
+<4>[    2.585563] sensor_register_slave:angle_lis3dh,id=3
+<4>[    2.585701] rk-lid,lid_probe start
+<6>[    2.585971] input: lid_input as /devices/virtual/input/input5
+<4>[    2.586163] rk-lid,lid_probe end
+<6>[    2.590978] using rtc device, rtc_hym8563, for alarms
+<6>[    2.591041] rtc_hym8563 1-0051: rtc core: registered rtc_hym8563 as rtc0
+<6>[    2.591132] i2c /dev entries driver
+<6>[    2.591862] lirc_dev: IR Remote Control driver registered, major 249 
+<6>[    2.591912] IR NEC protocol handler initialized
+<6>[    2.591946] IR RC5(x) protocol handler initialized
+<6>[    2.591981] IR RC6 protocol handler initialized
+<6>[    2.592014] IR JVC protocol handler initialized
+<6>[    2.592049] IR Sony protocol handler initialized
+<6>[    2.592083] IR RC5 (streamzap) protocol handler initialized
+<6>[    2.592123] IR LIRC bridge handler initialized
+<6>[    2.592156] Linux video capture interface: v2.00
+<6>[    2.592292] usbcore: registered new interface driver uvcvideo
+<6>[    2.592335] USB Video Class driver (v1.1.0)
+<4>[    2.592420] def_ref_volt: 1800mV, curr_ref_volt: 1800mV
+<6>[    2.592459] RK29 Watchdog Timer, (c) 2011 Rockchip Electronics
+<6>[    2.592712] rk29-wdt rk29-wdt.0: starting watchdog timer
+<6>[    2.593208] device-mapper: uevent: version 1.0.3
+<6>[    2.593517] device-mapper: ioctl: 4.20.0-ioctl (2011-02-02) initialised: dm-devel@redhat.com
+<6>[    2.593704] Bluetooth: HCI UART driver ver 2.2
+<6>[    2.593740] Bluetooth: HCI H4 protocol initialized
+<6>[    2.593777] Bluetooth: HCI BCSP protocol initialized
+<6>[    2.593814] Bluetooth: HCILL protocol initialized
+<6>[    2.593850] Bluetooth: HCI Realtek H5 protocol initialized
+<6>[    2.593940] cpuidle: using governor ladder
+<6>[    2.593973] cpuidle: using governor menu
+<6>[    2.639520] 
+<6>[    2.639526] drivers/mmc/core/core.c...1826..  ===== mmc_rescan Begin....[mmc0]
+<6>[    2.639551] .Line3965..The End of SDMMC-probe Ver.5.05 The last modify date is 2013-05-08.  [sd_mmc]
+<6>[    2.639770] .Line3965..The End of SDMMC-probe Ver.5.05 The last modify date is 2013-05-08.  [sdio]
+<6>[    2.641426] usbcore: registered new interface driver usbhid
+<6>[    2.641464] usbhid: USB HID core driver
+<6>[    2.644669] rk29_sdmmc_change_clk_div..1961..  newDiv=80, newCLK=300Khz [sd_mmc]
+<6>[    2.647083] logger: created 256K log 'log_main'
+<6>[    2.647183] logger: created 256K log 'log_events'
+<6>[    2.647291] logger: created 256K log 'log_radio'
+<6>[    2.647391] logger: created 256K log 'log_system'
+<4>[    2.648254] rt5640_i2c_probe:rt5640 driver sw reset & device id register=0xc, device_id=0x2
+<4>[    2.648314] rt5640: probe of 4-001c-1 failed with error -5
+<4>[    2.648845] rt3261_i2c_probe:rt3261-mid driver sw reset & device id register=0xc, device_id=0x2
+<4>[    2.648899] rt3261_i2c_probe:rt3261_mid recognize itself.
+<6>[    2.669529] Codec driver version 0.3.0 alsa 1.0.24
+<6>[    2.681014] 
+<6>[    2.681017] mmc_attach_sd..1219..  ===== Begin to identify card as SD-card. [mmc0]
+<4>[    2.688511] read 0xfd=0x6
+<4>[    2.696755] ektf2k FW_ID = 482, FW_VERSION = 5518, get_fw_mutto_version = 5506, get_fw_ofilm_version = 5506
+<6>[    2.708013] rk29_sdmmc_change_clk_div..1961..  newDiv=0, newCLK=48000Khz [sd_mmc]
+<6>[    2.708112] mmc0: new high speed SDHC card at address 0001
+<6>[    2.708411] mmcblk0: mmc0:0001 00000 29.8 GiB 
+<6>[    2.709613] 
+<6>[    2.709616] msdos_partition..461... ==== Begin to parse sdcard-partition.  [mmc0]
+<6>[    2.709676] msdos_partition..530... ==== The sdcard has MBR. [mmc0]
+<6>[    2.709721] msdos_partition..543... ==== partition-1, size=20770816KB  [mmc0]
+<6>[    2.709767] msdos_partition..571... ==== main partition-1....[mmc0]
+<6>[    2.709817] msdos_partition..543... ==== partition-2, size=10485760KB  [mmc0]
+<6>[    2.709867] msdos_partition..571... ==== main partition-2....[mmc0]
+<6>[    2.709906]  mmcblk0: p1 p2
+<6>[    2.710334] mmc_rescan_try_freq..1720..  ===== Initialize SD-card successfully. [mmc0]
+<6>[    2.710391] 
+<6>[    2.710394] drivers/mmc/core/core.c...1826..  ===== mmc_rescan Begin....[mmc1]
+<6>[    2.716131] asoc: RealTek-aif1 <-> rk29_i2s.1 mapping ok
+<6>[    2.721976] asoc: RealTek-aif2 <-> rk29_i2s.1 mapping ok
+<6>[    2.722491] ALSA device list:
+<6>[    2.722513]   #0: RK29_RealTek
+<6>[    2.722615] GACT probability NOT on
+<6>[    2.722643] Mirror/redirect action on
+<6>[    2.722665] u32 classifier
+<6>[    2.722681]     Actions configured
+<6>[    2.722703] Netfilter messages via NETLINK v0.30.
+<6>[    2.722763] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+<6>[    2.723057] ctnetlink v0.93: registering with nfnetlink.
+<6>[    2.723117] NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+<6>[    2.723158] NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+<6>[    2.723451] xt_time: kernel timezone is -0000
+<6>[    2.723597] ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    2.723730] arp_tables: (C) 2002 David S. Miller
+<6>[    2.723787] TCP cubic registered
+<6>[    2.723807] Initializing XFRM netlink socket
+<6>[    2.724157] NET: Registered protocol family 10
+<6>[    2.724694] Mobile IPv6
+<6>[    2.724730] ip6_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    2.724851] IPv6 over IPv4 tunneling driver
+<6>[    2.725391] NET: Registered protocol family 17
+<6>[    2.725434] NET: Registered protocol family 15
+<6>[    2.726803] rk29_sdmmc_change_clk_div..1961..  newDiv=80, newCLK=300Khz [sdio]
+<6>[    2.746855] Bluetooth: RFCOMM TTY layer initialized
+<6>[    2.746891] Bluetooth: RFCOMM socket layer initialized
+<6>[    2.746921] Bluetooth: RFCOMM ver 1.11
+<6>[    2.746945] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[    2.746979] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<6>[    2.747116] NET: Registered protocol family 35
+<6>[    2.747274] [BT_RFKILL]: Enter rfkill_rk_init
+<6>[    2.755780] usb 3-1: New USB device found, idVendor=058f, idProduct=5608
+<6>[    2.755822] usb 3-1: New USB device strings: Mfr=3, Product=1, SerialNumber=0
+<6>[    2.755862] usb 3-1: Product: Lenovo EasyCamera
+<6>[    2.755889] usb 3-1: Manufacturer: Alcor Micro, Corp.
+<6>[    2.761629] uvcvideo: Found UVC 1.00 device Lenovo EasyCamera (058f:5608)
+<6>[    2.764429] input: Lenovo EasyCamera as /devices/platform/usb20_host/usb3/3-1/3-1:1.0/input/input6
+<6>[    2.776755] [BT_RFKILL]: bt shut off power
+<6>[    2.776785] [BT_RFKILL]: bt_default device registered.
+<4>[    2.796750] func rk_hdmi_power_init, HDMI_PWR_ON has enabled.
+<4>[    2.799217] CAT66121: Reg[0-3] = 0x[54].[49].[12].[16]
+<6>[    3.147310] cat66121_hdmi 2-004c: cat66121 hdmi i2c probe ok
+<6>[    3.147394] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+<5>[    3.147457] Registering SWP/SWPB emulation handler
+<6>[    3.147903] ddrfreq: verion 2.4 20130427
+<6>[    3.147927] ddrfreq: fix cpu pause bug
+<6>[    3.147951] ddrfreq: normal 396MHz video 300MHz dualview 0MHz idle 0MHz suspend 198MHz reboot 300MHz
+<6>[    3.149003] ddrfreq: change freq to 396 MHz when normal
+<6>[    3.149059] i2c i2c-0: sensor_probe: angle_kxtik,0xf069ca00
+<4>[    3.149168] sensor_chip_init:angle_kxtik:devid=0x0,ops=0xc0b762dc
+<6>[    3.150940] input: accel as /devices/platform/rk30_i2c.0/i2c-0/0-000f/input/input7
+<4>[    3.151151] sensor_irq_init:use irq=175
+<4>[    3.151244] sensor_misc_device_register:miscdevice: accel
+<3>[    3.151280] sensor-magf: sysfs_create_group success.
+<4>[    3.151305] sensor_probe:initialized ok,sensor name:angle_kxtik,type:1,id=2
+<4>[    3.151314] 
+<6>[    3.151359] i2c i2c-0: sensor_probe: angle_lis3dh,0xf069cc00
+<3>[    3.151626] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 2...
+<3>[    3.151892] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 1...
+<3>[    3.152168] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 0...
+<3>[    3.152439] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 2...
+<3>[    3.152706] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 1...
+<3>[    3.152974] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 0...
+<3>[    3.153243] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 2...
+<3>[    3.153513] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 1...
+<3>[    3.153780] i2c i2c-0: No ack, Maybe slave(addr: 0x19) not exist or abnormal power-on, retry 0...
+<4>[    3.153822] sensor_chip_init:fail to read angle_lis3dh devid:0xff
+<3>[    3.153852] i2c i2c-0: sensor_probe failed -11
+<3>[    3.153858] 
+<4>[    3.153886] sensors: probe of 0-0019 failed with error -11
+<6>[    3.153922] i2c i2c-0: sensor_probe: gs_kxtik,0xf069ce00
+<4>[    3.153949] sensor_chip_init:gs_kxtik:devid=0x0,ops=0xc0b76224
+<6>[    3.156827] input: gsensor as /devices/platform/rk30_i2c.0/i2c-0/0-000e/input/input8
+<4>[    3.156987] sensor_irq_init:use irq=196
+<4>[    3.157077] sensor_misc_device_register:miscdevice: mma8452_daemon
+<3>[    3.157110] sensor-magf: sysfs_create_group success.
+<4>[    3.157136] sensor_probe:initialized ok,sensor name:kxtik,type:2,id=10
+<4>[    3.157143] 
+<6>[    3.157186] i2c i2c-0: sensor_probe: gs_lis3dh,0xf069d000
+<3>[    3.157438] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 2...
+<3>[    3.157704] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 1...
+<3>[    3.157983] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 0...
+<3>[    3.158247] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 2...
+<3>[    3.158513] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 1...
+<3>[    3.158776] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 0...
+<3>[    3.159042] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 2...
+<3>[    3.159306] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 1...
+<3>[    3.159583] i2c i2c-0: No ack, Maybe slave(addr: 0x18) not exist or abnormal power-on, retry 0...
+<4>[    3.159627] sensor_chip_init:fail to read gs_lis3dh devid:0xff
+<3>[    3.159656] i2c i2c-0: sensor_probe failed -11
+<3>[    3.159662] 
+<4>[    3.159690] sensors: probe of 0-0018 failed with error -11
+<6>[    3.159751] sensor_init: Probe name sensors
+<4>[    3.159785] sensor-dev.c v1.3 add sensor debug support 2013-3-15
+<6>[    3.160351] rtc_hym8563 1-0051: setting system clock to 2015-11-30 13:27:52 UTC (1448890072)
+<6>[    3.160536] Freeing init memory: 216K
+<4>[    3.166836] init (1): /proc/1/oom_adj is deprecated, please use /proc/1/oom_score_adj instead.
+<6>[    3.220321] keychord: using input dev rk29-keypad for fevent
+<6>[    3.220357] keychord: using input dev A10 KEYBOARD for fevent
+<3>[    3.220578] init: cannot open '/initlogo.rle'
+<4>[    3.550898] gp_rknand_info = : 0xefdd8300
+<4>[    3.551007] rk30_chip_set:1 
+<4>[    3.551049] request IRQ_NANDC irq , ret=0.........
+<4>[    3.551080] FTL INFO:Version = 438,Date = 20130607
+<4>[    3.551143] FlashCopyProgBuf1=0xc15f2000
+<4>[    3.551184] ATime: 40 ns AHB: 140 timming: 1081
+<4>[    3.551209] No.1 FLASH INFO:ff ff ff ff ff
+<4>[    3.551229] gBootMedia = 2 gSdmmcFwPartOffset =2000!
+<4>[    3.551257] CardId = 2
+<4>[    3.646811] ---headsetobserve_work---
+<4>[    3.689657] rk29_dma_set_buffdone_fn
+<4>[    3.689682] EmmcBus_khz = 48000
+<4>[    3.689722] SDM_Init OK
+<4>[    3.691777] SDC_SetHostBusWidth flag 1 , 2 bits
+<4>[    3.756751] old_status == headset_info->headset_status
+<4>[    3.783862] SDC_SetHostBusWidth flag 3 , 8 bits
+<4>[    3.783923] SdmmcInit BootCapSize: 0x400
+<4>[    3.783942] gEmmcBootPart 1
+<4>[    3.784303] SdmmcInit UserCapSize: 0x1d1f000
+<4>[    3.784326] SdmmcInit ret = 0!
+<4>[    3.784344] rknand_buffer.c version: 4.38 20121130!
+<5>[    3.807264] 11 cmdlinepart partitions found on MTD device rk29xxnand
+<5>[    3.807304] Creating 11 MTD partitions on "rk29xxnand":
+<5>[    3.807344] 0x000000400000-0x000000800000 : "misc"
+<5>[    3.824056] 0x000000800000-0x000001000000 : "kernel"
+<5>[    3.829420] 0x000001000000-0x000002000000 : "boot"
+<5>[    3.834605] 0x000002000000-0x000004000000 : "recovery"
+<5>[    3.840154] 0x000004000000-0x000008000000 : "backup"
+<5>[    3.845506] 0x000008000000-0x000010000000 : "cache"
+<5>[    3.850823] 0x000010000000-0x000050000000 : "userdata"
+<5>[    3.856388] 0x000050000000-0x000050400000 : "kpanic"
+<6>[    3.862251] apanic: Bound to mtd partition 'kpanic'
+<6>[    3.862278] apanic: No panic data available
+<5>[    3.862450] 0x000050400000-0x000090400000 : "system"
+<5>[    3.876659] 0x000090400000-0x0000b0400000 : "cust"
+<5>[    3.881875] 0x0000b0400000-0x0003a3a00000 : "user"
+<6>[    3.928614] EXT4-fs (mtdblock8): mounted filesystem with ordered data mode. Opts: noauto_da_alloc
+<6>[    3.949112] EXT4-fs (mtdblock6): mounted filesystem with ordered data mode. Opts: noauto_da_alloc
+<6>[    3.964024] EXT4-fs (mtdblock5): mounted filesystem with ordered data mode. Opts: noauto_da_alloc
+<4>[    3.975569] UMP: Using OS memory backend, allocation limit: 1073741824
+<4>[    3.975618] UMP: UMP device driver  loaded
+<4>[    3.989273] Mali: Mali400 inside of rk3188!
+<4>[    3.989311] Mali: mali freq table num : 6 
+<4>[    3.989334] Mali: mali freq table :Mali: 128,Mali: 198,Mali: 256,Mali: 297,Mali: 384,Mali: 594,Mali: 
+<4>[    3.989401] Mali: init mali clock success 
+<4>[    3.995157] Mali: @@@@@@@Mali device driver loaded success@@@@@@@@
+<4>[    3.999820] rk30_mirroring: Unknown symbol video_data_to_mirroring (err 0)
+<4>[    3.999886] rk30_mirroring: Unknown symbol audio_data_to_mirroring (err 0)
+<4>[    4.004844] rk29_ipp: module is from the staging directory, the quality is unknown, you have been warned.
+<4>[    4.005707] ipp irq 47
+<4>[    4.006006] IPP init, version rk30-ipp 1.003
+<3>[    4.059931] init: cannot find '/system/vendor/bin/pvrsrvctl', disabling 'pvrsrvctl'
+<6>[    4.106823] DWC_OTG: dwc_otg_hcd_suspend, usb device mode
+<3>[    4.241578] init: cannot find '/system/bin/bplus_helper', disabling 'bplus_helper'
+<3>[    4.250548] VPU_SERVICE: failed on clk_get pd_video
+<4>[    4.250701] vpu: power on
+<6>[    4.250794] VPU_SERVICE: checking hw id 4831
+<4>[    4.252464] vpu: power off...done
+<6>[    4.252542] VPU_SERVICE: init success
+<6>[    4.258701] rk_serial rk_serial.0: serial_rk_init_dma_rx sucess
+<6>[    4.260019] rk_serial rk_serial.0: serial_rk_init_dma_rx sucess
+<6>[    4.260594] rk_serial rk_serial.0: serial_rk_init_dma_rx sucess
+<3>[    4.287987] init: property 'ro.serialno' doesn't exist while expanding '${ro.serialno}'
+<3>[    4.288056] init: cannot expand '${ro.serialno}' while writing to '/sys/class/android_usb/android0/iSerial'
+<3>[    4.288507] init: using deprecated syntax for specifying property 'ro.product.usbfactory', use ${name} instead
+<3>[    4.447171] android_usb: already disabled
+<6>[    4.452691] warning: `adbd' uses 32-bit capabilities (legacy support in use)
+<6>[    4.453001] adb_open
+<6>[    4.453024] mtp_bind_config
+<4>[    4.573676] [rknand_sys_storage_ioctl:90] rknand_sys_storage_ioctl in
+<4>[    4.573766] [rknand_sys_storage_ioctl:251] RKNAND_GET_SN_SECTOR
+<4>[    4.573830] [rknand_sys_storage_ioctl:365] return ret = 0
+<4>[    4.574872] [rknand_sys_storage_ioctl:90] rknand_sys_storage_ioctl in
+<4>[    4.574970] [rknand_sys_storage_ioctl:103] RKNAND_GET_DRM_KEY
+<4>[    4.575058] [rknand_sys_storage_ioctl:365] return ret = 0
+<6>[    4.631961] .428.. MMC0 receive the message sd-No-Media from VOLD.[sd_mmc]
+<6>[    4.635222] .459.. MMC0 receive the message No-Media from VOLD. waitTimes=0 [sd_mmc]
+<6>[    4.651648] .428.. MMC0 receive the message sd-Pending from VOLD.[sd_mmc]
+<6>[    4.663733] .428.. MMC0 receive the message sd-Idle-Unmounted from VOLD.[sd_mmc]
+<3>[    4.720092] init: untracked pid 138 exited
+<3>[    4.720667] init: untracked pid 117 exited
+<3>[    4.726847] init: untracked pid 141 exited
+<4>[    4.980607] rk fb use 3 buffers
+<6>[    5.004121] lcdc1 win1 open,atv layer:2
+<6>[    5.004417] lcdc1 win1 closed,atv layer:1
+<6>[    5.036881] DWC_OTG: usb20_host suspend, HPRT0:0x1005
+<6>[    5.158700] rk30-lcdc rk30-lcdc.1: blank mode:0
+<6>[    5.283871] DWC_OTG: usb20_host resume, HPRT0:0x1485
+<4>[    5.787879] rt3261_playback_path_put:set playback_path=2,hdmi out
+<6>[    6.711090] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+<6>[    8.076880] DWC_OTG: usb20_host suspend, HPRT0:0x1005
+<6>[   10.009686] blueberry_ec_open
+<6>[   10.012691] blueberry_ec_release
+<6>[   33.361504] request_suspend_state: wakeup (3->0) at 33304758756 (2015-11-30 13:28:22.690739380 UTC)
+<4>[   33.447250] [rknand_sys_storage_ioctl:90] rknand_sys_storage_ioctl in
+<4>[   33.447304] [rknand_sys_storage_ioctl:323] RKNAND_GET_VENDOR_SECTOR
+<4>[   33.447356] [rknand_sys_storage_ioctl:365] return ret = 0
+<6>[   33.447480] blueberry_ec_open
+<4>[   33.632893] Current WiFi chip is RTL8723AS.
+<6>[   33.648535] EXT4-fs (dm-0): mounted filesystem without journal. Opts: (null)
+<4>[   33.753703] EC_IOCTL_KEYBOARD key_ctrl = 1, 113, tracking_angle=0
+<6>[   33.754872] EXT4-fs (dm-0): re-mounted. Opts: (null)
+<6>[   33.775515] EXT4-fs (dm-0): re-mounted. Opts: (null)
+<4>[   33.834385] =======================================================
+<4>[   33.834439] ==== Launching Wi-Fi driver! (Powered by Rockchip) ====
+<4>[   33.834492] =======================================================
+<4>[   33.834532] Realtek 8723AS SDIO WiFi driver (Powered by Rockchip,Ver 3.51.WFD) init.
+<4>[   33.834579] RTL871X: module init start version:v4.1.7_8439.20130906_BTCOEX20130528_ver3.3_beta
+<4>[   33.834633] RTL871X: rtl8723as driver version=v4.1.7_8439.20130906_BTCOEX20130528_ver3.3_beta
+<4>[   33.834685] RTL871X: build time: Sep  6 2013 11:23:32
+<4>[   33.834869] RTL871X: module init ret=0
+<4>[   33.834900] RTL871X: ## Calling platform_driver_register
+<4>[   33.835002] RTL871X: ## wifi_probe
+<4>[   33.835029] RTL871X: wifi_set_power = 1
+<6>[   33.835057] rk29sdk_wifi_power: 1
+<6>[   34.126108] wifi turn on power
+<4>[   34.126164] RTL871X: wifi_set_carddetect = 1
+<6>[   34.126239] rk29sdk_wifi_set_carddetect:1
+<6>[   34.126304] mmc1: slot status change detected(0-1)
+<6>[   34.143529] acc_open
+<6>[   34.143558] acc_release
+<6>[   34.316859] 
+<6>[   34.316866] drivers/mmc/core/core.c...1826..  ===== mmc_rescan Begin....[mmc1]
+<6>[   34.317754] .428.. MMC0 receive the message sd-Checking from VOLD.[sd_mmc]
+<6>[   34.340540] .428.. MMC0 receive the message sd-Mounted from VOLD.[sd_mmc]
+<6>[   34.361309] 
+<6>[   34.361316] mmc_attach_sdio..808..  ===== Begin to identify card as SDIO-card. [mmc1]
+<6>[   34.378995] rk29_sdmmc_change_clk_div..1961..  newDiv=0, newCLK=48000Khz [sdio]
+<6>[   34.379994] mmc1: new high speed SDIO card at address 0001
+<4>[   34.380523] RTL871X: register rtw_netdev_ops to netdev_ops
+<4>[   34.380592] RTL871X: rtw_wdev_alloc(padapter=f8d05000)
+<4>[   34.381302] RTL871X: Chip Version Info: CHIP_8723A_Normal_Chip_UMC_B_CUT_1T1R_RomVer(0)
+<4>[   34.381349] RTL871X: RF_Type is 3!!
+<4>[   34.381404] RTL871X: EEPROM type is E-FUSE
+<4>[   34.383960] RTL871X: SetHwReg8723A: bMacPwrCtrlOn=1
+<4>[   34.384325] RTL871X: hal_EfuseSwitchToBank: Efuse switch bank to 0
+<4>[   34.433712] RTL871X: hal_ReadEFuse_WiFi: data end at address=0xa5
+<4>[   34.434132] RTL871X: mlmepriv.ChannelPlan=0x0a
+<4>[   34.434264] RTL871X: Hal_EfuseParseThermalMeter_8723A: ThermalMeter=0xe
+<4>[   34.434368] RTL871X: <==== ReadAdapterInfo8723AS in 50 ms
+<4>[   34.435912] RTL871X: rtw_register_early_suspend
+<4>[   34.436000] RTL871X: rtw_macaddr_cfg MAC Address  = 00:a4:09:00:09:cb
+<4>[   34.436712] RTL871X: bDriverStopped:1, bSurpriseRemoved:0, bup:0, hw_init_completed:0
+<4>[   34.436992] RTL871X: register rtw_netdev_ops to netdev_ops
+<4>[   34.437043] RTL871X: register rtw_netdev_if2_ops to netdev_ops
+<4>[   34.437108] RTL871X: rtw_wdev_alloc(padapter=f8db8000)
+<4>[   34.439332] RTL871X: Chip Version Info: CHIP_8723A_Normal_Chip_UMC_B_CUT_1T1R_RomVer(0)
+<4>[   34.439392] RTL871X: RF_Type is 3!!
+<4>[   34.442152] RTL871X: _rtw_drv_register_netdev, MAC Address (if1) = 00:a4:09:00:09:cb
+<4>[   34.444008] RTL871X: _rtw_drv_register_netdev, MAC Address (if2) = 02:a4:09:00:09:cb
+<6>[   34.449290] mmc_rescan_try_freq..1677..  ===== Initialize SDIO successfully. [mmc1]
+<4>[   34.533166] Current WiFi chip is RTL8723AS.
+<6>[   34.764764] DWC_OTG: usb20_host resume, HPRT0:0x1485
+<4>[   34.839027] RTL871X: cfg80211_rtw_change_iface(p2p0) call netdev_if2_open
+<4>[   34.839124] RTL871X: +871x_drv - if2_open, bup=0
+<4>[   34.839192] RTL871X: +871x_drv - drv_open, bup=0
+<4>[   34.840588] RTL871X: PowerOnCheck: val_mix:0x0000063f, res:0x0000063f
+<4>[   34.840638] RTL871X: PowerOnCheck: 0x100 the result of cmd52 and cmd53 is the same.
+<4>[   34.840842] RTL871X: PowerOnCheck: 0x1B8 test Pass.
+<4>[   34.840884] RTL871X: Power on ok!
+<4>[   34.871745] RTL871X:  Rtl8723_FwUMCBCutImageArrayWithBT for RTL8723A B CUT
+<4>[   34.871787] RTL871X: rtl8723a_FirmwareDownload accquire FW from embedded image
+<4>[   34.871826] RTL871X: rtl8723a_FirmwareDownload: fw_ver=37 fw_subver=0 sig=0x2302
+<6>[   34.952420] DWC_OTG: dwc_otg_hcd_resume, usb device mode
+<4>[   35.030460] RTL871X: =====> _8051Reset8723A(): 8051 reset success .
+<4>[   35.036218] RTL871X: rtl8723a_FirmwareDownload Exit rtw_mfree pFirmware !
+<4>[   35.036276] RTL871X: rtl8723a_FirmwareDownload Exit rtw_mfree pBTFirmware !
+<4>[   35.036321] RTL871X: HalDetectPwrDownMode(): PDN=0
+<4>[   35.036364] RTL871X: Set RF Chip ID to RF_6052 and RF type to 1T1R.
+<4>[   35.308701] RTL871X: IQK:Start!!!
+<4>[   35.340429] RTL871X: Path A IQK Success!!
+<4>[   35.348809] RTL871X: Path A IQK Success!!
+<4>[   35.354893] RTL871X: IQK: final_candidate is 0
+<4>[   35.359511] RTL871X: IQK: RegE94=105 RegE9C=10 RegEA4=fa RegEAC=4 RegEB4=0 RegEBC=0 RegEC4=0 RegECC=0
+<4>[   35.359545]  RTL871X: Path A IQ Calibration Success !
+<4>[   35.521647] RTL871X: pdmpriv->TxPowerTrackControl = 1
+<4>[   35.528968] RTL871X: MAC Address = 00:a4:09:00:09:cb
+<4>[   35.535010] RTL871X: rtw_cfg80211_init_wiphy:rf_type=3
+<4>[   35.535292] RTL871X: +871x_drv - if2_open, bup=0
+<4>[   35.540007] RTL871X: rtw_cfg80211_init_wiphy:rf_type=3
+<4>[   35.540059] RTL871X: -871x_drv - if2_open, bup=1
+<4>[   35.540092] RTL871X: -871x_drv - drv_open, bup=1
+<4>[   35.540124] RTL871X: -871x_drv - if2_open, bup=1
+<4>[   35.540162] RTL871X: cfg80211_rtw_change_iface(p2p0) old_iftype=6, new_iftype=2
+<4>[   35.540859] RTL871X: +871x_drv - if2_open, bup=1
+<4>[   35.540905] RTL871X: -871x_drv - if2_open, bup=1
+<4>[   35.541005] RTL871X: cfg80211_rtw_set_power_mgmt(p2p0) enabled:1, timeout:-1
+<6>[   35.541616] ADDRCONF(NETDEV_UP): p2p0: link is not ready
+<4>[   35.587644] RTL871X: cfg80211_rtw_flush_pmksa(p2p0)
+<4>[   35.598382] RTL871X: cfg80211_rtw_change_station(p2p0)
+<4>[   35.598666] RTL871X: cfg80211_rtw_change_station(p2p0)
+<4>[   35.598959] RTL871X: cfg80211_rtw_change_station(p2p0)
+<4>[   36.256079] RTL871X: cfg80211_rtw_change_iface(wlan0) call netdev_open
+<4>[   36.256327] RTL871X: +871x_drv - drv_open, bup=1
+<4>[   36.256435] RTL871X: -871x_drv - drv_open, bup=1
+<4>[   36.256506] RTL871X: cfg80211_rtw_change_iface(wlan0) old_iftype=6, new_iftype=2
+<4>[   36.257325] RTL871X: +871x_drv - drv_open, bup=1
+<4>[   36.257447] RTL871X: -871x_drv - drv_open, bup=1
+<4>[   36.257931] RTL871X: cfg80211_rtw_set_power_mgmt(wlan0) enabled:1, timeout:-1
+<6>[   36.258954] ADDRCONF(NETDEV_UP): wlan0: link is not ready
+<4>[   36.338253] RTL871X: cfg80211_rtw_flush_pmksa(wlan0)
+<4>[   36.339627] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   36.340413] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   36.340767] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   36.439978] RTL871X: no packet in tx packet buffer (0)
+<4>[   36.599772] RTL871X: cfg80211_rtw_change_station(p2p0)
+<4>[   36.654714] RTL871X: rtw_android_priv_cmd: Android private cmd "BTCOEXSCAN-STOP" on wlan0
+<4>[   36.665599] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   36.678809] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-ADD 3" on wlan0
+<4>[   36.687471] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<4>[   36.696886] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   36.705948] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-REMOVE 2" on wlan0
+<4>[   36.715241] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<4>[   36.727449] RTL871X: rtw_android_priv_cmd: Android private cmd "SETBAND 0" on wlan0
+<4>[   36.745521] RTL871X: rtw_android_priv_cmd: Android private cmd "SCAN-ACTIVE" on wlan0
+<4>[   36.757774] RTL871X: rtw_android_priv_cmd: Android private cmd "SCAN-PASSIVE" on wlan0
+<6>[   37.007023] DWC_OTG: usb20_host suspend, HPRT0:0x1005
+<6>[   37.038425] DWC_OTG: dwc_otg_hcd_suspend, usb device mode
+<4>[   37.341950] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   37.752096] RTL871X: survey done event(31)
+<4>[   37.757373] RTL871X: =>cfg80211_rtw_connect(wlan0)
+<4>[   37.757506] RTL871X: privacy=1, key=  (null), key_len=0, key_idx=0
+<4>[   37.757628] RTL871X: ssid=SOUTHPATRON, len=11
+<4>[   37.757687] RTL871X: bssid=c4:6e:1f:46:da:c8
+<4>[   37.757739] RTL871X: matched by bssid
+<4>[   37.757790] RTL871X: rtw_cfg80211_set_wpa_version, wpa_version=2
+<4>[   37.757861] RTL871X: rtw_cfg80211_set_auth_type, nl80211_auth_type=0
+<4>[   37.757937] RTL871X: cfg80211_rtw_connect, ie_len=22
+<4>[   37.758046] RTL871X: set wpa_ie(length:22):
+<4>[   37.758144] RTL871X: 0x30 0x14 0x01 0x00 0x00 0x0f 0xac 0x04 
+<4>[   37.758275] RTL871X: 0x01 0x00 0x00 0x0f 0xac 0x04 0x01 0x00 
+<4>[   37.758402] RTL871X: 0x00 0x0f 0xac 0x02 0x00 0x00 0x01 0x00 
+<4>[   37.758540] RTL871X: got wpa2_ie, wpa2_ielen:20
+<4>[   37.759059] RTL871X: SetHwReg8723A, 5013, RCR= 700060ca 
+<4>[   37.759155] RTL871X: rtw_cfg80211_set_cipher, ucast=1, cipher=0xfac04
+<4>[   37.759252] RTL871X: rtw_cfg80211_set_cipher, ucast=0, cipher=0xfac04
+<4>[   37.759340] RTL871X: rtw_cfg80211_set_key_mgt, key_mgt=0xfac02
+<4>[   37.759439] RTL871X: set ssid [SOUTHPATRON] fw_state=0x00000008
+<4>[   37.759507] RTL871X: Set SSID under fw_state=0x00000008
+<4>[   37.759557] RTL871X: [by_bssid:0][assoc_ssid:SOUTHPATRON][to_roaming:0] new candidate: SOUTHPATRON(c4:6e:1f:46:da:c8) rssi:-52
+<4>[   37.759662] RTL871X: rtw_select_and_join_from_scanned_queue: candidate: SOUTHPATRON(c4:6e:1f:46:da:c8, ch:3)
+<4>[   37.759825] RTL871X: link to Artheros AP
+<4>[   37.759869] RTL871X: rtw_joinbss_cmd: smart_ps=2
+<4>[   37.759917] RTL871X: set ssid:dot11AuthAlgrthm=2, dot11PrivacyAlgrthm=4, dot118021XGrpPrivacy=4
+<4>[   37.759995] RTL871X: <=cfg80211_rtw_connect, ret 0
+<4>[   37.760228] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   37.760360] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   37.760467] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   37.777266] RTL871X: set ch/bw before connected
+<4>[   37.777833] RTL871X: update_mgnt_tx_rate(): rate = 2
+<4>[   37.779807] RTL871X: ### rtl8723a_set_FwMediaStatus_cmd: MStatus=1 MACID=0 
+<4>[   37.805620] RTL871X: link to Artheros AP
+<4>[   37.805719] RTL871X: start auth
+<4>[   37.805784] RTL871X: issue_auth
+<4>[   37.808486] RTL871X: OnAuthClient
+<4>[   37.808562] RTL871X: auth success, start assoc
+<4>[   37.808693] RTL871X: network.SupportedRates[0]=82
+<4>[   37.808768] RTL871X: network.SupportedRates[1]=84
+<4>[   37.808856] RTL871X: network.SupportedRates[2]=8B
+<4>[   37.808934] RTL871X: network.SupportedRates[3]=96
+<4>[   37.809028] RTL871X: network.SupportedRates[4]=0C
+<4>[   37.809137] RTL871X: network.SupportedRates[5]=12
+<4>[   37.809227] RTL871X: network.SupportedRates[6]=18
+<4>[   37.809319] RTL871X: network.SupportedRates[7]=24
+<4>[   37.809402] RTL871X: network.SupportedRates[8]=30
+<4>[   37.809479] RTL871X: network.SupportedRates[9]=48
+<4>[   37.809554] RTL871X: network.SupportedRates[10]=60
+<4>[   37.809629] RTL871X: network.SupportedRates[11]=6C
+<4>[   37.809692] RTL871X: bssrate_len = 12
+<4>[   37.813914] RTL871X: OnAssocRsp
+<4>[   37.814026] RTL871X: report_join_res(6)
+<4>[   37.814131] RTL871X: rtw_joinbss_update_network
+<4>[   37.814208] RTL871X: +rtw_update_ht_cap()
+<4>[   37.814299] RTL871X: rtw_joinbss_update_stainfo
+<4>[   37.814347] RTL871X: Set STA_(0) info
+<4>[   37.814402] RTL871X: rtw_cfg80211_indicate_connect(padapter=f8d05000)
+<4>[   37.814472] RTL871X: pwdev->sme_state(b)=1
+<4>[   37.814531] RTL871X: pwdev->sme_state(a)=1
+<4>[   37.814583] RTL871X: assoc success
+<4>[   37.814689] RTL871X: HW_VAR_BASIC_RATE: BrateCfg(0x15d)
+<4>[   37.814976] RTL871X: WMM(0): 0, a42b
+<4>[   37.815035] RTL871X: WMM(1): 0, a44f
+<4>[   37.815091] RTL871X: WMM(2): 0, 5e4322
+<4>[   37.815148] RTL871X: WMM(3): 0, 2f3222
+<4>[   37.815178] RTL871X: wmm_para_seq(0): 0
+<4>[   37.815206] RTL871X: wmm_para_seq(1): 1
+<4>[   37.815233] RTL871X: wmm_para_seq(2): 2
+<4>[   37.815261] RTL871X: wmm_para_seq(3): 3
+<4>[   37.815302] RTL871X: HTOnAssocRsp
+<4>[   37.815809] RTL871X: UpdateHalRAMask8192CUsb => mac_id:0, networkType:0x0b, mask:0x000fffff
+<4>[   37.815825] 	 ==> rssi_level:0, rate_bitmap:0x000ff015
+<4>[   37.815902] RTL871X: update raid entry, mask=0xff015, arg=0xa0
+<4>[   37.816067] RTL871X: ### rtl8723a_set_FwMediaStatus_cmd: MStatus=1 MACID=0 
+<4>[   37.816564] RTL871X: rtl8723a_set_FwJoinBssReport_cmd mstatus(1)
+<4>[   37.816810] RTL871X: SetFwRsvdPagePkt
+<4>[   37.817029] RTL871X: SetFwRsvdPagePkt: Set RSVD page location to Fw
+<4>[   37.819587] RTL871X: =>mlmeext_joinbss_event_callback
+<6>[   37.825666] ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+<4>[   37.830077] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   37.830234] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   37.830370] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   37.833647] RTL871X: send eapol packet
+<4>[   37.844545] RTL871X: send eapol packet
+<4>[   37.844938] RTL871X: cfg80211_rtw_add_key(wlan0) adding key for c4:6e:1f:46:da:c8
+<4>[   37.845086] RTL871X: cipher=0xfac04
+<4>[   37.845165] RTL871X: key_len=0x10
+<4>[   37.845246] RTL871X: seq_len=0x6
+<4>[   37.845320] RTL871X: key_index=0
+<4>[   37.845395] RTL871X: pairwise=1
+<4>[   37.845462] RTL871X: rtw_cfg80211_set_encryption
+<4>[   37.845573] RTL871X: rtw_cfg80211_set_encryption, : param->u.crypt.set_tx ==1 
+<4>[   37.845689] RTL871X:  ~~~~set sta key:unicastkey
+<4>[   37.845783] RTL871X: rtw_cfg80211_set_encryption, ret=0
+<4>[   37.845814] RTL871X: set pairwise key to hw: alg:4(WEP40-1 WEP104-5 TKIP-2 AES-4) camid:4
+<4>[   37.846102] RTL871X: cfg80211_rtw_set_default_key(wlan0) key_index=0, unicast=1, multicast=0.
+<4>[   37.847005] RTL871X: cfg80211_rtw_add_key(wlan0) adding key for   (null)
+<4>[   37.847185] RTL871X: cipher=0xfac04
+<4>[   37.847258] RTL871X: key_len=0x10
+<4>[   37.847291] RTL871X: seq_len=0x6
+<4>[   37.847353] RTL871X: key_index=2
+<4>[   37.847415] RTL871X: pairwise=0
+<4>[   37.847494] RTL871X: rtw_cfg80211_set_encryption
+<4>[   37.847601] RTL871X:  ~~~~set sta key:groupkey
+<4>[   37.847673] RTL871X: ==> rtw_set_key algorithm(4),keyid(2),key_mask(0)
+<4>[   37.847755] RTL871X: rtw_cfg80211_set_encryption, ret=0
+<4>[   37.847778] RTL871X: set group key to hw: alg:4(WEP40-1 WEP104-5 TKIP-2 AES-4) keyid:2
+<4>[   37.848424] RTL871X: SetHwReg8723A, 5008, RCR= 700060ce 
+<4>[   37.849161] RTL871X: cfg80211_rtw_change_station(wlan0)
+<4>[   38.263198] RTL871X: UpdateHalRAMask8192CUsb => mac_id:0, networkType:0x0b, mask:0x000fffff
+<4>[   38.263254] 	 ==> rssi_level:2, rate_bitmap:0x000ff000
+<4>[   38.263478] RTL871X: update raid entry, mask=0xff000, arg=0xa0
+<4>[   38.270394] RTL871X: rtw_android_priv_cmd: Android private cmd "BTCOEXMODE 1" on wlan0
+<4>[   38.271022] RTL871X: cfg80211_rtw_set_power_mgmt(wlan0) enabled:0, timeout:-1
+<4>[   39.628437] rknand_buffer_thread write data begin 4e0000 0
+<4>[   39.755462] RTL871X: OnAction_back
+<4>[   39.755555] RTL871X: OnAction_back, action=0
+<4>[   39.755623] RTL871X: issue_action_BA, category=3, action=1, status=0
+<4>[   40.085423] RTL871X: cfg80211_rtw_set_power_mgmt(wlan0) enabled:1, timeout:-1
+<4>[   40.085817] RTL871X: rtw_android_priv_cmd: Android private cmd "BTCOEXMODE 2" on wlan0
+<4>[   40.614900] [rknand_sys_storage_ioctl:90] rknand_sys_storage_ioctl in
+<4>[   40.615020] [rknand_sys_storage_ioctl:323] RKNAND_GET_VENDOR_SECTOR
+<4>[   40.615079] [rknand_sys_storage_ioctl:365] return ret = 0
+<4>[   40.615218] [rknand_sys_storage_ioctl:90] rknand_sys_storage_ioctl in
+<4>[   40.615273] [rknand_sys_storage_ioctl:323] RKNAND_GET_VENDOR_SECTOR
+<4>[   40.615342] [rknand_sys_storage_ioctl:365] return ret = 0
+<4>[   40.615451] [rknand_sys_storage_ioctl:90] rknand_sys_storage_ioctl in
+<4>[   40.615505] [rknand_sys_storage_ioctl:323] RKNAND_GET_VENDOR_SECTOR
+<4>[   40.615563] [rknand_sys_storage_ioctl:365] return ret = 0
+<4>[   40.615651] [rknand_sys_storage_ioctl:90] rknand_sys_storage_ioctl in
+<4>[   40.615708] [rknand_sys_storage_ioctl:323] RKNAND_GET_VENDOR_SECTOR
+<4>[   40.615759] [rknand_sys_storage_ioctl:365] return ret = 0
+<4>[   40.615853] [rknand_sys_storage_ioctl:90] rknand_sys_storage_ioctl in
+<4>[   40.615899] [rknand_sys_storage_ioctl:323] RKNAND_GET_VENDOR_SECTOR
+<4>[   40.615936] [rknand_sys_storage_ioctl:365] return ret = 0
+<6>[   40.616043] blueberry_ec_open
+<4>[   40.616075] blueberry_ec_ioctl:EC_IOCTL_ENABLE_TRACKING_ANGLE start
+<4>[   40.616128] EC_IOCTL_ENABLE_TRACKING_ANGLE: enable=1
+<4>[   40.616167] blueberry_ec_ioctl:EC_IOCTL_TEST ok
+<6>[   40.616213] blueberry_ec_release
+<3>[   41.159421] init: untracked pid 1106 exited
+<6>[   41.423157] qtaguid: ctrl_counterset(s 1 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   42.023500] qtaguid: ctrl_counterset(s 0 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   42.729544] qtaguid: ctrl_counterset(s 1 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<4>[   43.337224] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   43.337644] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-ADD 2" on wlan0
+<4>[   43.337908] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<4>[   43.458944] RTL871X: no packet in tx packet buffer (0)
+<4>[   43.895838] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   43.896125] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-REMOVE 2" on wlan0
+<4>[   43.896318] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<4>[   44.030613] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   44.037064] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-ADD 2" on wlan0
+<4>[   44.037409] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<6>[   44.076262] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.124281] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.324846] qtaguid: ctrl_counterset(s 0 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   44.366301] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.402628] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.464806] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.492511] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.552782] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.586984] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.674374] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   44.688874] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<4>[   44.857605] RTL871X: survey done event(31)
+<4>[   47.871972] rt3261_playback_path_put:playback_path is not changed!
+<4>[   47.878283] rt3261_playback_path_put:set playback_path=2,hdmi out
+<6>[   49.252779] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.301839] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.347843] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.379774] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.444622] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.477684] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.553261] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.577190] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.679467] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   49.693503] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<4>[   52.138290] RTL871X: no packet in tx packet buffer (0)
+<6>[   52.821331] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   52.838568] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   52.871942] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   52.892319] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   52.916949] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   52.935446] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   52.958625] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   52.976853] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   53.026843] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   53.037681] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<4>[   53.527564] RTL871X: survey done event(30)
+<6>[   54.686959] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   54.707981] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   54.756979] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   54.785536] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   54.825309] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   54.845098] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   54.896781] DWC_OTG: ********vbus detect*********************************************
+<6>[   54.903430] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   54.927802] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   55.073980] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   55.096443] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   55.100967] DWC_OTG: ********soft connect!!!*****************************************
+<6>[   55.106978] DWC_OTG: USB SUSPEND
+<6>[   55.221146] DWC_OTG: USB RESET
+<6>[   55.288987] DWC_OTG: USB SUSPEND
+<6>[   55.537849] DWC_OTG: USB RESET
+<6>[   55.601366] DWC_OTG: USB SUSPEND
+<6>[   55.787824] DWC_OTG: USB RESET
+<6>[   55.852005] DWC_OTG: USB SUSPEND
+<4>[   55.923665] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   55.924129] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-REMOVE 2" on wlan0
+<4>[   55.924365] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<3>[   55.988322] init: untracked pid 992 exited
+<6>[   56.037844] DWC_OTG: USB RESET
+<6>[   56.099122] DWC_OTG: USB SUSPEND
+<6>[   56.287836] DWC_OTG: USB RESET
+<6>[   56.352388] DWC_OTG: USB SUSPEND
+<6>[   56.537953] DWC_OTG: USB RESET
+<6>[   56.601899] DWC_OTG: USB SUSPEND
+<6>[   56.788009] DWC_OTG: USB RESET
+<6>[   56.849392] DWC_OTG: USB SUSPEND
+<3>[   56.888009] init: untracked pid 1109 exited
+<6>[   57.037960] DWC_OTG: USB RESET
+<6>[   57.099147] DWC_OTG: USB SUSPEND
+<6>[   57.287954] DWC_OTG: USB RESET
+<6>[   57.351653] DWC_OTG: USB SUSPEND
+<3>[   57.408210] blueberry_battery: Tell ec input changed succ. retry = 3
+<3>[   57.408255] blueberry_battery: pre = 2, now = 0
+<6>[   57.537967] DWC_OTG: USB RESET
+<6>[   57.602533] DWC_OTG: USB SUSPEND
+<6>[   57.787984] DWC_OTG: USB RESET
+<6>[   57.849414] DWC_OTG: USB SUSPEND
+<6>[   58.038022] DWC_OTG: USB RESET
+<6>[   58.099422] DWC_OTG: USB SUSPEND
+<4>[   58.269066] RTL871X: UpdateHalRAMask8192CUsb => mac_id:0, networkType:0x0b, mask:0x000fffff
+<4>[   58.269089] 	 ==> rssi_level:1, rate_bitmap:0x000f0000
+<4>[   58.269238] RTL871X: update raid entry, mask=0xf0000, arg=0xa0
+<6>[   58.288050] DWC_OTG: USB RESET
+<6>[   58.349673] DWC_OTG: USB SUSPEND
+<6>[   58.538106] DWC_OTG: USB RESET
+<6>[   58.599549] DWC_OTG: USB SUSPEND
+<6>[   58.788094] DWC_OTG: USB RESET
+<6>[   58.854784] DWC_OTG: USB SUSPEND
+<6>[   59.038125] DWC_OTG: USB RESET
+<6>[   59.099506] DWC_OTG: USB SUSPEND
+<6>[   59.288229] DWC_OTG: USB RESET
+<6>[   59.351448] DWC_OTG: USB SUSPEND
+<6>[   59.538163] DWC_OTG: USB RESET
+<6>[   59.609450] DWC_OTG: USB SUSPEND
+<6>[   59.788193] DWC_OTG: USB RESET
+<6>[   59.849950] DWC_OTG: USB SUSPEND
+<6>[   60.038263] DWC_OTG: USB RESET
+<6>[   60.102209] DWC_OTG: USB SUSPEND
+<6>[   60.197185] binder: 419:525 transaction failed 29189, size 100-4
+<6>[   60.203889] binder: 419:525 transaction failed 29189, size 100-4
+<6>[   60.288526] DWC_OTG: USB RESET
+<6>[   60.350466] DWC_OTG: USB SUSPEND
+<6>[   60.538279] DWC_OTG: USB RESET
+<6>[   60.606595] DWC_OTG: USB SUSPEND
+<6>[   60.788275] DWC_OTG: USB RESET
+<6>[   60.856369] DWC_OTG: USB SUSPEND
+<6>[   61.038310] DWC_OTG: USB RESET
+<6>[   61.101473] DWC_OTG: USB SUSPEND
+<6>[   61.288354] DWC_OTG: USB RESET
+<6>[   61.351487] DWC_OTG: USB SUSPEND
+<6>[   61.538391] DWC_OTG: USB RESET
+<6>[   61.609732] DWC_OTG: USB SUSPEND
+<6>[   61.788382] DWC_OTG: USB RESET
+<6>[   61.851493] DWC_OTG: USB SUSPEND
+<6>[   62.038431] DWC_OTG: USB RESET
+<6>[   62.099746] DWC_OTG: USB SUSPEND
+<4>[   62.269145] RTL871X: UpdateHalRAMask8192CUsb => mac_id:0, networkType:0x0b, mask:0x000fffff
+<4>[   62.269170] 	 ==> rssi_level:2, rate_bitmap:0x000ff000
+<4>[   62.269363] RTL871X: update raid entry, mask=0xff000, arg=0xa0
+<6>[   62.288434] DWC_OTG: USB RESET
+<6>[   62.351129] DWC_OTG: USB SUSPEND
+<6>[   62.538481] DWC_OTG: USB RESET
+<6>[   62.605635] DWC_OTG: USB SUSPEND
+<6>[   62.788482] DWC_OTG: USB RESET
+<6>[   62.853130] DWC_OTG: USB SUSPEND
+<6>[   63.038517] DWC_OTG: USB RESET
+<6>[   63.100014] DWC_OTG: USB SUSPEND
+<3>[   63.201800] init: untracked pid 1076 exited
+<6>[   63.288522] DWC_OTG: USB RESET
+<6>[   63.349774] DWC_OTG: USB SUSPEND
+<6>[   63.538565] DWC_OTG: USB RESET
+<6>[   63.600151] DWC_OTG: USB SUSPEND
+<6>[   63.788598] DWC_OTG: USB RESET
+<6>[   63.855031] DWC_OTG: USB SUSPEND
+<6>[   64.038631] DWC_OTG: USB RESET
+<6>[   64.100919] DWC_OTG: USB SUSPEND
+<6>[   64.288644] DWC_OTG: USB RESET
+<6>[   64.349796] DWC_OTG: USB SUSPEND
+<6>[   64.515340] DWC_OTG: USB RESET
+<6>[   64.578800] DWC_OTG: USB SUSPEND
+<6>[   64.788695] DWC_OTG: USB RESET
+<6>[   64.854719] DWC_OTG: USB SUSPEND
+<6>[   65.038702] DWC_OTG: USB RESET
+<6>[   65.100306] DWC_OTG: USB SUSPEND
+<6>[   65.288775] DWC_OTG: USB RESET
+<6>[   65.353820] DWC_OTG: USB SUSPEND
+<6>[   65.538801] DWC_OTG: USB RESET
+<6>[   65.611694] DWC_OTG: USB SUSPEND
+<6>[   65.788797] DWC_OTG: USB RESET
+<6>[   65.851197] DWC_OTG: USB SUSPEND
+<6>[   66.038829] DWC_OTG: USB RESET
+<6>[   66.100573] DWC_OTG: USB SUSPEND
+<6>[   66.288854] DWC_OTG: USB RESET
+<6>[   66.310294] qtaguid: ctrl_counterset(s 1 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   66.350091] DWC_OTG: USB SUSPEND
+<4>[   66.518537] rt3261_playback_path_put:playback_path is not changed!
+<4>[   66.524795] rt3261_playback_path_put:set playback_path=2,hdmi out
+<6>[   66.538927] DWC_OTG: USB RESET
+<6>[   66.601339] DWC_OTG: USB SUSPEND
+<6>[   66.766728] qtaguid: ctrl_counterset(s 0 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   66.788948] DWC_OTG: USB RESET
+<6>[   66.850218] DWC_OTG: USB SUSPEND
+<6>[   67.038986] DWC_OTG: USB RESET
+<6>[   67.102350] DWC_OTG: USB SUSPEND
+<6>[   67.289019] DWC_OTG: USB RESET
+<6>[   67.351728] DWC_OTG: USB SUSPEND
+<6>[   67.539075] DWC_OTG: USB RESET
+<6>[   67.568825] qtaguid: ctrl_counterset(s 1 10075): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   67.601751] DWC_OTG: USB SUSPEND
+<6>[   67.789089] DWC_OTG: USB RESET
+<6>[   67.850238] DWC_OTG: USB SUSPEND
+<6>[   68.015815] DWC_OTG: USB RESET
+<6>[   68.077991] DWC_OTG: USB SUSPEND
+<6>[   68.289194] DWC_OTG: USB RESET
+<6>[   68.350500] DWC_OTG: USB SUSPEND
+<6>[   68.539233] DWC_OTG: USB RESET
+<6>[   68.607001] DWC_OTG: USB SUSPEND
+<6>[   68.789274] DWC_OTG: USB RESET
+<6>[   68.855772] DWC_OTG: USB SUSPEND
+<6>[   69.039309] DWC_OTG: USB RESET
+<6>[   69.104277] DWC_OTG: USB SUSPEND
+<6>[   69.289328] DWC_OTG: USB RESET
+<6>[   69.350895] DWC_OTG: USB SUSPEND
+<6>[   69.539353] DWC_OTG: USB RESET
+<6>[   69.602019] DWC_OTG: USB SUSPEND
+<6>[   69.789402] DWC_OTG: USB RESET
+<6>[   69.874777] DWC_OTG: USB SUSPEND
+<6>[   70.039405] DWC_OTG: USB RESET
+<6>[   70.101284] DWC_OTG: USB SUSPEND
+<6>[   70.289444] DWC_OTG: USB RESET
+<6>[   70.352036] DWC_OTG: USB SUSPEND
+<6>[   70.539467] DWC_OTG: USB RESET
+<6>[   70.602550] DWC_OTG: USB SUSPEND
+<6>[   70.789557] DWC_OTG: USB RESET
+<6>[   70.851419] DWC_OTG: USB SUSPEND
+<6>[   70.993042] binder: 782:790 refcount change on invalid ref 119
+<6>[   71.000652] binder: 782:2662 refcount change on invalid ref 119
+<6>[   71.006627] binder: 782:2662 refcount change on invalid ref 119
+<3>[   71.012587] binder: transaction release 57676 bad handle 119
+<6>[   71.039590] DWC_OTG: USB RESET
+<6>[   71.100931] DWC_OTG: USB SUSPEND
+<6>[   71.289624] DWC_OTG: USB RESET
+<6>[   71.351681] DWC_OTG: USB SUSPEND
+<6>[   71.539668] DWC_OTG: USB RESET
+<6>[   71.601937] DWC_OTG: USB SUSPEND
+<6>[   71.789715] DWC_OTG: USB RESET
+<6>[   71.853814] DWC_OTG: USB SUSPEND
+<6>[   72.039744] DWC_OTG: USB RESET
+<6>[   72.101345] DWC_OTG: USB SUSPEND
+<4>[   72.268155] RTL871X: UpdateHalRAMask8192CUsb => mac_id:0, networkType:0x0b, mask:0x000fffff
+<4>[   72.268173] 	 ==> rssi_level:1, rate_bitmap:0x000f0000
+<4>[   72.268279] RTL871X: update raid entry, mask=0xf0000, arg=0xa0
+<6>[   72.289802] DWC_OTG: USB RESET
+<6>[   72.351948] DWC_OTG: USB SUSPEND
+<6>[   72.539822] DWC_OTG: USB RESET
+<6>[   72.603079] DWC_OTG: USB SUSPEND
+<6>[   72.789867] DWC_OTG: USB RESET
+<6>[   72.855964] DWC_OTG: USB SUSPEND
+<6>[   73.039914] DWC_OTG: USB RESET
+<6>[   73.107589] DWC_OTG: USB SUSPEND
+<6>[   73.289956] DWC_OTG: USB RESET
+<6>[   73.351720] DWC_OTG: USB SUSPEND
+<6>[   73.540060] DWC_OTG: USB RESET
+<6>[   73.602723] DWC_OTG: USB SUSPEND
+<6>[   73.790042] DWC_OTG: USB RESET
+<6>[   73.851729] DWC_OTG: USB SUSPEND
+<6>[   74.040074] DWC_OTG: USB RESET
+<6>[   74.105857] DWC_OTG: USB SUSPEND
+<6>[   74.290102] DWC_OTG: USB RESET
+<6>[   74.361739] DWC_OTG: USB SUSPEND
+<6>[   74.540156] DWC_OTG: USB RESET
+<6>[   74.609616] DWC_OTG: USB SUSPEND
+<6>[   74.790171] DWC_OTG: USB RESET
+<6>[   74.853006] DWC_OTG: USB SUSPEND
+<6>[   75.040203] DWC_OTG: USB RESET
+<6>[   75.101749] DWC_OTG: USB SUSPEND
+<6>[   75.290289] DWC_OTG: USB RESET
+<6>[   75.361879] DWC_OTG: USB SUSPEND
+<6>[   75.540327] DWC_OTG: USB RESET
+<6>[   75.601509] DWC_OTG: USB SUSPEND
+<6>[   75.790345] DWC_OTG: USB RESET
+<6>[   75.852638] DWC_OTG: USB SUSPEND
+<6>[   76.040419] DWC_OTG: USB RESET
+<6>[   76.103648] DWC_OTG: USB SUSPEND
+<6>[   76.290463] DWC_OTG: USB RESET
+<6>[   76.353900] DWC_OTG: USB SUSPEND
+<6>[   76.540486] DWC_OTG: USB RESET
+<6>[   76.603783] DWC_OTG: USB SUSPEND
+<6>[   76.790560] DWC_OTG: USB RESET
+<6>[   76.853914] DWC_OTG: USB SUSPEND
+<6>[   77.040609] DWC_OTG: USB RESET
+<6>[   77.102044] DWC_OTG: USB SUSPEND
+<6>[   77.290655] DWC_OTG: USB RESET
+<6>[   77.353932] DWC_OTG: USB SUSPEND
+<6>[   77.540693] DWC_OTG: USB RESET
+<6>[   77.603930] DWC_OTG: USB SUSPEND
+<6>[   77.790742] DWC_OTG: USB RESET
+<6>[   77.854306] DWC_OTG: USB SUSPEND
+<6>[   78.040788] DWC_OTG: USB RESET
+<6>[   78.103948] DWC_OTG: USB SUSPEND
+<6>[   78.290827] DWC_OTG: USB RESET
+<6>[   78.355822] DWC_OTG: USB SUSPEND
+<6>[   78.540876] DWC_OTG: USB RESET
+<6>[   78.607071] DWC_OTG: USB SUSPEND
+<6>[   78.790900] DWC_OTG: USB RESET
+<6>[   78.858324] DWC_OTG: USB SUSPEND
+<6>[   79.040952] DWC_OTG: USB RESET
+<6>[   79.104834] DWC_OTG: USB SUSPEND
+<6>[   79.291035] DWC_OTG: USB RESET
+<6>[   79.352335] DWC_OTG: USB SUSPEND
+<6>[   79.541104] DWC_OTG: USB RESET
+<6>[   79.603347] DWC_OTG: USB SUSPEND
+<6>[   79.791109] DWC_OTG: USB RESET
+<6>[   79.853842] DWC_OTG: USB SUSPEND
+<6>[   80.041184] DWC_OTG: USB RESET
+<6>[   80.102975] DWC_OTG: USB SUSPEND
+<6>[   80.291236] DWC_OTG: USB RESET
+<6>[   80.352733] DWC_OTG: USB SUSPEND
+<6>[   80.541311] DWC_OTG: USB RESET
+<6>[   80.603991] DWC_OTG: USB SUSPEND
+<6>[   80.791375] DWC_OTG: USB RESET
+<6>[   80.859866] DWC_OTG: USB SUSPEND
+<6>[   81.041402] DWC_OTG: USB RESET
+<6>[   81.105369] DWC_OTG: USB SUSPEND
+<6>[   81.291429] DWC_OTG: USB RESET
+<6>[   81.352624] DWC_OTG: USB SUSPEND
+<6>[   81.541508] DWC_OTG: USB RESET
+<6>[   81.608141] DWC_OTG: USB SUSPEND
+<6>[   81.791517] DWC_OTG: USB RESET
+<6>[   81.858636] DWC_OTG: USB SUSPEND
+<6>[   81.908878] qtaguid: ctrl_counterset(s 1 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   82.041579] DWC_OTG: USB RESET
+<6>[   82.105171] DWC_OTG: USB SUSPEND
+<6>[   82.234342] qtaguid: ctrl_counterset(s 0 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   82.291612] DWC_OTG: USB RESET
+<6>[   82.353906] DWC_OTG: USB SUSPEND
+<6>[   82.541680] DWC_OTG: USB RESET
+<6>[   82.604535] DWC_OTG: USB SUSPEND
+<6>[   82.762963] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   82.782953] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   82.791684] DWC_OTG: USB RESET
+<6>[   82.819674] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   82.840686] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   82.857784] DWC_OTG: USB SUSPEND
+<6>[   82.874232] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   82.893280] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   82.948712] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   82.986417] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.041810] DWC_OTG: USB RESET
+<6>[   83.062043] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.075298] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.104543] DWC_OTG: USB SUSPEND
+<6>[   83.152155] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.224456] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.256886] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.291817] DWC_OTG: USB RESET
+<6>[   83.325771] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.354669] DWC_OTG: USB SUSPEND
+<6>[   83.384815] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.436007] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.541951] DWC_OTG: USB RESET
+<6>[   83.606058] DWC_OTG: USB SUSPEND
+<6>[   83.608608] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   83.791935] DWC_OTG: USB RESET
+<6>[   83.864679] DWC_OTG: USB SUSPEND
+<6>[   84.041974] DWC_OTG: USB RESET
+<6>[   84.104179] DWC_OTG: USB SUSPEND
+<6>[   84.292014] DWC_OTG: USB RESET
+<6>[   84.315568] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   84.348996] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   84.358063] DWC_OTG: USB SUSPEND
+<6>[   84.417768] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   84.508164] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   84.542086] DWC_OTG: USB RESET
+<6>[   84.559779] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<4>[   84.581724] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   84.582176] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-ADD 2" on wlan0
+<4>[   84.582449] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<6>[   84.606450] DWC_OTG: USB SUSPEND
+<3>[   84.728635] init: untracked pid 2513 exited
+<6>[   84.792094] DWC_OTG: USB RESET
+<6>[   84.807813] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   84.854449] DWC_OTG: USB SUSPEND
+<6>[   85.042218] DWC_OTG: USB RESET
+<6>[   85.106327] DWC_OTG: USB SUSPEND
+<6>[   85.128020] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.157579] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.190632] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.211289] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.238729] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.263240] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.292265] DWC_OTG: USB RESET
+<6>[   85.299457] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.320416] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.354086] DWC_OTG: USB SUSPEND
+<6>[   85.406950] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.417930] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.493080] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.533205] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.542309] DWC_OTG: USB RESET
+<6>[   85.603594] DWC_OTG: USB SUSPEND
+<6>[   85.613941] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.700304] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.736731] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   85.792323] DWC_OTG: USB RESET
+<6>[   85.853721] DWC_OTG: USB SUSPEND
+<6>[   85.967861] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   86.042440] DWC_OTG: USB RESET
+<6>[   86.103600] DWC_OTG: USB SUSPEND
+<6>[   86.269126] DWC_OTG: USB RESET
+<6>[   86.330485] DWC_OTG: USB SUSPEND
+<6>[   86.542495] DWC_OTG: USB RESET
+<6>[   86.607985] DWC_OTG: USB SUSPEND
+<6>[   86.792589] DWC_OTG: USB RESET
+<6>[   86.865990] DWC_OTG: USB SUSPEND
+<6>[   87.042597] DWC_OTG: USB RESET
+<6>[   87.103871] DWC_OTG: USB SUSPEND
+<6>[   87.292641] DWC_OTG: USB RESET
+<6>[   87.361122] DWC_OTG: USB SUSPEND
+<6>[   87.542710] DWC_OTG: USB RESET
+<6>[   87.604007] DWC_OTG: USB SUSPEND
+<6>[   87.792724] DWC_OTG: USB RESET
+<6>[   87.855136] DWC_OTG: USB SUSPEND
+<6>[   88.042825] DWC_OTG: USB RESET
+<6>[   88.106137] DWC_OTG: USB SUSPEND
+<4>[   88.268111] RTL871X: UpdateHalRAMask8192CUsb => mac_id:0, networkType:0x0b, mask:0x000fffff
+<4>[   88.268129] 	 ==> rssi_level:2, rate_bitmap:0x000ff000
+<4>[   88.268242] RTL871X: update raid entry, mask=0xff000, arg=0xa0
+<6>[   88.292880] DWC_OTG: USB RESET
+<6>[   88.357138] DWC_OTG: USB SUSPEND
+<6>[   88.542938] DWC_OTG: USB RESET
+<6>[   88.604773] DWC_OTG: USB SUSPEND
+<6>[   88.792985] DWC_OTG: USB RESET
+<6>[   88.874779] DWC_OTG: USB SUSPEND
+<6>[   89.043038] DWC_OTG: USB RESET
+<6>[   89.109780] DWC_OTG: USB SUSPEND
+<6>[   89.293100] DWC_OTG: USB RESET
+<6>[   89.356172] DWC_OTG: USB SUSPEND
+<4>[   89.378369] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   89.380056] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-ADD 2" on wlan0
+<4>[   89.380327] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<4>[   89.504410] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[   89.504777] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-ADD 2" on wlan0
+<4>[   89.505554] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<6>[   89.543152] DWC_OTG: USB RESET
+<6>[   89.604296] DWC_OTG: USB SUSPEND
+<6>[   89.769826] DWC_OTG: USB RESET
+<6>[   89.836051] DWC_OTG: USB SUSPEND
+<6>[   90.043228] DWC_OTG: USB RESET
+<6>[   90.105807] DWC_OTG: USB SUSPEND
+<4>[   90.268499] RTL871X: UpdateHalRAMask8192CUsb => mac_id:0, networkType:0x0b, mask:0x000fffff
+<4>[   90.268525] 	 ==> rssi_level:1, rate_bitmap:0x000f0000
+<4>[   90.268717] RTL871X: update raid entry, mask=0xf0000, arg=0xa0
+<6>[   90.293277] DWC_OTG: USB RESET
+<6>[   90.354687] DWC_OTG: USB SUSPEND
+<6>[   90.543385] DWC_OTG: USB RESET
+<6>[   90.610444] DWC_OTG: USB SUSPEND
+<6>[   90.793436] DWC_OTG: USB RESET
+<6>[   90.862567] DWC_OTG: USB SUSPEND
+<6>[   91.043499] DWC_OTG: USB RESET
+<6>[   91.104694] DWC_OTG: USB SUSPEND
+<6>[   91.293538] DWC_OTG: USB RESET
+<6>[   91.356204] DWC_OTG: USB SUSPEND
+<6>[   91.543609] DWC_OTG: USB RESET
+<6>[   91.607332] DWC_OTG: USB SUSPEND
+<6>[   91.793634] DWC_OTG: USB RESET
+<6>[   91.855580] DWC_OTG: USB SUSPEND
+<6>[   92.043720] DWC_OTG: USB RESET
+<6>[   92.106093] DWC_OTG: USB SUSPEND
+<6>[   92.293730] DWC_OTG: USB RESET
+<6>[   92.355478] DWC_OTG: USB SUSPEND
+<6>[   92.543777] DWC_OTG: USB RESET
+<6>[   92.611095] DWC_OTG: USB SUSPEND
+<6>[   92.793841] DWC_OTG: USB RESET
+<6>[   92.863099] DWC_OTG: USB SUSPEND
+<6>[   93.043949] DWC_OTG: USB RESET
+<6>[   93.106106] DWC_OTG: USB SUSPEND
+<6>[   93.293962] DWC_OTG: USB RESET
+<6>[   93.362521] DWC_OTG: USB SUSPEND
+<6>[   93.544055] DWC_OTG: USB RESET
+<6>[   93.606500] DWC_OTG: USB SUSPEND
+<6>[   93.794131] DWC_OTG: USB RESET
+<6>[   93.855630] DWC_OTG: USB SUSPEND
+<6>[   94.044177] DWC_OTG: USB RESET
+<6>[   94.108255] DWC_OTG: USB SUSPEND
+<6>[   94.294192] DWC_OTG: USB RESET
+<6>[   94.355381] DWC_OTG: USB SUSPEND
+<6>[   94.544288] DWC_OTG: USB RESET
+<6>[   94.606138] DWC_OTG: USB SUSPEND
+<6>[   94.794349] DWC_OTG: USB RESET
+<6>[   94.855521] DWC_OTG: USB SUSPEND
+<6>[   95.044414] DWC_OTG: USB RESET
+<6>[   95.107146] DWC_OTG: USB SUSPEND
+<6>[   95.267240] qtaguid: ctrl_counterset(s 1 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   95.294426] DWC_OTG: USB RESET
+<6>[   95.355776] DWC_OTG: USB SUSPEND
+<6>[   95.447862] qtaguid: ctrl_counterset(s 0 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[   95.544532] DWC_OTG: USB RESET
+<6>[   95.624672] DWC_OTG: USB SUSPEND
+<6>[   95.794562] DWC_OTG: USB RESET
+<6>[   95.856789] DWC_OTG: USB SUSPEND
+<6>[   96.044649] DWC_OTG: USB RESET
+<6>[   96.105795] DWC_OTG: USB SUSPEND
+<6>[   96.271336] DWC_OTG: USB RESET
+<6>[   96.334801] DWC_OTG: USB SUSPEND
+<6>[   96.544758] DWC_OTG: USB RESET
+<6>[   96.612184] DWC_OTG: USB SUSPEND
+<6>[   96.667456] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   96.691660] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[   96.728237] qtaguid: ctrl_tag(t 40 18446742978492891136 10059): insufficient priv from pid=3543 tgid=585 uid=10001
+<6>[   96.794782] DWC_OTG: USB RESET
+<6>[   96.833271] qtaguid: ctrl_tag(t 45 18446742978492891136 10059): insufficient priv from pid=3543 tgid=585 uid=10001
+<6>[   96.856184] DWC_OTG: USB SUSPEND
+<6>[   97.044837] DWC_OTG: USB RESET
+<6>[   97.106182] DWC_OTG: USB SUSPEND
+<6>[   97.294903] DWC_OTG: USB RESET
+<6>[   97.358817] DWC_OTG: USB SUSPEND
+<6>[   97.544981] DWC_OTG: USB RESET
+<6>[   97.608579] DWC_OTG: USB SUSPEND
+<6>[   97.795043] DWC_OTG: USB RESET
+<6>[   97.856327] DWC_OTG: USB SUSPEND
+<6>[   98.045124] DWC_OTG: USB RESET
+<6>[   98.107580] DWC_OTG: USB SUSPEND
+<6>[   98.295158] DWC_OTG: USB RESET
+<6>[   98.356600] DWC_OTG: USB SUSPEND
+<6>[   98.545258] DWC_OTG: USB RESET
+<6>[   98.610213] DWC_OTG: USB SUSPEND
+<6>[   98.795300] DWC_OTG: USB RESET
+<6>[   98.867092] DWC_OTG: USB SUSPEND
+<6>[   99.045350] DWC_OTG: USB RESET
+<6>[   99.110604] DWC_OTG: USB SUSPEND
+<6>[   99.295391] DWC_OTG: USB RESET
+<6>[   99.356860] DWC_OTG: USB SUSPEND
+<6>[   99.545485] DWC_OTG: USB RESET
+<6>[   99.606736] DWC_OTG: USB SUSPEND
+<6>[   99.795504] DWC_OTG: USB RESET
+<6>[   99.859116] DWC_OTG: USB SUSPEND
+<6>[  100.045609] DWC_OTG: USB RESET
+<6>[  100.106745] DWC_OTG: USB SUSPEND
+<6>[  100.272286] DWC_OTG: USB RESET
+<6>[  100.340749] DWC_OTG: USB SUSPEND
+<6>[  100.545691] DWC_OTG: USB RESET
+<6>[  100.606878] DWC_OTG: USB SUSPEND
+<6>[  100.795776] DWC_OTG: USB RESET
+<6>[  100.860132] DWC_OTG: USB SUSPEND
+<6>[  101.045824] DWC_OTG: USB RESET
+<6>[  101.116891] DWC_OTG: USB SUSPEND
+<6>[  101.295902] DWC_OTG: USB RESET
+<6>[  101.357141] DWC_OTG: USB SUSPEND
+<6>[  101.545939] DWC_OTG: USB RESET
+<6>[  101.607770] DWC_OTG: USB SUSPEND
+<6>[  101.796024] DWC_OTG: USB RESET
+<6>[  101.858276] DWC_OTG: USB SUSPEND
+<6>[  102.046088] DWC_OTG: USB RESET
+<6>[  102.110281] DWC_OTG: USB SUSPEND
+<6>[  102.296124] DWC_OTG: USB RESET
+<6>[  102.358165] DWC_OTG: USB SUSPEND
+<6>[  102.546233] DWC_OTG: USB RESET
+<6>[  102.610291] DWC_OTG: USB SUSPEND
+<6>[  102.796283] DWC_OTG: USB RESET
+<6>[  102.858420] DWC_OTG: USB SUSPEND
+<6>[  103.046350] DWC_OTG: USB RESET
+<6>[  103.107679] DWC_OTG: USB SUSPEND
+<6>[  103.296380] DWC_OTG: USB RESET
+<6>[  103.358182] DWC_OTG: USB SUSPEND
+<6>[  103.546525] DWC_OTG: USB RESET
+<6>[  103.611190] DWC_OTG: USB SUSPEND
+<6>[  103.796522] DWC_OTG: USB RESET
+<6>[  103.864693] DWC_OTG: USB SUSPEND
+<6>[  104.046610] DWC_OTG: USB RESET
+<6>[  104.112444] DWC_OTG: USB SUSPEND
+<6>[  104.296628] DWC_OTG: USB RESET
+<6>[  104.360576] DWC_OTG: USB SUSPEND
+<6>[  104.546730] DWC_OTG: USB RESET
+<6>[  104.611587] DWC_OTG: USB SUSPEND
+<6>[  104.796797] DWC_OTG: USB RESET
+<6>[  104.858107] DWC_OTG: USB SUSPEND
+<6>[  105.046874] DWC_OTG: USB RESET
+<6>[  105.109470] DWC_OTG: USB SUSPEND
+<6>[  105.296907] DWC_OTG: USB RESET
+<6>[  105.358099] DWC_OTG: USB SUSPEND
+<6>[  105.546976] DWC_OTG: USB RESET
+<6>[  105.610349] DWC_OTG: USB SUSPEND
+<6>[  105.797035] DWC_OTG: USB RESET
+<6>[  105.858229] DWC_OTG: USB SUSPEND
+<6>[  106.047102] DWC_OTG: USB RESET
+<6>[  106.113238] DWC_OTG: USB SUSPEND
+<4>[  106.266934] RTL871X: LPS_Enter smart_ps:2
+<4>[  106.266970] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  106.267835] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  106.268007] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  106.297174] DWC_OTG: USB RESET
+<6>[  106.374367] DWC_OTG: USB SUSPEND
+<6>[  106.547248] DWC_OTG: USB RESET
+<6>[  106.608375] DWC_OTG: USB SUSPEND
+<6>[  106.777251] DWC_OTG: USB RESET
+<6>[  106.840749] DWC_OTG: USB SUSPEND
+<6>[  107.047336] DWC_OTG: USB RESET
+<6>[  107.113258] DWC_OTG: USB SUSPEND
+<6>[  107.297436] DWC_OTG: USB RESET
+<6>[  107.358893] DWC_OTG: USB SUSPEND
+<6>[  107.547507] DWC_OTG: USB RESET
+<6>[  107.608645] DWC_OTG: USB SUSPEND
+<6>[  107.774186] DWC_OTG: USB RESET
+<6>[  107.836399] DWC_OTG: USB SUSPEND
+<6>[  108.047617] DWC_OTG: USB RESET
+<6>[  108.109030] DWC_OTG: USB SUSPEND
+<4>[  108.277109] RTL871X: rtw_set_ps_mode: Leave 802.11 power save
+<4>[  108.277245] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=0 SmartPS=2 UAPSD=0 BcnMode=0x00
+<6>[  108.297650] DWC_OTG: USB RESET
+<6>[  108.359779] DWC_OTG: USB SUSPEND
+<6>[  108.547749] DWC_OTG: USB RESET
+<6>[  108.626660] DWC_OTG: USB SUSPEND
+<6>[  108.797788] DWC_OTG: USB RESET
+<6>[  108.866415] DWC_OTG: USB SUSPEND
+<6>[  109.047864] DWC_OTG: USB RESET
+<6>[  109.109422] DWC_OTG: USB SUSPEND
+<6>[  109.297928] DWC_OTG: USB RESET
+<6>[  109.359175] DWC_OTG: USB SUSPEND
+<6>[  109.547979] DWC_OTG: USB RESET
+<6>[  109.630680] DWC_OTG: USB SUSPEND
+<6>[  109.798052] DWC_OTG: USB RESET
+<6>[  109.859310] DWC_OTG: USB SUSPEND
+<6>[  110.048100] DWC_OTG: USB RESET
+<6>[  110.110440] DWC_OTG: USB SUSPEND
+<4>[  110.266940] RTL871X: LPS_Enter smart_ps:2
+<4>[  110.266974] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  110.267809] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  110.267979] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  110.298204] DWC_OTG: USB RESET
+<6>[  110.360945] DWC_OTG: USB SUSPEND
+<6>[  110.548294] DWC_OTG: USB RESET
+<6>[  110.610961] DWC_OTG: USB SUSPEND
+<6>[  110.798309] DWC_OTG: USB RESET
+<6>[  110.860078] DWC_OTG: USB SUSPEND
+<6>[  111.048438] DWC_OTG: USB RESET
+<6>[  111.110583] DWC_OTG: USB SUSPEND
+<6>[  111.298483] DWC_OTG: USB RESET
+<6>[  111.362102] DWC_OTG: USB SUSPEND
+<6>[  111.548527] DWC_OTG: USB RESET
+<6>[  111.614732] DWC_OTG: USB SUSPEND
+<6>[  111.636237] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[  111.678933] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[  111.798584] DWC_OTG: USB RESET
+<6>[  111.860728] DWC_OTG: USB SUSPEND
+<6>[  112.048681] DWC_OTG: USB RESET
+<6>[  112.112733] DWC_OTG: USB SUSPEND
+<6>[  112.298701] DWC_OTG: USB RESET
+<6>[  112.360255] DWC_OTG: USB SUSPEND
+<6>[  112.548769] DWC_OTG: USB RESET
+<6>[  112.614491] DWC_OTG: USB SUSPEND
+<6>[  112.798861] DWC_OTG: USB RESET
+<6>[  112.862993] DWC_OTG: USB SUSPEND
+<6>[  113.048919] DWC_OTG: USB RESET
+<6>[  113.110124] DWC_OTG: USB SUSPEND
+<6>[  113.298969] DWC_OTG: USB RESET
+<6>[  113.360634] DWC_OTG: USB SUSPEND
+<6>[  113.549035] DWC_OTG: USB RESET
+<6>[  113.610512] DWC_OTG: USB SUSPEND
+<6>[  113.799107] DWC_OTG: USB RESET
+<6>[  113.866517] DWC_OTG: USB SUSPEND
+<6>[  114.049171] DWC_OTG: USB RESET
+<6>[  114.114144] DWC_OTG: USB SUSPEND
+<4>[  114.287054] RTL871X: rtw_set_ps_mode: Leave 802.11 power save
+<4>[  114.287174] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=0 SmartPS=2 UAPSD=0 BcnMode=0x00
+<6>[  114.299237] DWC_OTG: USB RESET
+<6>[  114.362415] DWC_OTG: USB SUSPEND
+<6>[  114.549330] DWC_OTG: USB RESET
+<6>[  114.611155] DWC_OTG: USB SUSPEND
+<6>[  114.799372] DWC_OTG: USB RESET
+<6>[  114.862533] DWC_OTG: USB SUSPEND
+<6>[  115.049437] DWC_OTG: USB RESET
+<6>[  115.112537] DWC_OTG: USB SUSPEND
+<6>[  115.299533] DWC_OTG: USB RESET
+<6>[  115.368925] DWC_OTG: USB SUSPEND
+<6>[  115.549602] DWC_OTG: USB RESET
+<6>[  115.614549] DWC_OTG: USB SUSPEND
+<6>[  115.799671] DWC_OTG: USB RESET
+<6>[  115.860928] DWC_OTG: USB SUSPEND
+<6>[  116.049723] DWC_OTG: USB RESET
+<6>[  116.119058] DWC_OTG: USB SUSPEND
+<4>[  116.266878] RTL871X: LPS_Enter smart_ps:2
+<4>[  116.266925] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  116.267778] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  116.267951] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  116.299814] DWC_OTG: USB RESET
+<6>[  116.361315] DWC_OTG: USB SUSPEND
+<6>[  116.549914] DWC_OTG: USB RESET
+<6>[  116.615193] DWC_OTG: USB SUSPEND
+<6>[  116.799958] DWC_OTG: USB RESET
+<6>[  116.861586] DWC_OTG: USB SUSPEND
+<6>[  117.050049] DWC_OTG: USB RESET
+<6>[  117.111707] DWC_OTG: USB SUSPEND
+<6>[  117.300119] DWC_OTG: USB RESET
+<6>[  117.362584] DWC_OTG: USB SUSPEND
+<6>[  117.550144] DWC_OTG: USB RESET
+<6>[  117.617715] DWC_OTG: USB SUSPEND
+<6>[  117.800181] DWC_OTG: USB RESET
+<6>[  117.861343] DWC_OTG: USB SUSPEND
+<6>[  118.050291] DWC_OTG: USB RESET
+<6>[  118.111477] DWC_OTG: USB SUSPEND
+<4>[  118.206915] RTL871X: rtw_set_ps_mode: Leave 802.11 power save
+<4>[  118.207040] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=0 SmartPS=2 UAPSD=0 BcnMode=0x00
+<6>[  118.300325] DWC_OTG: USB RESET
+<6>[  118.370858] DWC_OTG: USB SUSPEND
+<6>[  118.550440] DWC_OTG: USB RESET
+<6>[  118.612732] DWC_OTG: USB SUSPEND
+<6>[  118.800466] DWC_OTG: USB RESET
+<6>[  118.861872] DWC_OTG: USB SUSPEND
+<6>[  119.050526] DWC_OTG: USB RESET
+<6>[  119.112246] DWC_OTG: USB SUSPEND
+<6>[  119.300643] DWC_OTG: USB RESET
+<6>[  119.362629] DWC_OTG: USB SUSPEND
+<6>[  119.550715] DWC_OTG: USB RESET
+<6>[  119.612878] DWC_OTG: USB SUSPEND
+<6>[  119.800758] DWC_OTG: USB RESET
+<6>[  119.863133] DWC_OTG: USB SUSPEND
+<6>[  120.050823] DWC_OTG: USB RESET
+<6>[  120.112762] DWC_OTG: USB SUSPEND
+<4>[  120.267051] RTL871X: LPS_Enter smart_ps:2
+<4>[  120.267143] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  120.269120] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  120.269478] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  120.300891] DWC_OTG: USB RESET
+<6>[  120.366645] DWC_OTG: USB SUSPEND
+<6>[  120.550985] DWC_OTG: USB RESET
+<6>[  120.627529] DWC_OTG: USB SUSPEND
+<6>[  120.801049] DWC_OTG: USB RESET
+<6>[  120.862657] DWC_OTG: USB SUSPEND
+<6>[  121.051113] DWC_OTG: USB RESET
+<6>[  121.112671] DWC_OTG: USB SUSPEND
+<6>[  121.301219] DWC_OTG: USB RESET
+<6>[  121.365043] DWC_OTG: USB SUSPEND
+<6>[  121.551220] DWC_OTG: USB RESET
+<6>[  121.612798] DWC_OTG: USB SUSPEND
+<6>[  121.801353] DWC_OTG: USB RESET
+<6>[  121.863677] DWC_OTG: USB SUSPEND
+<6>[  122.051395] DWC_OTG: USB RESET
+<6>[  122.114185] DWC_OTG: USB SUSPEND
+<6>[  122.301486] DWC_OTG: USB RESET
+<6>[  122.364942] DWC_OTG: USB SUSPEND
+<6>[  122.551556] DWC_OTG: USB RESET
+<6>[  122.614818] DWC_OTG: USB SUSPEND
+<6>[  122.801604] DWC_OTG: USB RESET
+<6>[  122.869575] DWC_OTG: USB SUSPEND
+<6>[  123.051673] DWC_OTG: USB RESET
+<6>[  123.115828] DWC_OTG: USB SUSPEND
+<6>[  123.301725] DWC_OTG: USB RESET
+<6>[  123.370707] DWC_OTG: USB SUSPEND
+<6>[  123.551830] DWC_OTG: USB RESET
+<6>[  123.613085] DWC_OTG: USB SUSPEND
+<6>[  123.801880] DWC_OTG: USB RESET
+<6>[  123.864839] DWC_OTG: USB SUSPEND
+<6>[  124.051939] DWC_OTG: USB RESET
+<6>[  124.113094] DWC_OTG: USB SUSPEND
+<6>[  124.278619] DWC_OTG: USB RESET
+<6>[  124.340744] DWC_OTG: USB SUSPEND
+<6>[  124.552060] DWC_OTG: USB RESET
+<6>[  124.613353] DWC_OTG: USB SUSPEND
+<6>[  124.802092] DWC_OTG: USB RESET
+<6>[  124.866732] DWC_OTG: USB SUSPEND
+<6>[  125.052172] DWC_OTG: USB RESET
+<6>[  125.113494] DWC_OTG: USB SUSPEND
+<6>[  125.302278] DWC_OTG: USB RESET
+<6>[  125.366874] DWC_OTG: USB SUSPEND
+<6>[  125.552339] DWC_OTG: USB RESET
+<6>[  125.613999] DWC_OTG: USB SUSPEND
+<6>[  125.802366] DWC_OTG: USB RESET
+<6>[  125.863877] DWC_OTG: USB SUSPEND
+<6>[  126.052442] DWC_OTG: USB RESET
+<6>[  126.113892] DWC_OTG: USB SUSPEND
+<6>[  126.302527] DWC_OTG: USB RESET
+<4>[  126.326909] RTL871X: rtw_set_ps_mode: Leave 802.11 power save
+<4>[  126.327027] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=0 SmartPS=2 UAPSD=0 BcnMode=0x00
+<4>[  126.347039] RTL871X: no packet in tx packet buffer (0)
+<6>[  126.363763] DWC_OTG: USB SUSPEND
+<6>[  126.552607] DWC_OTG: USB RESET
+<6>[  126.615277] DWC_OTG: USB SUSPEND
+<6>[  126.627547] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[  126.650081] EXT4-fs (mtdblock8): re-mounted. Opts: (null)
+<6>[  126.802694] DWC_OTG: USB RESET
+<6>[  126.864778] DWC_OTG: USB SUSPEND
+<6>[  127.052762] DWC_OTG: USB RESET
+<6>[  127.114030] DWC_OTG: USB SUSPEND
+<6>[  127.302825] DWC_OTG: USB RESET
+<6>[  127.364034] DWC_OTG: USB SUSPEND
+<6>[  127.512313] qtaguid: ctrl_counterset(s 1 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<6>[  127.552918] DWC_OTG: USB RESET
+<6>[  127.615041] DWC_OTG: USB SUSPEND
+<6>[  127.654096] qtaguid: ctrl_counterset(s 0 10019): insufficient priv from pid=522 tgid=419 uid=1000
+<4>[  127.737264] RTL871X: survey done event(21)
+<6>[  127.802977] DWC_OTG: USB RESET
+<4>[  127.812204] RTL871X: no packet in tx packet buffer (0)
+<6>[  127.864936] DWC_OTG: USB SUSPEND
+<4>[  127.891415] RTL871X: Drop duplicate management frame with seq_num = 287.
+<4>[  127.893735] RTL871X: Drop duplicate management frame with seq_num = 287.
+<6>[  128.053048] DWC_OTG: USB RESET
+<6>[  128.123178] DWC_OTG: USB SUSPEND
+<4>[  128.294449] RTL871X: Drop duplicate management frame with seq_num = 294.
+<6>[  128.303063] DWC_OTG: USB RESET
+<4>[  128.307194] RTL871X: Drop duplicate management frame with seq_num = 295.
+<6>[  128.369308] DWC_OTG: USB SUSPEND
+<6>[  128.553159] DWC_OTG: USB RESET
+<6>[  128.619064] DWC_OTG: USB SUSPEND
+<6>[  128.803217] DWC_OTG: USB RESET
+<6>[  128.873068] DWC_OTG: USB SUSPEND
+<6>[  129.053273] DWC_OTG: USB RESET
+<6>[  129.119196] DWC_OTG: USB SUSPEND
+<4>[  129.197260] RTL871X: survey done event(29)
+<6>[  129.303360] DWC_OTG: USB RESET
+<6>[  129.364831] DWC_OTG: USB SUSPEND
+<6>[  129.553487] DWC_OTG: USB RESET
+<6>[  129.615230] DWC_OTG: USB SUSPEND
+<6>[  129.803514] DWC_OTG: USB RESET
+<6>[  129.865719] DWC_OTG: USB SUSPEND
+<6>[  130.053567] DWC_OTG: USB RESET
+<6>[  130.115103] DWC_OTG: USB SUSPEND
+<6>[  130.303629] DWC_OTG: USB RESET
+<6>[  130.370730] DWC_OTG: USB SUSPEND
+<6>[  130.553728] DWC_OTG: USB RESET
+<6>[  130.617245] DWC_OTG: USB SUSPEND
+<6>[  130.803772] DWC_OTG: USB RESET
+<6>[  130.867002] DWC_OTG: USB SUSPEND
+<6>[  131.053846] DWC_OTG: USB RESET
+<4>[  131.101131] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-STOP" on wlan0
+<4>[  131.101680] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-REMOVE 2" on wlan0
+<4>[  131.101938] RTL871X: rtw_android_priv_cmd: Android private cmd "RXFILTER-START" on wlan0
+<6>[  131.115237] DWC_OTG: USB SUSPEND
+<6>[  131.303920] DWC_OTG: USB RESET
+<6>[  131.365117] DWC_OTG: USB SUSPEND
+<6>[  131.554002] DWC_OTG: USB RESET
+<6>[  131.620870] DWC_OTG: USB SUSPEND
+<6>[  131.804076] DWC_OTG: USB RESET
+<6>[  131.867126] DWC_OTG: USB SUSPEND
+<6>[  132.054145] DWC_OTG: USB RESET
+<6>[  132.116887] DWC_OTG: USB SUSPEND
+<6>[  132.304200] DWC_OTG: USB RESET
+<6>[  132.366508] DWC_OTG: USB SUSPEND
+<6>[  132.554281] DWC_OTG: USB RESET
+<6>[  132.617391] DWC_OTG: USB SUSPEND
+<6>[  132.804378] DWC_OTG: USB RESET
+<6>[  132.866897] DWC_OTG: USB SUSPEND
+<6>[  133.054504] DWC_OTG: USB RESET
+<6>[  133.121279] DWC_OTG: USB SUSPEND
+<6>[  133.304542] DWC_OTG: USB RESET
+<6>[  133.366906] DWC_OTG: USB SUSPEND
+<6>[  133.554622] DWC_OTG: USB RESET
+<6>[  133.616292] DWC_OTG: USB SUSPEND
+<6>[  133.804703] DWC_OTG: USB RESET
+<6>[  133.866415] DWC_OTG: USB SUSPEND
+<6>[  134.054757] DWC_OTG: USB RESET
+<6>[  134.116921] DWC_OTG: USB SUSPEND
+<4>[  134.266848] RTL871X: LPS_Enter smart_ps:2
+<4>[  134.266896] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  134.267761] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  134.267931] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  134.304770] DWC_OTG: USB RESET
+<6>[  134.366427] DWC_OTG: USB SUSPEND
+<6>[  134.378786] binder: 419:525 transaction failed 29189, size 100-4
+<6>[  134.554842] DWC_OTG: USB RESET
+<6>[  134.616057] DWC_OTG: USB SUSPEND
+<6>[  134.804917] DWC_OTG: USB RESET
+<6>[  134.867185] DWC_OTG: USB SUSPEND
+<6>[  135.054969] DWC_OTG: USB RESET
+<6>[  135.116316] DWC_OTG: USB SUSPEND
+<6>[  135.305060] DWC_OTG: USB RESET
+<6>[  135.370573] DWC_OTG: USB SUSPEND
+<6>[  135.555132] DWC_OTG: USB RESET
+<6>[  135.619700] DWC_OTG: USB SUSPEND
+<6>[  135.805198] DWC_OTG: USB RESET
+<6>[  135.866958] DWC_OTG: USB SUSPEND
+<6>[  136.055275] DWC_OTG: USB RESET
+<6>[  136.121089] DWC_OTG: USB SUSPEND
+<6>[  136.305333] DWC_OTG: USB RESET
+<6>[  136.366594] DWC_OTG: USB SUSPEND
+<6>[  136.555428] DWC_OTG: USB RESET
+<6>[  136.616846] DWC_OTG: USB SUSPEND
+<6>[  136.805550] DWC_OTG: USB RESET
+<6>[  136.867227] DWC_OTG: USB SUSPEND
+<6>[  137.055620] DWC_OTG: USB RESET
+<6>[  137.116980] DWC_OTG: USB SUSPEND
+<6>[  137.305682] DWC_OTG: USB RESET
+<6>[  137.366989] DWC_OTG: USB SUSPEND
+<6>[  137.555776] DWC_OTG: USB RESET
+<6>[  137.616988] DWC_OTG: USB SUSPEND
+<6>[  137.805821] DWC_OTG: USB RESET
+<6>[  137.868004] DWC_OTG: USB SUSPEND
+<6>[  138.055875] DWC_OTG: USB RESET
+<6>[  138.119881] DWC_OTG: USB SUSPEND
+<6>[  138.305955] DWC_OTG: USB RESET
+<6>[  138.367136] DWC_OTG: USB SUSPEND
+<6>[  138.556026] DWC_OTG: USB RESET
+<6>[  138.618264] DWC_OTG: USB SUSPEND
+<6>[  138.806078] DWC_OTG: USB RESET
+<6>[  138.869398] DWC_OTG: USB SUSPEND
+<6>[  139.056138] DWC_OTG: USB RESET
+<6>[  139.123023] DWC_OTG: USB SUSPEND
+<6>[  139.306210] DWC_OTG: USB RESET
+<6>[  139.377028] DWC_OTG: USB SUSPEND
+<6>[  139.556349] DWC_OTG: USB RESET
+<6>[  139.621032] DWC_OTG: USB SUSPEND
+<6>[  139.806388] DWC_OTG: USB RESET
+<6>[  139.870038] DWC_OTG: USB SUSPEND
+<6>[  140.056460] DWC_OTG: USB RESET
+<6>[  140.119168] DWC_OTG: USB SUSPEND
+<6>[  140.306481] DWC_OTG: USB RESET
+<6>[  140.369678] DWC_OTG: USB SUSPEND
+<6>[  140.556610] DWC_OTG: USB RESET
+<6>[  140.617801] DWC_OTG: USB SUSPEND
+<6>[  140.806617] DWC_OTG: USB RESET
+<6>[  140.869180] DWC_OTG: USB SUSPEND
+<6>[  141.056701] DWC_OTG: USB RESET
+<6>[  141.124819] DWC_OTG: USB SUSPEND
+<6>[  141.306812] DWC_OTG: USB RESET
+<6>[  141.369191] DWC_OTG: USB SUSPEND
+<6>[  141.556861] DWC_OTG: USB RESET
+<6>[  141.619074] DWC_OTG: USB SUSPEND
+<6>[  141.806934] DWC_OTG: USB RESET
+<6>[  141.869081] DWC_OTG: USB SUSPEND
+<6>[  142.057083] DWC_OTG: USB RESET
+<6>[  142.119211] DWC_OTG: USB SUSPEND
+<4>[  142.287164] RTL871X: rtw_set_ps_mode: Leave 802.11 power save
+<4>[  142.287299] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=0 SmartPS=2 UAPSD=0 BcnMode=0x00
+<6>[  142.307098] DWC_OTG: USB RESET
+<6>[  142.369216] DWC_OTG: USB SUSPEND
+<6>[  142.557205] DWC_OTG: USB RESET
+<6>[  142.631095] DWC_OTG: USB SUSPEND
+<6>[  142.807232] DWC_OTG: USB RESET
+<6>[  142.868479] DWC_OTG: USB SUSPEND
+<6>[  143.057304] DWC_OTG: USB RESET
+<6>[  143.119229] DWC_OTG: USB SUSPEND
+<6>[  143.307352] DWC_OTG: USB RESET
+<6>[  143.369106] DWC_OTG: USB SUSPEND
+<6>[  143.557462] DWC_OTG: USB RESET
+<6>[  143.619488] DWC_OTG: USB SUSPEND
+<6>[  143.807495] DWC_OTG: USB RESET
+<6>[  143.868741] DWC_OTG: USB SUSPEND
+<6>[  144.057574] DWC_OTG: USB RESET
+<6>[  144.118869] DWC_OTG: USB SUSPEND
+<4>[  144.266859] RTL871X: LPS_Enter smart_ps:2
+<4>[  144.266904] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  144.267769] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  144.267939] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  144.307647] DWC_OTG: USB RESET
+<6>[  144.371998] DWC_OTG: USB SUSPEND
+<6>[  144.557774] DWC_OTG: USB RESET
+<6>[  144.623884] DWC_OTG: USB SUSPEND
+<6>[  144.807775] DWC_OTG: USB RESET
+<6>[  144.872884] DWC_OTG: USB SUSPEND
+<6>[  145.057859] DWC_OTG: USB RESET
+<6>[  145.119765] DWC_OTG: USB SUSPEND
+<6>[  145.307933] DWC_OTG: USB RESET
+<6>[  145.369396] DWC_OTG: USB SUSPEND
+<6>[  145.558007] DWC_OTG: USB RESET
+<6>[  145.624650] DWC_OTG: USB SUSPEND
+<6>[  145.808052] DWC_OTG: USB RESET
+<6>[  145.871282] DWC_OTG: USB SUSPEND
+<6>[  146.058122] DWC_OTG: USB RESET
+<6>[  146.119787] DWC_OTG: USB SUSPEND
+<6>[  146.308162] DWC_OTG: USB RESET
+<6>[  146.369416] DWC_OTG: USB SUSPEND
+<6>[  146.558244] DWC_OTG: USB RESET
+<6>[  146.619421] DWC_OTG: USB SUSPEND
+<6>[  146.808159] DWC_OTG: USB RESET
+<6>[  146.869302] DWC_OTG: USB SUSPEND
+<6>[  147.034791] DWC_OTG: USB RESET
+<6>[  147.099183] DWC_OTG: USB SUSPEND
+<6>[  147.307986] DWC_OTG: USB RESET
+<6>[  147.370686] DWC_OTG: USB SUSPEND
+<6>[  147.557910] DWC_OTG: USB RESET
+<6>[  147.620690] DWC_OTG: USB SUSPEND
+<6>[  147.807833] DWC_OTG: USB RESET
+<6>[  147.869450] DWC_OTG: USB SUSPEND
+<6>[  148.057756] DWC_OTG: USB RESET
+<6>[  148.121202] DWC_OTG: USB SUSPEND
+<6>[  148.307664] DWC_OTG: USB RESET
+<6>[  148.371582] DWC_OTG: USB SUSPEND
+<6>[  148.557613] DWC_OTG: USB RESET
+<6>[  148.619461] DWC_OTG: USB SUSPEND
+<6>[  148.807538] DWC_OTG: USB RESET
+<6>[  148.869340] DWC_OTG: USB SUSPEND
+<6>[  149.057535] DWC_OTG: USB RESET
+<6>[  149.118720] DWC_OTG: USB SUSPEND
+<6>[  149.307404] DWC_OTG: USB RESET
+<6>[  149.371478] DWC_OTG: USB SUSPEND
+<6>[  149.557383] DWC_OTG: USB RESET
+<6>[  149.621230] DWC_OTG: USB SUSPEND
+<6>[  149.807253] DWC_OTG: USB RESET
+<6>[  149.869245] DWC_OTG: USB SUSPEND
+<6>[  150.057172] DWC_OTG: USB RESET
+<6>[  150.118992] DWC_OTG: USB SUSPEND
+<4>[  150.286919] RTL871X: rtw_set_ps_mode: Leave 802.11 power save
+<4>[  150.286999] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=0 SmartPS=2 UAPSD=0 BcnMode=0x00
+<6>[  150.307070] DWC_OTG: USB RESET
+<6>[  150.371250] DWC_OTG: USB SUSPEND
+<6>[  150.557049] DWC_OTG: USB RESET
+<6>[  150.618877] DWC_OTG: USB SUSPEND
+<6>[  150.806961] DWC_OTG: USB RESET
+<6>[  150.871507] DWC_OTG: USB SUSPEND
+<6>[  151.056895] DWC_OTG: USB RESET
+<6>[  151.118637] DWC_OTG: USB SUSPEND
+<6>[  151.306770] DWC_OTG: USB RESET
+<6>[  151.381776] DWC_OTG: USB SUSPEND
+<6>[  151.556753] DWC_OTG: USB RESET
+<6>[  151.618025] DWC_OTG: USB SUSPEND
+<6>[  151.806631] DWC_OTG: USB RESET
+<6>[  151.868527] DWC_OTG: USB SUSPEND
+<6>[  152.056663] DWC_OTG: USB RESET
+<6>[  152.118280] DWC_OTG: USB SUSPEND
+<4>[  152.266867] RTL871X: LPS_Enter smart_ps:2
+<4>[  152.266915] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  152.267787] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  152.267957] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  152.306564] DWC_OTG: USB RESET
+<6>[  152.367913] DWC_OTG: USB SUSPEND
+<6>[  152.556501] DWC_OTG: USB RESET
+<6>[  152.617672] DWC_OTG: USB SUSPEND
+<6>[  152.806423] DWC_OTG: USB RESET
+<6>[  152.867674] DWC_OTG: USB SUSPEND
+<6>[  153.056367] DWC_OTG: USB RESET
+<6>[  153.119425] DWC_OTG: USB SUSPEND
+<6>[  153.309567] DWC_OTG: USB RESET
+<6>[  153.377309] DWC_OTG: USB SUSPEND
+<6>[  153.556202] DWC_OTG: USB RESET
+<6>[  153.619311] DWC_OTG: USB SUSPEND
+<6>[  153.806098] DWC_OTG: USB RESET
+<6>[  153.867567] DWC_OTG: USB SUSPEND
+<6>[  154.056053] DWC_OTG: USB RESET
+<6>[  154.127328] DWC_OTG: USB SUSPEND
+<6>[  154.305990] DWC_OTG: USB RESET
+<6>[  154.367455] DWC_OTG: USB SUSPEND
+<6>[  154.555946] DWC_OTG: USB RESET
+<6>[  154.619338] DWC_OTG: USB SUSPEND
+<6>[  154.805847] DWC_OTG: USB RESET
+<6>[  154.867095] DWC_OTG: USB SUSPEND
+<6>[  155.055816] DWC_OTG: USB RESET
+<6>[  155.117472] DWC_OTG: USB SUSPEND
+<6>[  155.312370] DWC_OTG: USB RESET
+<6>[  155.397228] DWC_OTG: USB SUSPEND
+<6>[  155.555765] DWC_OTG: USB RESET
+<6>[  155.623356] DWC_OTG: USB SUSPEND
+<6>[  155.805652] DWC_OTG: USB RESET
+<6>[  155.867481] DWC_OTG: USB SUSPEND
+<6>[  156.055591] DWC_OTG: USB RESET
+<6>[  156.117987] DWC_OTG: USB SUSPEND
+<6>[  156.305497] DWC_OTG: USB RESET
+<6>[  156.368117] DWC_OTG: USB SUSPEND
+<6>[  156.555429] DWC_OTG: USB RESET
+<6>[  156.616871] DWC_OTG: USB SUSPEND
+<6>[  156.805352] DWC_OTG: USB RESET
+<6>[  156.867627] DWC_OTG: USB SUSPEND
+<6>[  157.055314] DWC_OTG: USB RESET
+<6>[  157.117632] DWC_OTG: USB SUSPEND
+<6>[  157.305225] DWC_OTG: USB RESET
+<6>[  157.366385] DWC_OTG: USB SUSPEND
+<6>[  157.555206] DWC_OTG: USB RESET
+<6>[  157.616518] DWC_OTG: USB SUSPEND
+<6>[  157.805110] DWC_OTG: USB RESET
+<6>[  157.867522] DWC_OTG: USB SUSPEND
+<6>[  158.055165] DWC_OTG: USB RESET
+<6>[  158.121651] DWC_OTG: USB SUSPEND
+<6>[  158.305011] DWC_OTG: USB RESET
+<6>[  158.366155] DWC_OTG: USB SUSPEND
+<6>[  158.531718] DWC_OTG: USB RESET
+<6>[  158.594664] DWC_OTG: USB SUSPEND
+<6>[  158.804933] DWC_OTG: USB RESET
+<6>[  158.866423] DWC_OTG: USB SUSPEND
+<6>[  159.054894] DWC_OTG: USB RESET
+<6>[  159.120671] DWC_OTG: USB SUSPEND
+<6>[  159.304772] DWC_OTG: USB RESET
+<6>[  159.373425] DWC_OTG: USB SUSPEND
+<6>[  159.554799] DWC_OTG: USB RESET
+<6>[  159.616056] DWC_OTG: USB SUSPEND
+<6>[  159.804677] DWC_OTG: USB RESET
+<6>[  159.865817] DWC_OTG: USB SUSPEND
+<6>[  160.031364] DWC_OTG: USB RESET
+<6>[  160.093569] DWC_OTG: USB SUSPEND
+<6>[  160.304566] DWC_OTG: USB RESET
+<6>[  160.365820] DWC_OTG: USB SUSPEND
+<6>[  160.554611] DWC_OTG: USB RESET
+<6>[  160.619701] DWC_OTG: USB SUSPEND
+<6>[  160.804481] DWC_OTG: USB RESET
+<6>[  160.877831] DWC_OTG: USB SUSPEND
+<6>[  161.054444] DWC_OTG: USB RESET
+<6>[  161.115585] DWC_OTG: USB SUSPEND
+<6>[  161.304371] DWC_OTG: USB RESET
+<6>[  161.367468] DWC_OTG: USB SUSPEND
+<6>[  161.554400] DWC_OTG: USB RESET
+<6>[  161.616097] DWC_OTG: USB SUSPEND
+<6>[  161.804266] DWC_OTG: USB RESET
+<6>[  161.870482] DWC_OTG: USB SUSPEND
+<6>[  162.054252] DWC_OTG: USB RESET
+<6>[  162.119485] DWC_OTG: USB SUSPEND
+<6>[  162.304150] DWC_OTG: USB RESET
+<6>[  162.365360] DWC_OTG: USB SUSPEND
+<6>[  162.554165] DWC_OTG: USB RESET
+<6>[  162.617492] DWC_OTG: USB SUSPEND
+<6>[  162.804081] DWC_OTG: USB RESET
+<6>[  162.865255] DWC_OTG: USB SUSPEND
+<6>[  163.054062] DWC_OTG: USB RESET
+<6>[  163.115756] DWC_OTG: USB SUSPEND
+<6>[  163.304015] DWC_OTG: USB RESET
+<6>[  163.365260] DWC_OTG: USB SUSPEND
+<6>[  163.554017] DWC_OTG: USB RESET
+<6>[  163.617517] DWC_OTG: USB SUSPEND
+<6>[  163.803954] DWC_OTG: USB RESET
+<6>[  163.872775] DWC_OTG: USB SUSPEND
+<6>[  164.053938] DWC_OTG: USB RESET
+<6>[  164.117647] DWC_OTG: USB SUSPEND
+<6>[  164.303809] DWC_OTG: USB RESET
+<6>[  164.382276] DWC_OTG: USB SUSPEND
+<6>[  164.553755] DWC_OTG: USB RESET
+<6>[  164.614908] DWC_OTG: USB SUSPEND
+<6>[  164.803711] DWC_OTG: USB RESET
+<6>[  164.869286] DWC_OTG: USB SUSPEND
+<6>[  165.053657] DWC_OTG: USB RESET
+<6>[  165.117676] DWC_OTG: USB SUSPEND
+<6>[  165.303625] DWC_OTG: USB RESET
+<6>[  165.367172] DWC_OTG: USB SUSPEND
+<6>[  165.553609] DWC_OTG: USB RESET
+<6>[  165.619801] DWC_OTG: USB SUSPEND
+<6>[  165.803581] DWC_OTG: USB RESET
+<6>[  165.864805] DWC_OTG: USB SUSPEND
+<6>[  166.053508] DWC_OTG: USB RESET
+<6>[  166.116435] DWC_OTG: USB SUSPEND
+<6>[  166.303476] DWC_OTG: USB RESET
+<6>[  166.365821] DWC_OTG: USB SUSPEND
+<6>[  166.553476] DWC_OTG: USB RESET
+<6>[  166.614702] DWC_OTG: USB SUSPEND
+<6>[  166.803371] DWC_OTG: USB RESET
+<6>[  166.866840] DWC_OTG: USB SUSPEND
+<6>[  167.053363] DWC_OTG: USB RESET
+<6>[  167.116338] DWC_OTG: USB SUSPEND
+<6>[  167.303274] DWC_OTG: USB RESET
+<6>[  167.365715] DWC_OTG: USB SUSPEND
+<6>[  167.553199] DWC_OTG: USB RESET
+<6>[  167.614471] DWC_OTG: USB SUSPEND
+<6>[  167.803171] DWC_OTG: USB RESET
+<6>[  167.867731] DWC_OTG: USB SUSPEND
+<6>[  168.053165] DWC_OTG: USB RESET
+<6>[  168.117608] DWC_OTG: USB SUSPEND
+<6>[  168.303180] DWC_OTG: USB RESET
+<6>[  168.366991] DWC_OTG: USB SUSPEND
+<6>[  168.553153] DWC_OTG: USB RESET
+<6>[  168.614371] DWC_OTG: USB SUSPEND
+<6>[  168.803066] DWC_OTG: USB RESET
+<6>[  168.880247] DWC_OTG: USB SUSPEND
+<6>[  169.052990] DWC_OTG: USB RESET
+<6>[  169.114500] DWC_OTG: USB SUSPEND
+<6>[  169.302946] DWC_OTG: USB RESET
+<6>[  169.364257] DWC_OTG: USB SUSPEND
+<6>[  169.552911] DWC_OTG: USB RESET
+<6>[  169.614138] DWC_OTG: USB SUSPEND
+<6>[  169.802908] DWC_OTG: USB RESET
+<6>[  169.867647] DWC_OTG: USB SUSPEND
+<6>[  170.052856] DWC_OTG: USB RESET
+<6>[  170.114149] DWC_OTG: USB SUSPEND
+<6>[  170.302815] DWC_OTG: USB RESET
+<6>[  170.364030] DWC_OTG: USB SUSPEND
+<6>[  170.552821] DWC_OTG: USB RESET
+<6>[  170.615656] DWC_OTG: USB SUSPEND
+<6>[  170.802783] DWC_OTG: USB RESET
+<6>[  170.872165] DWC_OTG: USB SUSPEND
+<6>[  171.052678] DWC_OTG: USB RESET
+<6>[  171.117670] DWC_OTG: USB SUSPEND
+<6>[  171.302695] DWC_OTG: USB RESET
+<6>[  171.364051] DWC_OTG: USB SUSPEND
+<6>[  171.552701] DWC_OTG: USB RESET
+<6>[  171.615678] DWC_OTG: USB SUSPEND
+<6>[  171.802600] DWC_OTG: USB RESET
+<6>[  171.865806] DWC_OTG: USB SUSPEND
+<6>[  172.052560] DWC_OTG: USB RESET
+<6>[  172.123937] DWC_OTG: USB SUSPEND
+<6>[  172.302555] DWC_OTG: USB RESET
+<6>[  172.364693] DWC_OTG: USB SUSPEND
+<6>[  172.552509] DWC_OTG: USB RESET
+<6>[  172.615697] DWC_OTG: USB SUSPEND
+<6>[  172.802463] DWC_OTG: USB RESET
+<6>[  172.876080] DWC_OTG: USB SUSPEND
+<6>[  173.052408] DWC_OTG: USB RESET
+<6>[  173.116963] DWC_OTG: USB SUSPEND
+<6>[  173.302412] DWC_OTG: USB RESET
+<6>[  173.366340] DWC_OTG: USB SUSPEND
+<6>[  173.552443] DWC_OTG: USB RESET
+<6>[  173.617719] DWC_OTG: USB SUSPEND
+<6>[  173.802372] DWC_OTG: USB RESET
+<6>[  173.865722] DWC_OTG: USB SUSPEND
+<6>[  174.052336] DWC_OTG: USB RESET
+<6>[  174.115851] DWC_OTG: USB SUSPEND
+<6>[  189.161067] DWC_OTG: USB RESET
+<4>[  189.206853] RTL871X: rtw_set_ps_mode: Leave 802.11 power save
+<4>[  189.206934] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=0 SmartPS=2 UAPSD=0 BcnMode=0x00
+<6>[  189.224153] DWC_OTG: USB SUSPEND
+<4>[  189.227090] RTL871X: no packet in tx packet buffer (0)
+<4>[  189.312475] RTL871X: Drop duplicate management frame with seq_num = 298.
+<4>[  189.317091] RTL871X: Drop duplicate management frame with seq_num = 298.
+<6>[  189.387616] DWC_OTG: USB RESET
+<6>[  189.449532] DWC_OTG: USB SUSPEND
+<4>[  189.714388] RTL871X: Drop duplicate management frame with seq_num = 303.
+<4>[  189.720781] RTL871X: Drop duplicate management frame with seq_num = 303.
+<4>[  189.727049] RTL871X: Drop duplicate management frame with seq_num = 303.
+<6>[  189.800926] DWC_OTG: USB RESET
+<6>[  189.864289] DWC_OTG: USB SUSPEND
+<6>[  190.050916] DWC_OTG: USB RESET
+<6>[  190.113793] DWC_OTG: USB SUSPEND
+<6>[  190.300905] DWC_OTG: USB RESET
+<6>[  190.363924] DWC_OTG: USB SUSPEND
+<6>[  190.550959] DWC_OTG: USB RESET
+<6>[  190.612181] DWC_OTG: USB SUSPEND
+<4>[  190.617786] RTL871X: survey done event(23)
+<6>[  190.800948] DWC_OTG: USB RESET
+<6>[  190.867935] DWC_OTG: USB SUSPEND
+<6>[  191.050924] DWC_OTG: USB RESET
+<6>[  191.120064] DWC_OTG: USB SUSPEND
+<6>[  191.300925] DWC_OTG: USB RESET
+<6>[  191.363696] DWC_OTG: USB SUSPEND
+<6>[  191.550918] DWC_OTG: USB RESET
+<6>[  191.612199] DWC_OTG: USB SUSPEND
+<6>[  191.800906] DWC_OTG: USB RESET
+<6>[  191.862329] DWC_OTG: USB SUSPEND
+<6>[  192.050889] DWC_OTG: USB RESET
+<6>[  192.114084] DWC_OTG: USB SUSPEND
+<4>[  192.266974] RTL871X: LPS_Enter smart_ps:2
+<4>[  192.267068] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  192.267181] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  192.267581] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  192.300897] DWC_OTG: USB RESET
+<6>[  192.362089] DWC_OTG: USB SUSPEND
+<6>[  192.550884] DWC_OTG: USB RESET
+<6>[  192.612219] DWC_OTG: USB SUSPEND
+<6>[  192.800886] DWC_OTG: USB RESET
+<6>[  192.862725] DWC_OTG: USB SUSPEND
+<6>[  193.050871] DWC_OTG: USB RESET
+<6>[  193.114105] DWC_OTG: USB SUSPEND
+<6>[  193.300902] DWC_OTG: USB RESET
+<6>[  193.376235] DWC_OTG: USB SUSPEND
+<6>[  193.550858] DWC_OTG: USB RESET
+<6>[  193.612365] DWC_OTG: USB SUSPEND
+<6>[  193.800886] DWC_OTG: USB RESET
+<6>[  193.862119] DWC_OTG: USB SUSPEND
+<6>[  194.050854] DWC_OTG: USB RESET
+<6>[  194.114134] DWC_OTG: USB SUSPEND
+<6>[  194.300828] DWC_OTG: USB RESET
+<6>[  194.362007] DWC_OTG: USB SUSPEND
+<6>[  194.550819] DWC_OTG: USB RESET
+<6>[  194.614135] DWC_OTG: USB SUSPEND
+<6>[  194.800815] DWC_OTG: USB RESET
+<6>[  194.862143] DWC_OTG: USB SUSPEND
+<6>[  195.050809] DWC_OTG: USB RESET
+<6>[  195.115148] DWC_OTG: USB SUSPEND
+<6>[  195.300801] DWC_OTG: USB RESET
+<6>[  195.364401] DWC_OTG: USB SUSPEND
+<6>[  195.550795] DWC_OTG: USB RESET
+<6>[  195.614280] DWC_OTG: USB SUSPEND
+<6>[  195.800807] DWC_OTG: USB RESET
+<6>[  195.862034] DWC_OTG: USB SUSPEND
+<6>[  196.050787] DWC_OTG: USB RESET
+<6>[  196.113795] DWC_OTG: USB SUSPEND
+<6>[  196.300783] DWC_OTG: USB RESET
+<6>[  196.364181] DWC_OTG: USB SUSPEND
+<6>[  196.550791] DWC_OTG: USB RESET
+<6>[  196.611928] DWC_OTG: USB SUSPEND
+<6>[  196.777453] DWC_OTG: USB RESET
+<6>[  196.840180] DWC_OTG: USB SUSPEND
+<6>[  197.050765] DWC_OTG: USB RESET
+<6>[  197.112814] DWC_OTG: USB SUSPEND
+<6>[  197.300764] DWC_OTG: USB RESET
+<6>[  197.363320] DWC_OTG: USB SUSPEND
+<6>[  197.550798] DWC_OTG: USB RESET
+<6>[  197.613827] DWC_OTG: USB SUSPEND
+<6>[  197.800775] DWC_OTG: USB RESET
+<6>[  197.862450] DWC_OTG: USB SUSPEND
+<6>[  198.050800] DWC_OTG: USB RESET
+<6>[  198.112334] DWC_OTG: USB SUSPEND
+<6>[  198.300801] DWC_OTG: USB RESET
+<6>[  198.364589] DWC_OTG: USB SUSPEND
+<6>[  198.550811] DWC_OTG: USB RESET
+<6>[  198.614342] DWC_OTG: USB SUSPEND
+<6>[  198.800792] DWC_OTG: USB RESET
+<6>[  198.880220] DWC_OTG: USB SUSPEND
+<6>[  199.050783] DWC_OTG: USB RESET
+<6>[  199.112226] DWC_OTG: USB SUSPEND
+<6>[  199.300757] DWC_OTG: USB RESET
+<6>[  199.364231] DWC_OTG: USB SUSPEND
+<6>[  199.550739] DWC_OTG: USB RESET
+<6>[  199.612238] DWC_OTG: USB SUSPEND
+<6>[  199.800751] DWC_OTG: USB RESET
+<6>[  199.868369] DWC_OTG: USB SUSPEND
+<6>[  200.050742] DWC_OTG: USB RESET
+<6>[  200.112251] DWC_OTG: USB SUSPEND
+<6>[  200.300740] DWC_OTG: USB RESET
+<6>[  200.382775] DWC_OTG: USB SUSPEND
+<6>[  200.550736] DWC_OTG: USB RESET
+<6>[  200.611881] DWC_OTG: USB SUSPEND
+<6>[  200.777402] DWC_OTG: USB RESET
+<6>[  200.838763] DWC_OTG: USB SUSPEND
+<6>[  201.050744] DWC_OTG: USB RESET
+<6>[  201.119397] DWC_OTG: USB SUSPEND
+<6>[  201.300746] DWC_OTG: USB RESET
+<6>[  201.370646] DWC_OTG: USB SUSPEND
+<6>[  201.550735] DWC_OTG: USB RESET
+<6>[  201.612156] DWC_OTG: USB SUSPEND
+<6>[  201.800743] DWC_OTG: USB RESET
+<6>[  201.869784] DWC_OTG: USB SUSPEND
+<6>[  202.050745] DWC_OTG: USB RESET
+<6>[  202.112161] DWC_OTG: USB SUSPEND
+<6>[  202.300740] DWC_OTG: USB RESET
+<6>[  202.362294] DWC_OTG: USB SUSPEND
+<6>[  202.550739] DWC_OTG: USB RESET
+<6>[  202.613422] DWC_OTG: USB SUSPEND
+<6>[  202.800740] DWC_OTG: USB RESET
+<6>[  202.866426] DWC_OTG: USB SUSPEND
+<6>[  203.050753] DWC_OTG: USB RESET
+<6>[  203.111936] DWC_OTG: USB SUSPEND
+<6>[  203.300751] DWC_OTG: USB RESET
+<6>[  203.362691] DWC_OTG: USB SUSPEND
+<6>[  203.550763] DWC_OTG: USB RESET
+<6>[  203.613822] DWC_OTG: USB SUSPEND
+<6>[  203.800765] DWC_OTG: USB RESET
+<6>[  203.863953] DWC_OTG: USB SUSPEND
+<6>[  204.050718] DWC_OTG: USB RESET
+<6>[  204.113706] DWC_OTG: USB SUSPEND
+<6>[  204.300752] DWC_OTG: USB RESET
+<6>[  204.362604] DWC_OTG: USB SUSPEND
+<6>[  204.550767] DWC_OTG: USB RESET
+<6>[  204.612462] DWC_OTG: USB SUSPEND
+<6>[  204.800759] DWC_OTG: USB RESET
+<6>[  204.862842] DWC_OTG: USB SUSPEND
+<6>[  205.050779] DWC_OTG: USB RESET
+<6>[  205.112346] DWC_OTG: USB SUSPEND
+<6>[  205.300765] DWC_OTG: USB RESET
+<6>[  205.364355] DWC_OTG: USB SUSPEND
+<6>[  205.550792] DWC_OTG: USB RESET
+<6>[  205.612486] DWC_OTG: USB SUSPEND
+<6>[  205.800789] DWC_OTG: USB RESET
+<6>[  205.862746] DWC_OTG: USB SUSPEND
+<6>[  206.050786] DWC_OTG: USB RESET
+<6>[  206.112623] DWC_OTG: USB SUSPEND
+<6>[  206.300794] DWC_OTG: USB RESET
+<6>[  206.361997] DWC_OTG: USB SUSPEND
+<6>[  206.550802] DWC_OTG: USB RESET
+<6>[  206.614380] DWC_OTG: USB SUSPEND
+<6>[  206.800798] DWC_OTG: USB RESET
+<6>[  206.862386] DWC_OTG: USB SUSPEND
+<6>[  207.050816] DWC_OTG: USB RESET
+<6>[  207.113392] DWC_OTG: USB SUSPEND
+<6>[  207.300810] DWC_OTG: USB RESET
+<6>[  207.362272] DWC_OTG: USB SUSPEND
+<6>[  207.550830] DWC_OTG: USB RESET
+<6>[  207.613653] DWC_OTG: USB SUSPEND
+<6>[  207.800821] DWC_OTG: USB RESET
+<6>[  207.862030] DWC_OTG: USB SUSPEND
+<6>[  208.050828] DWC_OTG: USB RESET
+<6>[  208.113058] DWC_OTG: USB SUSPEND
+<6>[  208.300833] DWC_OTG: USB RESET
+<6>[  208.379541] DWC_OTG: USB SUSPEND
+<6>[  208.550839] DWC_OTG: USB RESET
+<6>[  208.612422] DWC_OTG: USB SUSPEND
+<6>[  208.800843] DWC_OTG: USB RESET
+<6>[  208.862548] DWC_OTG: USB SUSPEND
+<6>[  209.050846] DWC_OTG: USB RESET
+<6>[  209.112552] DWC_OTG: USB SUSPEND
+<6>[  209.300861] DWC_OTG: USB RESET
+<6>[  209.363433] DWC_OTG: USB SUSPEND
+<6>[  209.550850] DWC_OTG: USB RESET
+<6>[  209.612687] DWC_OTG: USB SUSPEND
+<6>[  209.800873] DWC_OTG: USB RESET
+<6>[  209.865449] DWC_OTG: USB SUSPEND
+<6>[  210.050875] DWC_OTG: USB RESET
+<6>[  210.112449] DWC_OTG: USB SUSPEND
+<4>[  210.277029] RTL871X: rtw_set_ps_mode: Leave 802.11 power save
+<4>[  210.277150] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=0 SmartPS=2 UAPSD=0 BcnMode=0x00
+<6>[  210.300889] DWC_OTG: USB RESET
+<6>[  210.362578] DWC_OTG: USB SUSPEND
+<6>[  210.550887] DWC_OTG: USB RESET
+<6>[  210.614457] DWC_OTG: USB SUSPEND
+<6>[  210.800895] DWC_OTG: USB RESET
+<6>[  210.869718] DWC_OTG: USB SUSPEND
+<6>[  211.050846] DWC_OTG: USB RESET
+<6>[  211.112473] DWC_OTG: USB SUSPEND
+<6>[  211.300916] DWC_OTG: USB RESET
+<6>[  211.362475] DWC_OTG: USB SUSPEND
+<6>[  211.550921] DWC_OTG: USB RESET
+<6>[  211.614488] DWC_OTG: USB SUSPEND
+<6>[  211.800931] DWC_OTG: USB RESET
+<6>[  211.864860] DWC_OTG: USB SUSPEND
+<6>[  212.050943] DWC_OTG: USB RESET
+<6>[  212.112490] DWC_OTG: USB SUSPEND
+<6>[  212.300955] DWC_OTG: USB RESET
+<6>[  212.362756] DWC_OTG: USB SUSPEND
+<6>[  212.550988] DWC_OTG: USB RESET
+<6>[  212.614622] DWC_OTG: USB SUSPEND
+<6>[  212.800970] DWC_OTG: USB RESET
+<6>[  212.864510] DWC_OTG: USB SUSPEND
+<6>[  213.051003] DWC_OTG: USB RESET
+<6>[  213.112257] DWC_OTG: USB SUSPEND
+<6>[  213.301012] DWC_OTG: USB RESET
+<6>[  213.372640] DWC_OTG: USB SUSPEND
+<6>[  213.551008] DWC_OTG: USB RESET
+<6>[  213.618393] DWC_OTG: USB SUSPEND
+<6>[  213.801008] DWC_OTG: USB RESET
+<6>[  213.863773] DWC_OTG: USB SUSPEND
+<6>[  214.051030] DWC_OTG: USB RESET
+<6>[  214.115535] DWC_OTG: USB SUSPEND
+<6>[  214.301038] DWC_OTG: USB RESET
+<6>[  214.362283] DWC_OTG: USB SUSPEND
+<6>[  214.551016] DWC_OTG: USB RESET
+<6>[  214.612545] DWC_OTG: USB SUSPEND
+<6>[  214.801066] DWC_OTG: USB RESET
+<6>[  214.870543] DWC_OTG: USB SUSPEND
+<6>[  215.051077] DWC_OTG: USB RESET
+<6>[  215.115429] DWC_OTG: USB SUSPEND
+<6>[  215.301076] DWC_OTG: USB RESET
+<6>[  215.362428] DWC_OTG: USB SUSPEND
+<6>[  215.551088] DWC_OTG: USB RESET
+<6>[  215.612814] DWC_OTG: USB SUSPEND
+<6>[  215.801101] DWC_OTG: USB RESET
+<6>[  215.864192] DWC_OTG: USB SUSPEND
+<6>[  216.051112] DWC_OTG: USB RESET
+<6>[  216.114201] DWC_OTG: USB SUSPEND
+<6>[  216.301096] DWC_OTG: USB RESET
+<6>[  216.365950] DWC_OTG: USB SUSPEND
+<6>[  216.551100] DWC_OTG: USB RESET
+<6>[  216.616828] DWC_OTG: USB SUSPEND
+<6>[  216.801160] DWC_OTG: USB RESET
+<6>[  216.862963] DWC_OTG: USB SUSPEND
+<6>[  217.051172] DWC_OTG: USB RESET
+<6>[  217.116593] DWC_OTG: USB SUSPEND
+<6>[  217.301176] DWC_OTG: USB RESET
+<6>[  217.371843] DWC_OTG: USB SUSPEND
+<6>[  217.551213] DWC_OTG: USB RESET
+<6>[  217.612600] DWC_OTG: USB SUSPEND
+<6>[  217.801218] DWC_OTG: USB RESET
+<6>[  217.862620] DWC_OTG: USB SUSPEND
+<6>[  218.051227] DWC_OTG: USB RESET
+<6>[  218.112740] DWC_OTG: USB SUSPEND
+<6>[  218.301229] DWC_OTG: USB RESET
+<6>[  218.363488] DWC_OTG: USB SUSPEND
+<6>[  218.551265] DWC_OTG: USB RESET
+<6>[  218.614620] DWC_OTG: USB SUSPEND
+<6>[  218.801275] DWC_OTG: USB RESET
+<6>[  218.862748] DWC_OTG: USB SUSPEND
+<6>[  219.051280] DWC_OTG: USB RESET
+<6>[  219.113128] DWC_OTG: USB SUSPEND
+<6>[  219.301307] DWC_OTG: USB RESET
+<6>[  219.369135] DWC_OTG: USB SUSPEND
+<6>[  219.551318] DWC_OTG: USB RESET
+<6>[  219.612514] DWC_OTG: USB SUSPEND
+<6>[  219.801314] DWC_OTG: USB RESET
+<6>[  219.862646] DWC_OTG: USB SUSPEND
+<6>[  220.051346] DWC_OTG: USB RESET
+<6>[  220.114653] DWC_OTG: USB SUSPEND
+<6>[  220.301370] DWC_OTG: USB RESET
+<6>[  220.365033] DWC_OTG: USB SUSPEND
+<6>[  220.551370] DWC_OTG: USB RESET
+<6>[  220.615913] DWC_OTG: USB SUSPEND
+<6>[  220.801378] DWC_OTG: USB RESET
+<6>[  220.868545] DWC_OTG: USB SUSPEND
+<6>[  221.051374] DWC_OTG: USB RESET
+<6>[  221.112792] DWC_OTG: USB SUSPEND
+<6>[  221.301387] DWC_OTG: USB RESET
+<6>[  221.364423] DWC_OTG: USB SUSPEND
+<6>[  221.551454] DWC_OTG: USB RESET
+<6>[  221.614803] DWC_OTG: USB SUSPEND
+<6>[  221.801481] DWC_OTG: USB RESET
+<6>[  221.866693] DWC_OTG: USB SUSPEND
+<6>[  222.051472] DWC_OTG: USB RESET
+<6>[  222.123694] DWC_OTG: USB SUSPEND
+<4>[  222.266914] RTL871X: LPS_Enter smart_ps:2
+<4>[  222.266965] RTL871X: rtw_set_ps_mode: Enter 802.11 power save
+<4>[  222.267850] RTL871X: rtl8723a_set_FwPwrMode_cmd: Mode=1 SmartPS=2 UAPSD=0 BcnMode=0x40
+<4>[  222.268021] RTL871X: rtw_set_ps_mode: alives: 4
+<6>[  222.301491] DWC_OTG: USB RESET
+<6>[  222.366943] DWC_OTG: USB SUSPEND
+<6>[  222.551498] DWC_OTG: USB RESET
+<6>[  222.613327] DWC_OTG: USB SUSPEND
+<6>[  222.801512] DWC_OTG: USB RESET
+<6>[  222.862834] DWC_OTG: USB SUSPEND
+<6>[  223.051497] DWC_OTG: USB RESET
+<6>[  223.113084] DWC_OTG: USB SUSPEND
+<6>[  223.301557] DWC_OTG: USB RESET
+<6>[  223.367588] DWC_OTG: USB SUSPEND
+<6>[  223.551527] DWC_OTG: USB RESET
+<6>[  223.613351] DWC_OTG: USB SUSPEND
+<6>[  223.801539] DWC_OTG: USB RESET
+<6>[  223.864724] DWC_OTG: USB SUSPEND
+<6>[  224.051535] DWC_OTG: USB RESET
+<6>[  224.115728] DWC_OTG: USB SUSPEND
+<6>[  224.301576] DWC_OTG: USB RESET
+<6>[  224.362986] DWC_OTG: USB SUSPEND
+<6>[  224.551651] DWC_OTG: USB RESET
+<6>[  224.614242] DWC_OTG: USB SUSPEND
+<6>[  224.801656] DWC_OTG: USB RESET
+<6>[  224.876750] DWC_OTG: USB SUSPEND
+<6>[  225.051671] DWC_OTG: USB RESET
+<6>[  225.119127] DWC_OTG: USB SUSPEND
+<6>[  225.301686] DWC_OTG: USB RESET
+<6>[  225.364754] DWC_OTG: USB SUSPEND
+<6>[  225.551713] DWC_OTG: USB RESET
+<6>[  225.612887] DWC_OTG: USB SUSPEND

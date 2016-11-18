@@ -24,8 +24,10 @@ MKBOOTIMG=${DIR}/submodules/rockchip-mkbootimg/mkbootimg
 
 git submodule init
 
+rm -rf ${INITDIR}/
+
 mkdir -p ${BUILDDIR}
-mkdir -p ${BUILDDIR}/initramfs
+mkdir -p ${INITDIR}/
 
 
 # Compile rkflashtool
@@ -68,8 +70,6 @@ cp -f ${DIR}/kernel/arch/arm/boot/Image ${BUILDDIR}/
 # Creating the initramfs
 
 (
-	rm -rf ${INITDIR}/
-	mkdir -p ${INITDIR}/
 	cp -rf ${DIR}/initramfs/* ${INITDIR}/
 	cd ${INITDIR}
 	find . | cpio -H newc -o > ${BUILDDIR}/initramfs.cpio

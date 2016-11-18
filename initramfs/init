@@ -8,6 +8,7 @@
 [ -d /proc ] || mkdir /proc
 [ -d /tmp ] || mkdir /tmp
 
+
 [ -d /sbin ] || mkdir -m 0755 /sbin
 [ -d /usr ] || mkdir -m 0755 /usr
 [ -d /usr/sbin ] || mkdir -m 0755 /usr/sbin
