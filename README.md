@@ -20,3 +20,34 @@ dd if=kernel.img of=/dev/XXX conv=sync,fsync seek=$((0x2000+0x4000))
 dd if=boot.img of=/dev/XXX conv=sync,fsync seek=$((0x2000+0xc000))
 
 
+NEW
+
+file systems - network - coda
+scsi - low level - aic7xxx
+drivers - graphics - radeon
+
+
+http://crosstool-ng.org/
+
+crosstools-ng
+arm-cortexa9_neon-linux-gnueabihf
+
+
+mkdir ~/path/to/toolchain/dir
+go there
+ct-ng arm-cortexa9_neon-linux-gnueabihf
+ct-ng menuconfig
+ct-ng build
+
+
+4.9 kernel
+no gdb
+
+
+
+
+
+
+
+
+
