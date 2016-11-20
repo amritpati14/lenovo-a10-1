@@ -2,13 +2,10 @@
 
 
 ARCH=arm
-CROSS_COMPILE=arm-none-eabi-
+CROSS_COMPILE=arm-cortexa9_neon-linux-gnueabihf-
 
-# Relative to the root of this repo
-BUILD=build
-
-
-KEY=7C4E0304550509072D2C7B38170D1711
+LINUX=linux-3-lenovo
+#LINUX=linux-4.4.32
 
 
 

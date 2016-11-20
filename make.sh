@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
+
 set -e
+
+
+KEY=7C4E0304550509072D2C7B38170D1711
 
 SCRIPT=$0
 DIR=$(dirname ${SCRIPT})
 DIR=$(readlink -f ${DIR})
+BUILDDIR=${DIR}/${BUILD}
+INITRAMFS=${BUILDDIR}/initramfs
 
 if [ ! -r ${DIR}/config ]; then
 	echo "Please copy config.example to config, check it, and run this again."
@@ -13,8 +19,10 @@ fi;
 
 source ${DIR}/config
 
-BUILDDIR=${DIR}/${BUILD}
-INITDIR=${BUILDDIR}/initramfs
+
+KCONFIG=${DIR}/kernels/kconfig/${LINUX}
+KERNEL=${DIR}/kernels/${LINUX}
+
 
 RKFLASHTOOL=${DIR}/submodules/rkflashtool/rkflashtool
 RKCRC=${DIR}/submodules/rkflashtool/rkcrc
@@ -24,10 +32,10 @@ MKBOOTIMG=${DIR}/submodules/rockchip-mkbootimg/mkbootimg
 
 git submodule init
 
-rm -rf ${INITDIR}/
-
+rm -rf ${INITRAMFS}/
 mkdir -p ${BUILDDIR}
-mkdir -p ${INITDIR}/
+mkdir -p ${INITRAMFS}/
+
 
 
 # Compile rkflashtool
@@ -55,23 +63,22 @@ mkdir -p ${INITDIR}/
 
 echo "Configuring and compiling the kernel and modules"
 
-( cd ${DIR}/kernel && \
-	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make rk3188_flex10_defconfig && \
-	cp ${DIR}/kernel-config ./.config && \
+( cd ${KERNEL} && \
+	cp ${KCONFIG} ${KERNEL}/.config && \
 	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make && \
 	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make modules && \
-	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make modules_install INSTALL_MOD_PATH=${INITDIR} && \
+	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make modules_install INSTALL_MOD_PATH=${INITRAMFS} && \
 	cd - )
 
 
-cp -f ${DIR}/kernel/arch/arm/boot/Image ${BUILDDIR}/
+cp -f ${KERNEL}/arch/arm/boot/Image ${BUILDDIR}/
 
 
 # Creating the initramfs
 
 (
-	cp -rf ${DIR}/initramfs/* ${INITDIR}/
-	cd ${INITDIR}
+	cp -rf ${DIR}/initramfs/* ${INITRAMFS}/
+	cd ${INITRAMFS}
 	find . | cpio -H newc -o > ${BUILDDIR}/initramfs.cpio
 	cat ${BUILDDIR}/initramfs.cpio | gzip -9 > ${BUILDDIR}/initramfs.igz
 	cd -
