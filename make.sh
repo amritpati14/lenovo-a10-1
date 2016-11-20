@@ -9,7 +9,7 @@ KEY=7C4E0304550509072D2C7B38170D1711
 SCRIPT=$0
 DIR=$(dirname ${SCRIPT})
 DIR=$(readlink -f ${DIR})
-BUILDDIR=${DIR}/${BUILD}
+BUILDDIR=${DIR}/build
 INITRAMFS=${BUILDDIR}/initramfs
 
 if [ ! -r ${DIR}/config ]; then
@@ -20,7 +20,7 @@ fi;
 source ${DIR}/config
 
 
-KCONFIG=${DIR}/kernels/kconfig/${LINUX}
+KCONFIG=${DIR}/kernels/kconfigs/${LINUX}
 KERNEL=${DIR}/kernels/${LINUX}
 
 
