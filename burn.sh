@@ -14,7 +14,7 @@ fi;
 
 source ${DIR}/config
 
-BUILDDIR=${DIR}/${BUILD}
+BUILDDIR=${DIR}/build
 OFILE=${BUILDDIR}/sdboot_rk3188.img
 
 dd if=/dev/zero of=${OFILE} conv=sync,fsync \
