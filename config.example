@@ -4,7 +4,7 @@
 ARCH=arm
 CROSS_COMPILE=arm-cortexa9_neon-linux-gnueabihf-
 
-LINUX=linux-3-lenovo
+LINUX=linux-3.0.36
 #LINUX=linux-4.4.32
 
 

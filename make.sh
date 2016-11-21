@@ -78,6 +78,7 @@ cp -f ${KERNEL}/arch/arm/boot/Image ${BUILDDIR}/
 
 (
 	cp -rf ${DIR}/initramfs/* ${INITRAMFS}/
+	cp -rf ${DIR}/drivers ${INITRAMFS}/
 	cd ${INITRAMFS}
 	find . | cpio -H newc -o > ${BUILDDIR}/initramfs.cpio
 	cat ${BUILDDIR}/initramfs.cpio | gzip -9 > ${BUILDDIR}/initramfs.igz
