@@ -24,9 +24,7 @@ KCONFIG=${DIR}/kernels/kconfigs/${LINUX}
 KERNEL=${DIR}/kernels/${LINUX}
 
 
-RKFLASHTOOL=${DIR}/submodules/rkflashtool/rkflashtool
 RKCRC=${DIR}/submodules/rkflashtool/rkcrc
-UNPACK=${DIR}/submodules/rk3066-rom-scripts/unpack_loader.pl
 MKBOOTIMG=${DIR}/submodules/rockchip-mkbootimg/mkbootimg
 
 
@@ -48,18 +46,6 @@ mkdir -p ${INITRAMFS}/
 	make && \
 	cd - )
 
-
-# Compile uboot
-#( cd ${DIR}/submodules/u-boot-rockchip && \
-#	git checkout u-boot-rk3188-sdcard && \
-#	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make rk30xx_config && \
-#	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make rk30xx && \
-#	cd - )
-
-#cp -f ${DIR}/submodules/u-boot-rockchip/RK3188Loader_uboot.bin ${BUILDDIR}/RK3188Loader.bin
-#cp -f ${DIR}/submodules/u-boot-rockchip/u-boot.bin ${BUILDDIR}/u-boot.bin
-#${RKCRC} -k ${BUILDDIR}/u-boot.bin ${BUILDDIR}/kernel.img
-#${RKCRC} -k ${BUILDDIR}/u-boot.bin ${BUILDDIR}/boot.img
 
 echo "Configuring and compiling the kernel and modules"
 
@@ -91,8 +77,6 @@ cp -f ${DIR}/parts/unknown.2 ${BUILDDIR}/unknown.2
 
 
 ${RKCRC} -p ${DIR}/parts/parameters ${BUILDDIR}/parameters.img
-#${RKCRC} -k ${BUILDDIR}/initramfs.igz ${BUILDDIR}/initramfs.img
-#${RKCRC} -k ${BUILDDIR}/Image ${BUILDDIR}/kernel.img
 
 
 openssl rc4 -K ${KEY} < ${DIR}/parts/sd_header.1 > ${BUILDDIR}/sd_header.1.rc4
