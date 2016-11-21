@@ -13,7 +13,7 @@ if [ ! -r ${DIR}/config ]; then
 fi;
 
 source ${DIR}/config
-source ${DIR}/config.defaults
+source ${DIR}/defaults
 
 rm -f ${OFILESD} ${OFILENAND}
 
@@ -63,6 +63,17 @@ dd if=${BUILDDIR}/parameters.img of=${OFILENAND} conv=notrunc,sync,fsync \
 	seek=$((0x0000))
 
 
+
+# --------------------
+
+
+echo;
+echo;
+
+echo "Images created:";
+echo "    SD CARD IMAGE: ${OFILESD}"
+echo "       NAND IMAGE: ${OFILENAND}"
+echo "done"
 
 
 

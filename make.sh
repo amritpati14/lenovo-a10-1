@@ -26,7 +26,7 @@ if [ ! -r ${DIR}/config.defaults ]; then
 	exit -1
 fi;
 
-source ${DIR}/config.defaults
+source ${DIR}/defaults
 
 # ******************  Displaying information
 

@@ -13,6 +13,6 @@ MKBOOTIMG=${DIR}/submodules/rockchip-mkbootimg/mkbootimg
 
 
 OFILESD=${BUILDDIR}/rk3188_sdboot.img
-OFILENAND=${BUILDDIR}/rk3188_sdboot.img
+OFILENAND=${BUILDDIR}/rk3188_nand.img
 
 
