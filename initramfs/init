@@ -30,7 +30,11 @@ busybox --install -s
 mdev -s
 
 modprobe fbcon
+insmod /extra/modules/rk30xxnand_ko.ko
+insmod /extra/modules/rtl8723as.ko
+
+
+mdev -s
 
 /bin/sh
-
 

@@ -45,6 +45,11 @@ dd if=${BUILDDIR}/boot.img of=${OFILESD} conv=notrunc,sync,fsync \
 	seek=$((0x2000 + 0x4000))
 
 
+
+dd if=${BUILDDIR}/parameters.img of=${OFILESD} conv=notrunc,sync,fsync \
+	seek=$((0x2000))
+
+
 # ----------------
 # And here they differ so we copy them
 
@@ -52,12 +57,7 @@ cp ${OFILESD} ${OFILENAND}
 
 # ----------------
 
-# On the SD image, put the parameters at block 64
-
-dd if=${BUILDDIR}/parameters.img of=${OFILESD} conv=notrunc,sync,fsync \
-	seek=$((0x2000))
-
-# On the NAND image, put the parameters at block 0
+# On the NAND image, put the parameters at block 0 also
 
 dd if=${BUILDDIR}/parameters.img of=${OFILENAND} conv=notrunc,sync,fsync \
 	seek=$((0x0000))

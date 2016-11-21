@@ -21,8 +21,8 @@ source ${DIR}/config
 
 # ******************  Set up defaults and locations
 
-if [ ! -r ${DIR}/config.defaults ]; then
-	echo "config.defaults is not found. Something is wrong."
+if [ ! -r ${DIR}/defaults ]; then
+	echo "defaults is not found. Something is wrong."
 	exit -1
 fi;
 
@@ -137,7 +137,6 @@ cp -f ${KERNEL}/arch/arm/boot/Image ${BUILDDIR}/
 
 (
 	cp -rf ${DIR}/initramfs/* ${INITRAMFSOUT}/
-	cp -rf ${DIR}/drivers ${INITRAMFSOUT}/
 	cd ${INITRAMFSOUT}
 	find . | cpio -H newc -o > ${BUILDDIR}/initramfs.cpio
 	cat ${BUILDDIR}/initramfs.cpio | gzip -9 > ${BUILDDIR}/initramfs.igz
