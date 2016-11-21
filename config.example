@@ -3,9 +3,14 @@
 
 ARCH=arm
 CROSS_COMPILE=arm-cortexa9_neon-linux-gnueabihf-
-
 LINUX=linux-3.0.36
-#LINUX=linux-4.4.32
 
+# By default, we shall use a build/ subdirectory relative to the
+# source tree root. If you would like to use another directory, enter it
+# here.
+#
+# ** BE WARNED THAT THIS DIRECTORY SHALL BE CLEANSED WITH AN "rm -rf" **
+#
+#BUILDDIR=build/
 
 
