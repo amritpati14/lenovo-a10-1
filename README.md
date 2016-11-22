@@ -44,6 +44,9 @@ ct-ng build
 no gdb
 
 
+Linux 3.0.36 Kernel + extra modules
+Busybox
+
 
 video=U:1368x768-16@
 

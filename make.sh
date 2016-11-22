@@ -126,6 +126,8 @@ echo "Configuring and compiling the kernel and modules"
 	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make && \
 	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make modules && \
 	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make modules_install INSTALL_MOD_PATH=${INITRAMFSOUT} && \
+	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make firmware_install INSTALL_MOD_PATH=${INITRAMFSOUT} && \
+	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make headers_install INSTALL_HDR_PATH=${INITRAMFSOUT}/usr/ && \
 	cd - )
 
 
@@ -141,7 +143,6 @@ cp -f ${KERNEL}/arch/arm/boot/Image ${BUILDDIR}/
 	cat ${BUILDDIR}/initramfs.cpio | gzip -9 > ${BUILDDIR}/initramfs.igz
 	cd -
 )
-
 
 # ******************  Adding in the unknowns
 
