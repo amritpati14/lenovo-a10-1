@@ -9,7 +9,7 @@ set -e
 # ****************** Load up configurations
 
 SCRIPT=$0
-DIR=$(dirname ${SCRIPT})
+DIR=$(dirname ${SCRIPT})/../
 DIR=$(readlink -f ${DIR})
 
 if [ ! -r ${DIR}/config ]; then
@@ -28,29 +28,20 @@ fi;
 
 source ${DIR}/defaults
 
-# ******************  Displaying information
 
-if [ ! -r ${KCONFIG} ]; then
-	echo "ERROR - can't open kernel config: ${KCONFIG}";
-	exit -1;
-fi;
+# ******************  Ensuring the build directory
 
-if [ ! -d ${KERNEL} ]; then
-	echo "ERROR - kernel directory not found: ${KERNEL}";
-	exit -1;
+if [ ! -d ${BUILDDIR} ]; then
+	mkdir -p ${BUILDDIR};
 fi;
 
 
-# ******************  Initializing submodules
+# ******************  Creating the initramfs
 
-echo "Configuring and compiling the kernel and modules"
-
-( cd ${KERNEL} && \
-	cp ${KCONFIG} ${KERNEL}/.config && \
-	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make distclean && \
-	cd - )
-
-
-
+(
+	cd ${INITRAMFS}
+	find . | cpio -H newc -o | gzip -9 > ${BUILDDIR}/initramfs.igz
+	cd -
+)
 
 

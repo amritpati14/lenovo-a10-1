@@ -9,7 +9,7 @@ set -e
 # ****************** Load up configurations
 
 SCRIPT=$0
-DIR=$(dirname ${SCRIPT})
+DIR=$(dirname ${SCRIPT})/../
 DIR=$(readlink -f ${DIR})
 
 if [ ! -r ${DIR}/config ]; then
@@ -36,7 +36,8 @@ git submodule init
 # ******************  Cleaning up build tree
 
 if [ ! -d ${BUILDDIR} ]; then
-	mkdir -p ${BUILDDIR};
+	echo "The build directory is missing so you've forgotten a few steps";
+	exit 1;
 fi;
 
 

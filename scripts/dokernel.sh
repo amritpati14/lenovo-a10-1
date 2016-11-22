@@ -9,7 +9,7 @@ set -e
 # ****************** Load up configurations
 
 SCRIPT=$0
-DIR=$(dirname ${SCRIPT})
+DIR=$(dirname ${SCRIPT})/../
 DIR=$(readlink -f ${DIR})
 
 if [ ! -r ${DIR}/config ]; then

@@ -1,3 +1,12 @@
+#!/usr/bin/env bash
+
+
+if [ "z${DIR}" == "z" ]; then
+	echo "Do not use this defaults file this way. It needs a DIR specified";
+	exit 1;
+fi;
+
+
 
 ARCH=${ARCH:-arm}
 LINUX=${LINUX:-linux-3.0.36}
