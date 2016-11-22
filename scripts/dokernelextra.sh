@@ -67,6 +67,10 @@ echo "Configuring and compiling the kernel and modules"
 ( cd ${KERNEL} && \
 	cp ${KCONFIG} ${KERNEL}/.config && \
 	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make && \
+	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make modules && \
+	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make modules_install INSTALL_MOD_PATH=${INITRAMFS} && \
+	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make firmware_install INSTALL_MOD_PATH=${INITRAMFS} && \
+	ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make headers_install INSTALL_HDR_PATH=${INITRAMFS}/usr/ && \
 	cd - )
 
 

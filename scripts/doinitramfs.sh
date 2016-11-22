@@ -40,7 +40,8 @@ fi;
 
 (
 	cd ${INITRAMFS}
-	find . | cpio -H newc -o | gzip -9 > ${BUILDDIR}/initramfs.igz
+	find . | cpio -H newc -o > ${BUILDDIR}/initramfs.cpio
+	cat ${BUILDDIR}/initramfs.cpio | gzip -9 > ${BUILDDIR}/initramfs.igz
 	cd -
 )
 
