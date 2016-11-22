@@ -1,6 +1,3 @@
 [submodule "submodules/rkflashtool"]
 	path = submodules/rkflashtool
 	url = https://github.com/durandmiller/rkflashtool.git
-[submodule "submodules/rockchip-mkbootimg"]
-	path = submodules/rockchip-mkbootimg
-	url = https://github.com/durandmiller/rockchip-mkbootimg.git

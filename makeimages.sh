@@ -41,13 +41,11 @@ dd if=${BUILDDIR}/unknown.2 of=${OFILESD} conv=notrunc,sync,fsync \
 
 # ----------------
 
-dd if=${BUILDDIR}/boot.img of=${OFILESD} conv=notrunc,sync,fsync \
+dd if=${BUILDDIR}/Image.krn of=${OFILESD} conv=notrunc,sync,fsync \
 	seek=$((0x2000 + 0x4000))
 
-
-
-dd if=${BUILDDIR}/parameters.img of=${OFILESD} conv=notrunc,sync,fsync \
-	seek=$((0x2000))
+dd if=${BUILDDIR}/initramfs.igz.krn of=${OFILESD} conv=notrunc,sync,fsync \
+	seek=$((0x2000 + 0x14000))
 
 
 # ----------------
@@ -57,7 +55,14 @@ cp ${OFILESD} ${OFILENAND}
 
 # ----------------
 
-# On the NAND image, put the parameters at block 0 also
+
+# On the SD image, put the parameters at block 64
+
+dd if=${BUILDDIR}/parameters.img of=${OFILESD} conv=notrunc,sync,fsync \
+	seek=$((0x2000))
+
+
+# On the NAND image, put the parameters at block 0
 
 dd if=${BUILDDIR}/parameters.img of=${OFILENAND} conv=notrunc,sync,fsync \
 	seek=$((0x0000))

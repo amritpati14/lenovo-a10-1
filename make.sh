@@ -169,11 +169,8 @@ openssl rc4 -K ${KEY} < ${DIR}/parts/FlashData.bin > ${BUILDDIR}/FlashData.bin.r
 # ******************  Make the boot image
 
 
-${MKBOOTIMG} \
-	--kernel ${BUILDDIR}/Image \
-	--ramdisk ${BUILDDIR}/initramfs.igz \
-	-o ${BUILDDIR}/boot.img
-
+${RKCRC} -k ${BUILDDIR}/Image ${BUILDDIR}/Image.krn
+${RKCRC} -k ${BUILDDIR}/initramfs.igz ${BUILDDIR}/initramfs.igz.krn
 
 
 # ******************  Create the images - NAND and SD card
