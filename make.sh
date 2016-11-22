@@ -116,9 +116,8 @@ mkdir -p ${INITRAMFSOUT}/
 # ******************  Compile rkflashtool
 ( cd ${DIR}/submodules/rkflashtool && make && cd - )
 
-# ******************  Compile rockchip-mkbootimg
-( cd ${DIR}/submodules/rockchip-mkbootimg && make && cd - )
 
+# ******************  Compile the kernel and modules
 
 echo "Configuring and compiling the kernel and modules"
 
