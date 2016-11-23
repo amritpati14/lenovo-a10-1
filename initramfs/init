@@ -14,8 +14,6 @@ mount -t proc -o nodev,noexec,nosuid proc /proc
 
 echo 0 > /proc/sys/kernel/printk
 
-busybox --install -s
-
 mdev -s
 
 # Create the console
