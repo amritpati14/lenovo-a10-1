@@ -7,7 +7,7 @@
 #define __UCLIBC_SUBLEVEL__ 33
 /* Automatically generated make config: don't edit */
 /* Version: 0.9.33 */
-/* Wed Nov 23 01:45:01 2016 */
+/* Wed Nov 23 02:26:12 2016 */
 #undef __TARGET_alpha__
 #define __TARGET_arm__ 1
 #undef __TARGET_avr32__
@@ -55,7 +55,7 @@
 #define __DO_C99_MATH__ 1
 #define __DO_XSI_MATH__ 1
 #define __UCLIBC_HAS_FENV__ 1
-#define __KERNEL_HEADERS__ "/home/durand/projects/public/lenovo-a10/initramfs/usr/include"
+#define __KERNEL_HEADERS__ "/home/durand/projects/public/lenovo-a10/initramfs/usr/include/"
 #define __HAVE_DOT_CONFIG__ 1
 
 /* General Library Settings */
@@ -65,7 +65,7 @@
 #define __LDSO_LDD_SUPPORT__ 1
 #define __LDSO_CACHE_SUPPORT__ 1
 #define __LDSO_PRELOAD_ENV_SUPPORT__ 1
-#undef __LDSO_PRELOAD_FILE_SUPPORT__
+#define __LDSO_PRELOAD_FILE_SUPPORT__ 1
 #define __LDSO_BASE_FILENAME__ "ld.so"
 #undef __LDSO_STANDALONE_SUPPORT__
 #undef __LDSO_PRELINK_SUPPORT__
@@ -75,7 +75,7 @@
 #define __LDSO_LD_LIBRARY_PATH__ 1
 #undef __LDSO_NO_CLEANUP__
 #define __UCLIBC_CTOR_DTOR__ 1
-#undef __LDSO_GNU_HASH_SUPPORT__
+#define __LDSO_GNU_HASH_SUPPORT__ 1
 #undef __HAS_NO_THREADS__
 #undef __LINUXTHREADS_OLD__
 #undef __LINUXTHREADS_NEW__
@@ -91,7 +91,7 @@
 #undef __MALLOC_GLIBC_COMPAT__
 #define __UCLIBC_DYNAMIC_ATEXIT__ 1
 #undef __COMPAT_ATEXIT__
-#undef __UCLIBC_SUSV3_LEGACY__
+#define __UCLIBC_SUSV3_LEGACY__ 1
 #undef __UCLIBC_SUSV3_LEGACY_MACROS__
 #undef __UCLIBC_SUSV4_LEGACY__
 #undef __UCLIBC_STRICT_HEADERS__
@@ -102,7 +102,7 @@
 #define __ASSUME_DEVPTS__ 1
 #define __UNIX98PTY_ONLY__ 1
 #undef __UCLIBC_HAS_GETPT__
-#undef __UCLIBC_HAS_LIBUTIL__
+#define __UCLIBC_HAS_LIBUTIL__ 1
 #define __UCLIBC_HAS_TM_EXTENSIONS__ 1
 #define __UCLIBC_HAS_TZ_CACHING__ 1
 #define __UCLIBC_HAS_TZ_FILE__ 1
@@ -138,7 +138,9 @@
 #define __UCLIBC_HAS_SOCKET__ 1
 #define __UCLIBC_HAS_IPV4__ 1
 #define __UCLIBC_HAS_IPV6__ 1
-#undef __UCLIBC_HAS_RPC__
+#define __UCLIBC_HAS_RPC__ 1
+#define __UCLIBC_HAS_FULL_RPC__ 1
+#define __UCLIBC_HAS_REENTRANT_RPC__ 1
 #undef __UCLIBC_USE_NETLINK__
 #undef __UCLIBC_HAS_BSD_RES_CLOSE__
 #define __UCLIBC_HAS_COMPAT_RES_STATE__ 1
@@ -152,13 +154,14 @@
 #define __UCLIBC_HAS_STRING_ARCH_OPT__ 1
 #define __UCLIBC_HAS_CTYPE_TABLES__ 1
 #define __UCLIBC_HAS_CTYPE_SIGNED__ 1
-#define __UCLIBC_HAS_CTYPE_UNSAFE__ 1
-#undef __UCLIBC_HAS_CTYPE_CHECKED__
+#undef __UCLIBC_HAS_CTYPE_UNSAFE__
+#define __UCLIBC_HAS_CTYPE_CHECKED__ 1
 #undef __UCLIBC_HAS_CTYPE_ENFORCED__
-#define __UCLIBC_HAS_WCHAR__ 1
+#undef __UCLIBC_HAS_WCHAR__
 #undef __UCLIBC_HAS_LOCALE__
 #define __UCLIBC_HAS_HEXADECIMAL_FLOATS__ 1
 #undef __UCLIBC_HAS_GLIBC_CUSTOM_PRINTF__
+#undef __USE_OLD_VFPRINTF__
 #define __UCLIBC_PRINTF_SCANF_POSITIONAL_ARGS__ 9
 #undef __UCLIBC_HAS_SCANF_GLIBC_A_FLAG__
 #undef __UCLIBC_HAS_STDIO_BUFSIZ_NONE__
@@ -175,11 +178,11 @@
 #define __UCLIBC_HAS_STDIO_GETC_MACRO__ 1
 #define __UCLIBC_HAS_STDIO_PUTC_MACRO__ 1
 #define __UCLIBC_HAS_STDIO_AUTO_RW_TRANSITION__ 1
-#undef __UCLIBC_HAS_FOPEN_LARGEFILE_MODE__
-#undef __UCLIBC_HAS_FOPEN_EXCLUSIVE_MODE__
-#undef __UCLIBC_HAS_FOPEN_CLOSEEXEC_MODE__
-#undef __UCLIBC_HAS_GLIBC_CUSTOM_STREAMS__
-#undef __UCLIBC_HAS_PRINTF_M_SPEC__
+#define __UCLIBC_HAS_FOPEN_LARGEFILE_MODE__ 1
+#define __UCLIBC_HAS_FOPEN_EXCLUSIVE_MODE__ 1
+#define __UCLIBC_HAS_FOPEN_CLOSEEXEC_MODE__ 1
+#define __UCLIBC_HAS_GLIBC_CUSTOM_STREAMS__ 1
+#define __UCLIBC_HAS_PRINTF_M_SPEC__ 1
 #define __UCLIBC_HAS_ERRNO_MESSAGES__ 1
 #undef __UCLIBC_HAS_SYS_ERRLIST__
 #define __UCLIBC_HAS_SIGNUM_MESSAGES__ 1
@@ -193,11 +196,11 @@
 #define __UCLIBC_HAS_REGEX_OLD__ 1
 #define __UCLIBC_HAS_FNMATCH__ 1
 #define __UCLIBC_HAS_FNMATCH_OLD__ 1
-#undef __UCLIBC_HAS_WORDEXP__
-#undef __UCLIBC_HAS_NFTW__
-#undef __UCLIBC_HAS_FTS__
+#define __UCLIBC_HAS_WORDEXP__ 1
+#define __UCLIBC_HAS_NFTW__ 1
+#define __UCLIBC_HAS_FTS__ 1
 #define __UCLIBC_HAS_GLOB__ 1
-#undef __UCLIBC_HAS_GNU_GLOB__
+#define __UCLIBC_HAS_GNU_GLOB__ 1
 #undef __UCLIBC_HAS_UTMPX__
 
 /* Library Installation Options */
