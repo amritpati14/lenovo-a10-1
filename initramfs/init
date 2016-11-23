@@ -1,37 +1,28 @@
 #!/bin/sh
 
 
-[ -d /dev ] || mkdir -m 0755 /dev
-[ -d /root ] || mkdir -m 0700 /root
-[ -d /run ] || mkdir -m 0755 /run
 [ -d /sys ] || mkdir /sys
 [ -d /proc ] || mkdir /proc
-[ -d /tmp ] || mkdir /tmp
 
-
-[ -d /sbin ] || mkdir -m 0755 /sbin
-[ -d /usr ] || mkdir -m 0755 /usr
-[ -d /usr/sbin ] || mkdir -m 0755 /usr/sbin
-[ -d /usr/bin ] || mkdir -m 0755 /usr/bin
-
-mkdir -p /var/lock
+# Set up our filesystems
 
 mount -t tmpfs -o size=64k,mode=0755 tmpfs /dev
 mkdir /dev/pts
 mount -t devpts devpts /dev/pts
-
 mount -t sysfs -o nodev,noexec,nosuid sysfs /sys
 mount -t proc -o nodev,noexec,nosuid proc /proc
 
 echo 0 > /proc/sys/kernel/printk
 
+busybox --install -s
+
 mdev -s
+
+# Create the console
 
 modprobe fbcon
 
-echo "This is the shell before init runs.  Exit the shell to run /sbin/init"
-
-/bin/sh
 
 exec /sbin/init
+
 
