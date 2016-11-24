@@ -17,13 +17,7 @@ echo 0 > /proc/sys/kernel/printk
 mdev -s
 
 # Create the console
-
 modprobe fbcon
-
-echo "What's up?"
-
-/bin/sh
-
 
 exec /sbin/init
 
