@@ -20,6 +20,11 @@ mdev -s
 
 modprobe fbcon
 
+echo "What's up?"
+
+/bin/sh
+
+
 exec /sbin/init
 
 

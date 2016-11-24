@@ -41,11 +41,13 @@ dd if=${BUILDDIR}/unknown.2 of=${OFILESD} conv=notrunc,sync,fsync \
 
 # ----------------
 
+# Less than 16 MB!!
 dd if=${BUILDDIR}/Image.krn of=${OFILESD} conv=notrunc,sync,fsync \
 	seek=$((0x2000 + 0x4000))
 
+# Less than 64 MB!!
 dd if=${BUILDDIR}/initramfs.igz.krn of=${OFILESD} conv=notrunc,sync,fsync \
-	seek=$((0x2000 + 0x14000))
+	seek=$((0x2000 + 0xC000))
 
 
 # ----------------
