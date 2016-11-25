@@ -31,18 +31,31 @@ source ${DIR}/defaults
 
 # ******************  Ensuring the build directory
 
-if [ ! -d ${BUILDDIR} ]; then
-	mkdir -p ${BUILDDIR};
+
+if [ -d ${BUILDDIR}/initramfs ]; then
+	rm -rf ${BUILDDIR}/initramfs
 fi;
 
 
 # ******************  Creating the initramfs
 
 (
-	cd ${INITRAMFS}
-	find . | cpio -H newc -R +0:+0 -o > ${BUILDDIR}/initramfs.cpio
-	cat ${BUILDDIR}/initramfs.cpio | gzip -9 > ${BUILDDIR}/initramfs.igz
+	MODDIR=${BUILDDIR}/initramfs/lib/modules/${LVERSION}
+	LENOVODIR=${MODDIR}/lenovo
+
+	cp -rf ${INITRAMFS} ${BUILDDIR}
+	mkdir -p ${LENOVODIR}
+	cp -rf ${DIR}/originals/modules/* ${LENOVODIR}/
+
+	chmod -f u-w ${BUILDDIR}/initramfs/{sys,proc,srv/ftp}
+
+	depmod -b ${BUILDDIR}/initramfs/ 3.0.36
+
+	cd ${BUILDDIR}/initramfs/
+	find . | cpio -H newc -R +0:+0 -o | gzip -9 > ${BUILDDIR}/initramfs.igz
 	cd -
+
+	chmod -f u+w ${BUILDDIR}/initramfs/{sys,proc,srv/ftp}
 )
 
 
