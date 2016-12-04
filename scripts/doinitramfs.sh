@@ -33,6 +33,7 @@ source ${DIR}/defaults
 
 
 if [ -d ${BUILDDIR}/initramfs ]; then
+	chmod -f u+w ${BUILDDIR}/initramfs/{sys,proc,srv/ftp}
 	rm -rf ${BUILDDIR}/initramfs
 fi;
 
@@ -49,7 +50,7 @@ fi;
 
 	chmod -f u-w ${BUILDDIR}/initramfs/{sys,proc,srv/ftp}
 
-	depmod -b ${BUILDDIR}/initramfs/ 3.0.36
+	depmod -b ${BUILDDIR}/initramfs/ ${LVERSION}
 
 	cd ${BUILDDIR}/initramfs/
 	find . | cpio -H newc -R +0:+0 -o | gzip -9 > ${BUILDDIR}/initramfs.igz
