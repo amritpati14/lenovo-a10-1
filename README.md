@@ -1,15 +1,55 @@
+# Linux on the Lenovo A10 Multimode Laptop
+
+
+
+## Design and Layout
+
+### Scripts
+
+
+
+## Building
+
+### Building the crossover toolchain
+
+
+'''
+crosstools-ng
+arm-cortexa9_neon-linux-gnueabihf
+
+mkdir ~/path/to/toolchain/dir
+go there
+ct-ng arm-cortexa9_neon-linux-gnueabihf
+ct-ng menuconfig
+ct-ng build
+'''
+
+
+### Installing the toolchain
+
+
+### Building the kernel
+
+multi_v7_defconfig
+
+### Building the initramfs
+
+### Building the SD card image
+
+## Booting
+
+## Installing onto the internal disk
+
+
+
+
+
+
+
+
 # lenovo-a10
 Official Lenovo Ideapad/Multimode A10 Laptop releases
 
-
-ARCH=arm
-export ARCH
-
-CROSS_COMPILE=arm=none-eabi-
-export CROSS_COMPILE
-
-
-make rk3188_flex10_defconfig
 
 make
 make modules
@@ -29,23 +69,10 @@ drivers - graphics - radeon
 
 http://crosstool-ng.org/
 
-crosstools-ng
-arm-cortexa9_neon-linux-gnueabihf
-
-
-mkdir ~/path/to/toolchain/dir
-go there
-ct-ng arm-cortexa9_neon-linux-gnueabihf
-ct-ng menuconfig
-ct-ng build
-
 
 4.9 kernel
 no gdb
 
-
-Linux 3.0.36 Kernel + extra modules
-Busybox
 
 
 video=U:1368x768-16@
