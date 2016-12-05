@@ -11,43 +11,87 @@ PREVIOUS=
 NEXT=
 
 
+mkdir -p ./.merge
+
+
 for fname in `diff -qr ${SRC} ${TGT} | grep "^Files " | sed "s/Files linux\-3\.0\.36\/\(.*\) and.*/\1/"`; do
 
 	NEXT=${fname}
 
 	if [ ! -z "${CURRENT}" ]; then
 
-		check="r"
+		CHECK="r"
 
-		while [ "${check}" == "r" ]; do
+		diff -DOLDKERNEL ${SRC}/${CURRENT} ${TGT}/${CURRENT} > ./.tmp
 
-			sdiff -o ./.tmp -W -B ${SRC}/${CURRENT} ${TGT}/${CURRENT}
+		FIXED=`echo ${CURRENT} | sed "s/\//_/g"`
+		FIXED="./.merge/${FIXED}"
+
+		while [ "${CHECK}" == "r" -a ! -f ${FIXED} ]; do
+
+			clear
+
+			diff ${SRC}/${CURRENT} ${TGT}/${CURRENT}
 
 			echo "( current = ${CURRENT}, next = ${NEXT} )"
 			echo "(1) accept the left, (9) accept the right"
-			echo "(s)ave, (r)edo, (w)rite and quit"
-			echo -n "(q)uit ?   "
+			echo "(s) save, (r) redo, (w) write and quit"
+			echo "(e) edit the output"
+			echo "(d) show the diff"
+			echo "(m) merge"
+			echo "(n) next (default)"
+			echo -n "(q) quit ?   "
 
-			read check
+			read CHECK
 
-			if [ "${check}" == "s" ]; then
-				cp -f ./.tmp ${TGT}/${CURRENT}
+			if [ "${CHECK}" == "m" ]; then
+				sdiff -o ./.tmp -W -B ${SRC}/${CURRENT} ${TGT}/${CURRENT}
+				CHECK="r";
+				continue;
 			fi;
 
-			if [ "${check}" == "w" ]; then
+			if [ "${CHECK}" == "e" ]; then
+				vim ./.tmp
+				CHECK="r";
+				continue;
+			fi;
+
+			if [ "${CHECK}" == "d" -o "${CHECK}" == "r" ]; then
+				CHECK="r";
+				continue;
+			fi;
+
+
+
+			if [ "${CHECK}" == "s" ]; then
 				cp -f ./.tmp ${TGT}/${CURRENT}
+				touch ${FIXED}
+				break;
+			fi;
+
+			if [ "${CHECK}" == "w" ]; then
+				cp -f ./.tmp ${TGT}/${CURRENT}
+				touch ${FIXED}
 				exit;
 			fi;
 
-			if [ "${check}" == "q" ]; then
+			if [ "${CHECK}" == "q" ]; then
 				exit;
 			fi;
 
-			if [ "${check}" == "1" ]; then
+			if [ "${CHECK}" == "1" ]; then
 				cp -f ${SRC}/${CURRENT} ${TGT}/${CURRENT}
+				touch ${FIXED}
+				break;
 			fi;
 
-			if [ "${check}" != "r" ]; then
+			if [ "${CHECK}" == "9" ]; then
+				touch ${FIXED}
+				break;
+			fi;
+
+
+			if [ "${CHECK}" != "n" ]; then
 				break;
 			fi;
 
