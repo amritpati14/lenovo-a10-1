@@ -24,8 +24,15 @@ ct-ng menuconfig
 ct-ng build
 '''
 
+### Building and installing Busybox
+
+make menuconfig
+make
+make PREFIX=... install
 
 ### Installing the toolchain
+
+arm-cortexa9_neon-linux_4.4.36-gnueabihf-populate -m -s ~/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/ -d .
 
 
 ### Building the kernel

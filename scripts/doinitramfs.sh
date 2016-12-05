@@ -5,12 +5,12 @@
 
 set -e
 
-
 # ****************** Load up configurations
 
 SCRIPT=$0
 DIR=$(dirname ${SCRIPT})/../
 DIR=$(readlink -f ${DIR})
+
 
 if [ ! -r ${DIR}/config ]; then
 	echo "Please copy config.example to config, check it, and run this again."
@@ -20,6 +20,7 @@ fi;
 source ${DIR}/config
 
 # ******************  Set up defaults and locations
+
 
 if [ ! -r ${DIR}/defaults ]; then
 	echo "defaults is not found. Something is wrong."
@@ -33,7 +34,11 @@ source ${DIR}/defaults
 
 
 if [ -d ${BUILDDIR}/initramfs ]; then
-	chmod -f u+w ${BUILDDIR}/initramfs/{sys,proc,srv/ftp}
+	for pat in sys proc srv/ftp; do
+		if [ -d ${BUILDDIR}/initramfs/${pat} ]; then
+			chmod -f u+w ${BUILDDIR}/initramfs/${pat}
+		fi;
+	done
 	rm -rf ${BUILDDIR}/initramfs
 fi;
 
@@ -48,7 +53,11 @@ fi;
 	mkdir -p ${LENOVODIR}
 	cp -rf ${DIR}/originals/modules/* ${LENOVODIR}/
 
-	chmod -f u-w ${BUILDDIR}/initramfs/{sys,proc,srv/ftp}
+	for pat in sys proc srv/ftp; do
+		if [ -d ${BUILDDIR}/initramfs/${pat} ]; then
+			chmod -f u-w ${BUILDDIR}/initramfs/${pat}
+		fi;
+	done
 
 	depmod -b ${BUILDDIR}/initramfs/ ${LVERSION}
 
@@ -56,7 +65,12 @@ fi;
 	find . | cpio -H newc -R +0:+0 -o | gzip -9 > ${BUILDDIR}/initramfs.igz
 	cd -
 
-	chmod -f u+w ${BUILDDIR}/initramfs/{sys,proc,srv/ftp}
+	for pat in sys proc srv/ftp; do
+		if [ -d ${BUILDDIR}/initramfs/${pat} ]; then
+			chmod -f u+w ${BUILDDIR}/initramfs/${pat}
+		fi;
+	done
+
 )
 
 

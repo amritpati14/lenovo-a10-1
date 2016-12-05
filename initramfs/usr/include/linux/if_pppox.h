@@ -20,9 +20,9 @@
 #include <linux/types.h>
 #include <asm/byteorder.h>
 
+#include <linux/socket.h>
+#include <linux/if_ether.h>
 #include <linux/if_pppol2tp.h>
-#include <linux/if_pppolac.h>
-#include <linux/if_pppopns.h>
 
 /* For user-space programs to pick up these definitions
  * which they wouldn't get otherwise without defining __KERNEL__
@@ -46,7 +46,7 @@ struct pppoe_addr {
  * PPTP addressing definition
  */
 struct pptp_addr {
-	__be16		call_id;
+	__u16		call_id;
 	struct in_addr	sin_addr;
 };
 
@@ -56,12 +56,10 @@ struct pptp_addr {
 #define PX_PROTO_OE    0 /* Currently just PPPoE */
 #define PX_PROTO_OL2TP 1 /* Now L2TP also */
 #define PX_PROTO_PPTP  2
-#define PX_PROTO_OLAC  3
-#define PX_PROTO_OPNS  4
-#define PX_MAX_PROTO   5
+#define PX_MAX_PROTO   3
 
 struct sockaddr_pppox {
-	sa_family_t     sa_family;            /* address family, AF_PPPOX */
+	__kernel_sa_family_t sa_family;       /* address family, AF_PPPOX */
 	unsigned int    sa_protocol;          /* protocol identifier */
 	union {
 		struct pppoe_addr  pppoe;
@@ -75,18 +73,30 @@ struct sockaddr_pppox {
  * type instead.
  */
 struct sockaddr_pppol2tp {
-	sa_family_t     sa_family;      /* address family, AF_PPPOX */
+	__kernel_sa_family_t sa_family; /* address family, AF_PPPOX */
 	unsigned int    sa_protocol;    /* protocol identifier */
 	struct pppol2tp_addr pppol2tp;
+} __attribute__((packed));
+
+struct sockaddr_pppol2tpin6 {
+	__kernel_sa_family_t sa_family; /* address family, AF_PPPOX */
+	unsigned int    sa_protocol;    /* protocol identifier */
+	struct pppol2tpin6_addr pppol2tp;
 } __attribute__((packed));
 
 /* The L2TPv3 protocol changes tunnel and session ids from 16 to 32
  * bits. So we need a different sockaddr structure.
  */
 struct sockaddr_pppol2tpv3 {
-	sa_family_t     sa_family;      /* address family, AF_PPPOX */
+	__kernel_sa_family_t sa_family; /* address family, AF_PPPOX */
 	unsigned int    sa_protocol;    /* protocol identifier */
 	struct pppol2tpv3_addr pppol2tp;
+} __attribute__((packed));
+
+struct sockaddr_pppol2tpv3in6 {
+	__kernel_sa_family_t sa_family; /* address family, AF_PPPOX */
+	unsigned int    sa_protocol;    /* protocol identifier */
+	struct pppol2tpv3in6_addr pppol2tp;
 } __attribute__((packed));
 
 /*********************************************************************
@@ -125,11 +135,11 @@ struct pppoe_tag {
 
 struct pppoe_hdr {
 #if defined(__LITTLE_ENDIAN_BITFIELD)
-	__u8 ver : 4;
 	__u8 type : 4;
+	__u8 ver : 4;
 #elif defined(__BIG_ENDIAN_BITFIELD)
-	__u8 type : 4;
 	__u8 ver : 4;
+	__u8 type : 4;
 #else
 #error	"Please fix <asm/byteorder.h>"
 #endif
@@ -143,4 +153,4 @@ struct pppoe_hdr {
 #define PPPOE_SES_HLEN	8
 
 
-#endif /* !(__LINUX_IF_PPPOX_H) */
+#endif /* __LINUX_IF_PPPOX_H */

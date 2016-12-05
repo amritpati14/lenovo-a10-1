@@ -80,14 +80,10 @@
  *	SA_RESTORER	0x04000000
  */
 
-/*
- * sigaltstack controls
- */
-#define SS_ONSTACK	1
-#define SS_DISABLE	2
-
+#if !defined MINSIGSTKSZ || !defined SIGSTKSZ
 #define MINSIGSTKSZ	2048
 #define SIGSTKSZ	8192
+#endif
 
 #ifndef __ASSEMBLY__
 typedef struct {
@@ -99,6 +95,10 @@ typedef unsigned long old_sigset_t;
 
 #include <asm-generic/signal-defs.h>
 
+#ifdef SA_RESTORER
+#define __ARCH_HAS_SA_RESTORER
+#endif
+
 struct sigaction {
 	__sighandler_t sa_handler;
 	unsigned long sa_flags;
@@ -106,10 +106,6 @@ struct sigaction {
 	__sigrestore_t sa_restorer;
 #endif
 	sigset_t sa_mask;		/* mask last for extensibility */
-};
-
-struct k_sigaction {
-	struct sigaction sa;
 };
 
 typedef struct sigaltstack {
@@ -120,4 +116,4 @@ typedef struct sigaltstack {
 
 #endif /* __ASSEMBLY__ */
 
-#endif /* _ASM_GENERIC_SIGNAL_H */
+#endif /* __ASM_GENERIC_SIGNAL_H */

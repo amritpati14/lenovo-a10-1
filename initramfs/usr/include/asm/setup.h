@@ -16,11 +16,7 @@
 
 #include <linux/types.h>
 
-#ifdef CONFIG_RK_CONFIG
-#define COMMAND_LINE_SIZE 65536
-#else
 #define COMMAND_LINE_SIZE 1024
-#endif
 
 /* The list ends with an ATAG_NONE node. */
 #define ATAG_NONE	0x00000000
@@ -188,4 +184,4 @@ struct tagtable {
 	for (t = base; t->hdr.size; t = tag_next(t))
 
 
-#endif
+#endif /* __ASMARM_SETUP_H */
