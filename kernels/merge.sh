@@ -6,38 +6,58 @@ TGT=linux-3.0.65
 
 
 
+CURRENT=
+PREVIOUS=
+NEXT=
+
 
 for fname in `diff -qr ${SRC} ${TGT} | grep "^Files " | sed "s/Files linux\-3\.0\.36\/\(.*\) and.*/\1/"`; do
 
-	check="r"
+	NEXT=${fname}
 
-	while [ "${check}" == "r" ]; do
+	if [ ! -z "${CURRENT}" ]; then
 
-		sdiff -o ./.tmp -W -B ${SRC}/${fname} ${TGT}/${fname}
+		check="r"
 
-		echo -n "(s)ave, (r)edo, (w)rite and quite, (q)uit ?  "
+		while [ "${check}" == "r" ]; do
 
-		read check
+			sdiff -o ./.tmp -W -B ${SRC}/${CURRENT} ${TGT}/${CURRENT}
 
-		if [ "${check}" == "s" ]; then
-			cp -f ./.tmp ${TGT}/${fname}
-		fi;
+			echo "( current = ${CURRENT}, next = ${NEXT} )"
+			echo "(1) accept the left, (9) accept the right"
+			echo "(s)ave, (r)edo, (w)rite and quit"
+			echo -n "(q)uit ?   "
 
-		if [ "${check}" == "w" ]; then
-			cp -f ./.tmp ${TGT}/${fname}
-			exit;
-		fi;
+			read check
 
-		if [ "${check}" == "q" ]; then
-			exit;
-		fi;
+			if [ "${check}" == "s" ]; then
+				cp -f ./.tmp ${TGT}/${CURRENT}
+			fi;
 
-		if [ "${check}" != "r" ]; then
-			break;
-		fi;
+			if [ "${check}" == "w" ]; then
+				cp -f ./.tmp ${TGT}/${CURRENT}
+				exit;
+			fi;
 
-	done;
+			if [ "${check}" == "q" ]; then
+				exit;
+			fi;
 
+			if [ "${check}" == "1" ]; then
+				cp -f ${SRC}/${CURRENT} ${TGT}/${CURRENT}
+			fi;
+
+			if [ "${check}" != "r" ]; then
+				break;
+			fi;
+
+		done;
+
+	fi
+
+	PREVIOUS=${CURRENT}
+	CURRENT=${NEXT}
+	NEXT=
 
 done;
 
