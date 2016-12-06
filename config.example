@@ -2,14 +2,12 @@
 
 
 ARCH=arm
-CROSS_COMPILE=arm-cortexa9_neon-linux-gnueabihf-
-HOST=arm-cortexa9_neon-linux-gnueabihf
-LINUX=linux-3.0.36
-LVERSION=3.0.36+
+CROSS_COMPILE=arm-cortexa9_neon_l4-linux-gnueabihf-
+HOST=arm-cortexa9_neon-linux_l4-gnueabihf
+KERNEL_VERSION=4.4.36
 
-# By default, we shall use a build/ subdirectory relative to the
-# source tree root. If you would like to use another directory, enter it
-# here.
+# By default we shall use a build/ subdirectory relative to the source
+# tree root. If you would like to use another directory, enter it here.
 #
 # ** BE WARNED THAT THIS DIRECTORY SHALL BE CLEANSED WITH AN "rm -rf" **
 #

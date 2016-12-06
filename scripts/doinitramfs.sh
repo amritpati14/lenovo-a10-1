@@ -46,12 +46,9 @@ fi;
 # ******************  Creating the initramfs
 
 (
-	MODDIR=${BUILDDIR}/initramfs/lib/modules/${LVERSION}
-	LENOVODIR=${MODDIR}/lenovo
+	MODDIR=${BUILDDIR}/initramfs/lib/modules/${KERNEL_VERSION}
 
 	cp -rf ${INITRAMFS} ${BUILDDIR}
-	mkdir -p ${LENOVODIR}
-	cp -rf ${DIR}/originals/modules/* ${LENOVODIR}/
 
 	for pat in sys proc srv/ftp; do
 		if [ -d ${BUILDDIR}/initramfs/${pat} ]; then
@@ -59,7 +56,7 @@ fi;
 		fi;
 	done
 
-	depmod -b ${BUILDDIR}/initramfs/ ${LVERSION}
+	depmod -b ${BUILDDIR}/initramfs/ ${KERNEL_VERSION}
 
 	cd ${BUILDDIR}/initramfs/
 	find . | cpio -H newc -R +0:+0 -o | gzip -9 > ${BUILDDIR}/initramfs.igz

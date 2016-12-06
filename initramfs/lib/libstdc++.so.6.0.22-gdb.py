@@ -19,8 +19,8 @@ import gdb
 import os
 import os.path
 
-pythondir = '/home/durand/x-tools/arm-cortexa9_neon-linux-gnueabihf/share/gcc-6.2.0/python'
-libdir = '/home/durand/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/lib'
+pythondir = '/home/durand/x-tools/arm-cortexa9_neon_l4-linux-gnueabihf/share/gcc-6.2.0/python'
+libdir = '/home/durand/x-tools/arm-cortexa9_neon_l4-linux-gnueabihf/arm-cortexa9_neon_l4-linux-gnueabihf/lib'
 
 # This file might be loaded when there is no current objfile.  This
 # can happen if the user loads it manually.  In this case we don't
