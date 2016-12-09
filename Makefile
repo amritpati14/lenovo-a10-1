@@ -19,16 +19,36 @@ OFILESD=$(PRODUCTSDIR)/rk3188_sdboot.img
 OFILENAND=$(PRODUCTSDIR)/rk3188_nand.img
 
 
+
+.PHONY: $(PRODUCTSDIR)/initramfs.md5.new
+
+
 all: $(OFILENAND)
 	@echo "fin"
+
 
 $(RKCRC):
 	$(MAKE) -C $(REPODIR)/rkflashtool/
 
 
-$(PRODUCTSDIR)/initramfs.igz:
+
+
+
+
+
+
+$(PRODUCTSDIR)/initramfs.md5.new:
+	@find $(INITRAMFSDIR) | md5sum | awk '{ print $$1 }' > $@
+
+$(PRODUCTSDIR)/initramfs.md5: $(PRODUCTSDIR)/initramfs.md5.new
+	@diff $@ $@.new > /dev/null; \
+	if [ "z$$?" != "z0" ]; then \
+		cp -f $< $@; \
+	fi
+
+$(PRODUCTSDIR)/initramfs.igz: $(PRODUCTSDIR)/initramfs.md5
 	cd $(INITRAMFSDIR) && \
-	find . | cpio -H newc -R +0:+0 -o | gzip -9 > $(PRODUCTSDIR)/initramfs.igz && \
+	find . | cpio -H newc -R +0:+0 -o | gzip -9 > $@ && \
 	cd $(BUILD)
 
 
@@ -39,13 +59,13 @@ $(PRODUCTSDIR)/unknown.%: $(BASE)/parts/unknown.%
 	cp $< $@
 
 $(PRODUCTSDIR)/Image.krn: $(PRODUCTSDIR)/Image $(RKCRC)
-	$(RKCRC) -k $(PRODUCTSDIR)/Image $(PRODUCTSDIR)/Image.krn
+	$(RKCRC) -k $(PRODUCTSDIR)/Image $@
 
 $(PRODUCTSDIR)/initramfs.igz.krn: $(PRODUCTSDIR)/initramfs.igz $(RKCRC)
-	$(RKCRC) -k $(PRODUCTSDIR)/initramfs.igz $(PRODUCTSDIR)/initramfs.igz.krn
+	$(RKCRC) -k $(PRODUCTSDIR)/initramfs.igz $@
 
 $(PRODUCTSDIR)/paramaters.img: $(BASE)/parts/parameters $(RKCRC)
-	$(RKCRC) -p $(BASE)/parts/parameters $(PRODUCTSDIR)/parameters.img
+	$(RKCRC) -p $(BASE)/parts/parameters $@
 
 
 $(OFILESD): $(PRODUCTSDIR)/sd_header.1.rc4 $(PRODUCTSDIR)/sd_header.2.rc4 $(PRODUCTSDIR)/FlashData.bin.rc4 $(PRODUCTSDIR)/FlashBoot.bin.rc4 $(PRODUCTSDIR)/unknown.1 $(PRODUCTSDIR)/unknown.2 $(PRODUCTSDIR)/Image.krn $(PRODUCTSDIR)/initramfs.igz.krn $(PRODUCTSDIR)/parameters.img
