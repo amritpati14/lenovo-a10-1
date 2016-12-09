@@ -31,10 +31,38 @@ $(RKCRC):
 	$(MAKE) -C $(REPODIR)/rkflashtool/
 
 
+# ------------------------------------------------------
+
+setup vars
+
+prep directories
+
+download sources
+
+
+clone 3 repos
+
+build rkflashtool
+
+
+build crosstools (TOOL)
+
+extract kernel
+
+build crosschain (CHAIN)
+
+build busybox
+install busybox
+populate crosschain
+build kernel
+
+
+# ------------------------------------------------------
 
 
 
-
+$(INITRAMFSDIR)/init: $(BASE)/parts/init
+	cp -f $< $@
 
 
 $(PRODUCTSDIR)/initramfs.md5.new:
@@ -46,7 +74,7 @@ $(PRODUCTSDIR)/initramfs.md5: $(PRODUCTSDIR)/initramfs.md5.new
 		cp -f $< $@; \
 	fi
 
-$(PRODUCTSDIR)/initramfs.igz: $(PRODUCTSDIR)/initramfs.md5
+$(PRODUCTSDIR)/initramfs.igz: $(INITRAMFSDIR)/init $(PRODUCTSDIR)/initramfs.md5
 	cd $(INITRAMFSDIR) && \
 	find . | cpio -H newc -R +0:+0 -o | gzip -9 > $@ && \
 	cd $(BUILD)
