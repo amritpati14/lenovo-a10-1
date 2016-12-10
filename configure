@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+
+
+# ******************  Any error is a bad error. Die immediately
+
+set -e
+
+SUCCESS=N
+
+function finish {
+	if [ "z${SUCCESS}" != "zY" ]; then
+		echo -n "ERROR: please try again. Dunno what went wrong. Maybe use"
+		echo " relative or actual paths. ie: be specific"
+		exit -1
+	fi;
+}
+
+trap finish EXIT
+
+
+# ****************** Load up configurations
+
+BASE=$(readlink -f `dirname $0`)
+BUILD=$(readlink -f `pwd`)
+
+
+RELPATH=$(realpath --relative-to=${HOME}/src/lenovoa10 ${BASE})
+
+CONFFILE=${RELPATH}/configure
+MAKEFILE=${RELPATH}/Makefile
+
+
+if [ "${BASE}" == "${BUILD}" ]; then
+
+
+	echo "**************************************************"
+	echo
+	echo "NO! Not here!"
+	echo
+
+	echo -n "You need to go create a build directory in "
+	echo -n "which we can work and then call this script from there. "
+	echo "So, for example, do this:"
+	echo
+	echo "     bash# mkdir -p \${HOME}/src/lenovoa10"
+	echo "     bash# cd \${HOME}/src/lenovoa10"
+	echo "     bash# ${CONFFILE}"
+	echo
+
+	exit;
+
+fi
+
+
+cp -f ${MAKEFILE} ./Makefile
+
+rm -f ./config ./config.tmp
+
+
+echo "BASE=${BASE}" > ./config.tmp
+echo "BUILD=${BUILD}" >> ./config.tmp
+
+
+# ------------------------------------------------------------------
+
+echo "QUESTION 1. Where do you want to store downloaded packages?"
+echo
+echo -n "If you plan to have multiple builds, try use a nice common path"
+echo -n " like \${HOME}/packages. This will save you bandwidth and time from"
+echo " redownloading the sources. Otherwise the default is fine."
+echo
+echo -n "(default = ./src) ? "
+read -r SRCDIR
+echo ${SRCDIR}
+SRCDIR=${SRCDIR:-${BUILD}/src/}
+SRCDIR=$(eval echo -n ${SRCDIR})
+SRCDIR=$(readlink -f ${SRCDIR})
+echo "SRCDIR=${SRCDIR}" >> ./config.tmp
+
+
+# ------------------------------------------------------------------
+
+
+
+# ------------------------------------------------------------------
+
+
+mv -f ./config.tmp ./config
+
+echo
+echo
+echo "---------  ./config  --------"
+cat ./config
+echo "-----------------------------"
+echo
+
+SUCCESS=Y
+
+
+echo "You can run this again if you want."
+echo
+echo "All done"
+
+

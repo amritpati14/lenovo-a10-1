@@ -1,11 +1,16 @@
 
-BASE=/home/durand/projects/public/lenovo-a10
-BUILD=/home/durand/temp/lenovoa10
+
+include ./config
+
 
 PRODUCTSDIR=$(BUILD)/products
 INITRAMFSDIR=$(BUILD)/initramfs
-REPODIR=$(BUILD)/src/repos
-SRCDIR=$(BUILD)/src/code
+LOCALDIR=$(BUILD)/local
+WORKDIR=$(BUILD)/work
+
+
+REPODIR=$(SRCDIR)/repos
+CODEDIR=$(SRCDIR)/code
 
 RKCRC=$(REPODIR)/rkflashtool/rkcrc
 
@@ -20,44 +25,103 @@ OFILENAND=$(PRODUCTSDIR)/rk3188_nand.img
 
 
 
-.PHONY: $(PRODUCTSDIR)/initramfs.md5.new
+.PHONY: $(REPODIR) $(CODEDIR) $(PRODUCTSDIR) $(LOCALDIR) $(INITRAMFSDIR) $(PRODUCTSDIR)/initramfs.md5.new
 
 
 all: $(OFILENAND)
 	@echo "fin"
 
 
-$(RKCRC):
+$(REPODIR) $(CODEDIR) $(PRODUCTSDIR) $(LOCALDIR) $(INITRAMFSDIR) $(WORKDIR)/crosschain:
+	mkdir -p $@
+
+
+$(REPODIR)/rkflashtool: $(REPODIR)
+	cd $(REPODIR) && \
+		git clone https://github.com/durandmiller/rkflashtool.git &&	\
+	cd $(BUILD)
+
+
+$(RKCRC): $(REPODIR)/rkflashtool
 	$(MAKE) -C $(REPODIR)/rkflashtool/
 
 
 # ------------------------------------------------------
 
-setup vars
-
-prep directories
-
-download sources
-
-
-clone 3 repos
-
-build rkflashtool
-
-
-build crosstools (TOOL)
-
-extract kernel
-
-build crosschain (CHAIN)
-
-build busybox
-install busybox
-populate crosschain
-build kernel
+#prep directories
+#download sources
+#clone 3 repos
+#build rkflashtool
+#build crosstools (TOOL)
+#extract kernel
+#build crosschain (CHAIN)
+#build busybox
+#install busybox
+#populate crosschain
+#build kernel
 
 
 # ------------------------------------------------------
+
+
+
+$(REPODIR)/crosstool-ng:
+	cd $(REPODIR) && \
+		git clone https://github.com/crosstool-ng/crosstool-ng &&	\
+	cd $(BUILD)
+
+
+$(REPODIR)/crosstool-ng/ct-ng:
+	cd $(REPODIR)/crosstool-ng && ./bootstrap && \
+	./configure --prefix=$(LOCALDIR) &&	make && cd $(BUILD)
+
+
+$(LOCALDIR)/bin/ct-ng: $(REPODIR)/crosstool-ng $(REPODIR)/crosstool-ng/ct-ng
+	cd $(REPODIR)/crosstool-ng && make install
+
+$(WORKDIR)/crosschain/.config: $(WORKDIR)/crosschain $(BASE)/extconfig/crosstools-linux-4.9-rc8
+	cd $(WORKDIR)/crosschain && \
+	$(LOCALDIR)/bin/ct-ng arm-cortexa9_neon-linux-gnueabihf && \
+	cp -f $(BASE)/extconfigs/crosstools-linux-4.9-rc8 $(WORKDIR)/crosschain/.config
+
+
+$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc: $(LOCALDIR) $(LOCALDIR)/bin/ct-ng $(WORKDIR)/crosschain/.config
+	cd $(WORKDIR)/crosschain && \
+	KERNELDIR=$(WORKDIR)/linux-4.9-rc8	\
+	KERNELVERSION=$(WORKDIR)/4.9-rc8	\
+	SRCDIR=$(CODEDIR)	\
+	LOCALDIR=$(LOCALDIR)	\
+	$(LOCALDIR)/bin/ct-ng build && \
+	cd $(BASE)
+
+
+
+$(CODEDIR)/linux-4.9-rc8.tar.xz:
+	cd $(CODEDIR) && wget -c https://cdn.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.9-rc8.tar.xz
+
+
+$(WORKDIR)/linux-4.9-rc8: $(CODEDIR)/linux-4.9-rc8.tar.xz
+	tar -xJvf $< -C $(WORKDIR)
+
+
+$(WORKDIR)/linux-4.9-rc8/.config: $(BASE)/extconfigs/linux-4.9-rc8
+	cp -f $< $@
+
+
+$(CODEDIR)/linux-4.9-rc8/arch/arm/boot/Image: $(WORKDIR)/linux-4.9-rc8 $(WORKDIR)/linux-4.9-rc8/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
+	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH && \
+	cd $(WORKDIR)/linux-4.9-rc8 && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make modules && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make modules_install INSTALL_MOD_PATH=$(INITRAMFSDIR) && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make firmware_install  INSTALL_MOD_PATH=$(INITRAMFSDIR) && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make headers_install INSTALL_HDR_PATH=$(INITRAMFSDIR) && \
+	cd $(BUILD)
+
+
+
+$(PRODUCTSDIR)/Image: $(CODEDIR)/linux-4.9-rc8/arch/arm/boot/Image
+	cp -f $< $@
 
 
 
