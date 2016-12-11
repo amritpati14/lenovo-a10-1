@@ -32,25 +32,24 @@ all: directories $(OFILESD)
 	@echo "fin"
 
 
-$(REPODIR) $(CODEDIR) $(PRODUCTSDIR) $(LOCALDIR) $(INITRAMFSDIR) $(WORKDIR)/crosschain:
+$(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(INITRAMFSDIR)/ $(WORKDIR)/crosschain/:
 	mkdir -p $@
 
-directories: $(REPODIR) $(CODEDIR) $(PRODUCTSDIR) $(LOCALDIR) $(INITRAMFSDIR) $(WORKDIR)/crosschain
+directories: $(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(INITRAMFSDIR)/ $(WORKDIR)/crosschain/
 
 
-$(REPODIR)/rkflashtool:
+$(REPODIR)/rkflashtool/README:
 	cd $(REPODIR) && \
 		git clone https://github.com/durandmiller/rkflashtool.git &&	\
 	cd $(BUILD)
 
 
-$(RKCRC): $(REPODIR)/rkflashtool
+$(RKCRC): $(REPODIR)/rkflashtool/README
 	$(MAKE) -C $(REPODIR)/rkflashtool/
 
 
 # ------------------------------------------------------
 
-#populate crosschain
 
 
 # ---- BUSYBOX -----------------------------------------
@@ -59,13 +58,13 @@ $(RKCRC): $(REPODIR)/rkflashtool
 $(CODEDIR)/busybox-1.25.1.tar.bz2:
 	cd $(CODEDIR) && wget -c https://www.busybox.net/downloads/busybox-1.25.1.tar.bz2 && cd $(BUILD)
 
-$(WORKDIR)/busybox-1.25.1: $(CODEDIR)/busybox-1.25.1.tar.bz2
-	tar -xjvf $< -C $(WORKDIR)
+$(WORKDIR)/busybox-1.25.1/README: $(CODEDIR)/busybox-1.25.1.tar.bz2
+	tar --touch -xjvf $< -C $(WORKDIR)
 
 $(WORKDIR)/busybox-1.25.1/.config: $(BASE)/extconfigs/busybox-1.25.1
 	cp -f $< $@
 
-$(WORKDIR)/busybox-1.25.1/busybox: $(WORKDIR)/busybox-1.25.1 $(WORKDIR)/busybox-1.25.1/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
+$(WORKDIR)/busybox-1.25.1/busybox: $(WORKDIR)/busybox-1.25.1/README $(WORKDIR)/busybox-1.25.1/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
 	cd $(WORKDIR)/busybox-1.25.1 &&	\
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH \
 	KERNELDIR=$(WORKDIR)/linux-4.9-rc8		\
@@ -139,15 +138,15 @@ $(CODEDIR)/linux-4.9-rc8.tar.xz:
 	cd $(CODEDIR) && wget -c https://cdn.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.9-rc8.tar.xz
 
 
-$(WORKDIR)/linux-4.9-rc8: $(CODEDIR)/linux-4.9-rc8.tar.xz
-	tar -xJvf $< -C $(WORKDIR)
+$(WORKDIR)/linux-4.9-rc8/README: $(CODEDIR)/linux-4.9-rc8.tar.xz
+	tar --touch -xJvf $< -C $(WORKDIR)
 
 
-$(WORKDIR)/linux-4.9-rc8/.config: $(BASE)/extconfigs/linux-4.9-rc8
-	cp -f $< $@
+$(WORKDIR)/linux-4.9-rc8/.config: $(WORKDIR)/linux-4.9-rc8/README $(BASE)/extconfigs/linux-4.9-rc8
+	cp -f $(BASE)/extconfigs/linux-4.9-rc8 $@
 
 
-$(WORKDIR)/linux-4.9-rc8/arch/arm/boot/Image: $(WORKDIR)/linux-4.9-rc8 $(WORKDIR)/linux-4.9-rc8/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
+$(WORKDIR)/linux-4.9-rc8/arch/arm/boot/Image: $(WORKDIR)/linux-4.9-rc8/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH && \
 	cd $(WORKDIR)/linux-4.9-rc8 && \
 	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make && \
@@ -214,8 +213,8 @@ $(PRODUCTSDIR)/parameters.img: $(BASE)/parts/parameters $(RKCRC)
 #      Initramfs <= 128MB
 
 $(OFILESD): $(PRODUCTSDIR)/sd_header.1.rc4 $(PRODUCTSDIR)/sd_header.2.rc4 $(PRODUCTSDIR)/FlashData.bin.rc4 $(PRODUCTSDIR)/FlashBoot.bin.rc4 $(PRODUCTSDIR)/unknown.1 $(PRODUCTSDIR)/unknown.2 $(PRODUCTSDIR)/Image.krn $(PRODUCTSDIR)/initramfs.igz.krn $(PRODUCTSDIR)/parameters.img
-	SIZE=`stat -c%%s "$(PRODUCTSDIR)/Image.krn"` && if [ $$SIZE -gt 33554432 ]; then echo "Kernel too big. Adjust parameters file and makefile"; exit 1; fi;
-	SIZE=`stat -c%%s "$(PRODUCTSDIR)/initramfs.igz.krn"` && if [ $$SIZE -gt 134217728 ]; then echo "Initramfs too big. Adjust parameters file and makefile."; exit 1; fi;
+	SIZE=`stat -c%s "$(PRODUCTSDIR)/Image.krn"` && if [ $$SIZE -gt 33554432 ]; then echo "Kernel too big. Adjust parameters file and makefile"; exit 1; fi;
+	SIZE=`stat -c%s "$(PRODUCTSDIR)/initramfs.igz.krn"` && if [ $$SIZE -gt 134217728 ]; then echo "Initramfs too big. Adjust parameters file and makefile."; exit 1; fi;
 	dd if=/dev/zero of=$(OFILESD) conv=sync,fsync bs=512 count=262144
 	dd if=$(PRODUCTSDIR)/sd_header.1.rc4 of=$(OFILESD) conv=notrunc,sync,fsync bs=512 seek=64
 	dd if=$(PRODUCTSDIR)/sd_header.2.rc4 of=$(OFILESD) conv=notrunc,sync,fsync bs=512 seek=65
