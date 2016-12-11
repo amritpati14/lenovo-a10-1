@@ -60,13 +60,14 @@ $(CODEDIR)/busybox-1.25.1.tar.bz2:
 	cd $(CODEDIR) && wget -c https://www.busybox.net/downloads/busybox-1.25.1.tar.bz2 && cd $(BUILD)
 
 $(WORKDIR)/busybox-1.25.1: $(CODEDIR)/busybox-1.25.1.tar.bz2
-	tar -xZvf $< -C $(WORKDIR)
+	tar -xjvf $< -C $(WORKDIR)
 
 $(WORKDIR)/busybox-1.25.1/.config: $(BASE)/extconfigs/busybox-1.25.1
 	cp -f $< $@
 
 $(WORKDIR)/busybox-1.25.1/busybox: $(WORKDIR)/busybox-1.25.1 $(WORKDIR)/busybox-1.25.1/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
 	cd $(WORKDIR)/busybox-1.25.1 &&	\
+	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH \
 	KERNELDIR=$(WORKDIR)/linux-4.9-rc8		\
 	KERNELVERSION=4.9-rc8	\
 	SRCDIR=$(CODEDIR)		\
@@ -77,8 +78,9 @@ $(WORKDIR)/busybox-1.25.1/busybox: $(WORKDIR)/busybox-1.25.1 $(WORKDIR)/busybox-
 
 
 
-$(INITRAMF)/bin/busybox: $(WORKDIR)/busybox-1.25.1/busybox
+$(INITRAMFSDIR)/bin/busybox: $(WORKDIR)/busybox-1.25.1/busybox
 	cd $(WORKDIR)/busybox-1.25.1 && \
+	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH \
 	KERNELDIR=$(WORKDIR)/linux-4.9-rc8		\
 	KERNELVERSION=4.9-rc8	\
 	SRCDIR=$(CODEDIR)		\
@@ -124,8 +126,10 @@ $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linu
 
 # ---- POPULATE ----------------------------------------
 
-# $(INITRAMFSDIR)/lib/ld-linux-armhf.so.3: $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/lib
-
+$(INITRAMFSDIR)/lib/ld-linux-armhf.so.3: $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/lib/ld-linux-armhf.so.3
+	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH && \
+	cd $(INITRAMFSDIR) && arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/ -d . && \
+	cd $(BUILD)
 
 
 # ---- LINUX KERNEL AND ETC ----------------------------
