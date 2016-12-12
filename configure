@@ -86,6 +86,28 @@ echo "SRCDIR=${SRCDIR}" >> ./config.tmp
 # ------------------------------------------------------------------
 
 
+echo "QUESTION 2. Which system do you want?"
+echo
+echo "1 - Lenovo 3.0.36"
+echo "2 - Linux stock 4.9.0"
+echo
+echo -n "(default = 1) ? "
+read -r KCHOICE
+
+if [ "z${KCHOICE}" != "z1" -a "z${KCHOICE}" != "z2" ]; then
+	echo "Either 1 or 2. Nothing else works."
+	exit 1
+fi;
+
+
+if [ "z${KCHOICE}" == "z1" ]; then
+	cat ${BASE}/extconfigs/system-3.0.36 >>  ./config.tmp
+elif [ "z${KCHOICE}" == "z2" ]; then
+	cat ${BASE}/extconfigs/system-4.9.0 >>  ./config.tmp
+fi
+
+
+
 
 # ------------------------------------------------------------------
 
@@ -105,8 +127,7 @@ echo
 SUCCESS=Y
 
 
-echo "You can run this again if you want."
 echo
-echo "All done"
+echo "Ready for make"
 
 
