@@ -46,7 +46,8 @@ KEY=7C4E0304550509072D2C7B38170D1711
 
 
 all: directories $(OFILESD)
-	@echo "Success. Product is $(PRODUCTSDIR)/rk3188_sdboot.img"
+	@RELLINK=$(shell realpath --relative-to=$(BUILD) $(OFILESD) ) && \
+	echo "Success. Product is $${RELLINK}"
 
 
 $(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(INITRAMFSDIR)/ $(WORKDIR)/crosschain/:
