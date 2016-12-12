@@ -2,26 +2,43 @@
 
 include ./config
 
+BUSYBOX=1.25.1
+BUSYBOX_URL=https://www.busybox.net/downloads/busybox-$(BUSYBOX).tar.bz2
+
+KERNEL=linux-4.9
+KERNEL_VERSION=4.9
+DEP_VERSION=4.9.0
+KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/$(KERNEL).tar.xz
+
+
+CTNG_URL=https://github.com/crosstool-ng/crosstool-ng
+CTNG_REVISION=da3f8c4ec5345b709a330eebab01cd62c574295d
+
+RKFLASHTOOL_URL=https://github.com/durandmiller/rkflashtool.git
+
+
+# ------------------------------------------------------
+
+OFILESD=$(PRODUCTSDIR)/rk3188_sdboot.img
+
+# ------------------------------------------------------
+
 
 PRODUCTSDIR=$(BUILD)/products
 INITRAMFSDIR=$(BUILD)/initramfs
 LOCALDIR=$(BUILD)/local
 WORKDIR=$(BUILD)/work
 
-
 REPODIR=$(SRCDIR)/repos
 CODEDIR=$(SRCDIR)/code
 
 RKCRC=$(REPODIR)/rkflashtool/rkcrc
 
-
 KEY=7C4E0304550509072D2C7B38170D1711
 
 
+# ------------------------------------------------------
 
-
-OFILESD=$(PRODUCTSDIR)/rk3188_sdboot.img
-OFILENAND=$(PRODUCTSDIR)/rk3188_nand.img
 
 
 
@@ -29,7 +46,7 @@ OFILENAND=$(PRODUCTSDIR)/rk3188_nand.img
 
 
 all: directories $(OFILESD)
-	@echo "fin"
+	@echo "Success. Product is $(PRODUCTSDIR)/rk3188_sdboot.img"
 
 
 $(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(INITRAMFSDIR)/ $(WORKDIR)/crosschain/:
@@ -39,9 +56,7 @@ directories: $(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(INITRAMFSDIR
 
 
 $(REPODIR)/rkflashtool/README:
-	cd $(REPODIR) && \
-		git clone https://github.com/durandmiller/rkflashtool.git &&	\
-	cd $(BUILD)
+	cd $(REPODIR) && git clone $(RKFLASHTOOL_URL) && cd $(BUILD)
 
 
 $(RKCRC): $(REPODIR)/rkflashtool/README
@@ -55,20 +70,20 @@ $(RKCRC): $(REPODIR)/rkflashtool/README
 # ---- BUSYBOX -----------------------------------------
 
 
-$(CODEDIR)/busybox-1.25.1.tar.bz2:
-	cd $(CODEDIR) && wget -c https://www.busybox.net/downloads/busybox-1.25.1.tar.bz2 && cd $(BUILD)
+$(CODEDIR)/busybox-$(BUSYBOX).tar.bz2:
+	cd $(CODEDIR) && wget -c $(BUSYBOX_URL) && cd $(BUILD)
 
-$(WORKDIR)/busybox-1.25.1/README: $(CODEDIR)/busybox-1.25.1.tar.bz2
+$(WORKDIR)/busybox-$(BUSYBOX)/README: $(CODEDIR)/busybox-$(BUSYBOX).tar.bz2
 	tar --touch -xjvf $< -C $(WORKDIR)
 
-$(WORKDIR)/busybox-1.25.1/.config: $(BASE)/extconfigs/busybox-1.25.1
+$(WORKDIR)/busybox-$(BUSYBOX)/.config: $(BASE)/extconfigs/busybox-$(BUSYBOX)
 	cp -f $< $@
 
-$(WORKDIR)/busybox-1.25.1/busybox: $(WORKDIR)/busybox-1.25.1/README $(WORKDIR)/busybox-1.25.1/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
-	cd $(WORKDIR)/busybox-1.25.1 &&	\
+$(WORKDIR)/busybox-$(BUSYBOX)/busybox: $(WORKDIR)/busybox-$(BUSYBOX)/README $(WORKDIR)/busybox-$(BUSYBOX)/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
+	cd $(WORKDIR)/busybox-$(BUSYBOX) &&	\
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH \
-	KERNELDIR=$(WORKDIR)/linux-4.9-rc8		\
-	KERNELVERSION=4.9-rc8	\
+	KERNELDIR=$(WORKDIR)/$(KERNEL)		\
+	KERNELVERSION=$(KERNEL_VERSION)	\
 	SRCDIR=$(CODEDIR)		\
 	LOCALDIR=$(LOCALDIR)	\
 	INITRAMFSDIR=$(INITRAMFSDIR)	\
@@ -77,11 +92,11 @@ $(WORKDIR)/busybox-1.25.1/busybox: $(WORKDIR)/busybox-1.25.1/README $(WORKDIR)/b
 
 
 
-$(INITRAMFSDIR)/bin/busybox: $(WORKDIR)/busybox-1.25.1/busybox
-	cd $(WORKDIR)/busybox-1.25.1 && \
+$(INITRAMFSDIR)/bin/busybox: $(WORKDIR)/busybox-$(BUSYBOX)/busybox
+	cd $(WORKDIR)/busybox-$(BUSYBOX) && \
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH \
-	KERNELDIR=$(WORKDIR)/linux-4.9-rc8		\
-	KERNELVERSION=4.9-rc8	\
+	KERNELDIR=$(WORKDIR)/$(KERNEL)		\
+	KERNELVERSION=$(KERNEL_VERSION)	\
 	SRCDIR=$(CODEDIR)		\
 	LOCALDIR=$(LOCALDIR)	\
 	INITRAMFSDIR=$(INITRAMFSDIR)	\
@@ -93,9 +108,7 @@ $(INITRAMFSDIR)/bin/busybox: $(WORKDIR)/busybox-1.25.1/busybox
 
 
 $(REPODIR)/crosstool-ng:
-	cd $(REPODIR) && \
-		git clone https://github.com/crosstool-ng/crosstool-ng &&	\
-	cd $(BUILD)
+	cd $(REPODIR) && git clone $(CTNG_URL) && cd $(BUILD)
 
 
 $(REPODIR)/crosstool-ng/ct-ng: $(REPODIR)/crosstool-ng
@@ -106,17 +119,17 @@ $(REPODIR)/crosstool-ng/ct-ng: $(REPODIR)/crosstool-ng
 $(LOCALDIR)/bin/ct-ng: $(REPODIR)/crosstool-ng/ct-ng
 	cd $(REPODIR)/crosstool-ng && MAKELEVEL=0 make install && cd $(BUILD)
 
-$(WORKDIR)/crosschain/.config: $(BASE)/extconfigs/crosstools-linux-4.9-rc8
+$(WORKDIR)/crosschain/.config: $(BASE)/extconfigs/crosstools-$(KERNEL)
 	cd $(WORKDIR)/crosschain && \
 	$(LOCALDIR)/bin/ct-ng arm-cortexa9_neon-linux-gnueabihf && \
-	cp -f $(BASE)/extconfigs/crosstools-linux-4.9-rc8 $(WORKDIR)/crosschain/.config && \
+	cp -f $(BASE)/extconfigs/crosstools-$(KERNEL) $(WORKDIR)/crosschain/.config && \
 	cd $(BUILD)
 
 
 $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc: $(LOCALDIR)/bin/ct-ng $(WORKDIR)/crosschain/.config
 	cd $(WORKDIR)/crosschain && \
-	KERNELDIR=$(WORKDIR)/linux-4.9-rc8	\
-	KERNELVERSION=4.9-rc8	\
+	KERNELDIR=$(WORKDIR)/$(KERNEL)	\
+	KERNELVERSION=$(KERNEL_VERSION)	\
 	SRCDIR=$(CODEDIR)	\
 	LOCALDIR=$(LOCALDIR)	\
 	$(LOCALDIR)/bin/ct-ng build && \
@@ -134,21 +147,21 @@ $(INITRAMFSDIR)/lib/ld-linux-armhf.so.3: $(LOCALDIR)/x-tools/arm-cortexa9_neon-l
 # ---- LINUX KERNEL AND ETC ----------------------------
 
 
-$(CODEDIR)/linux-4.9-rc8.tar.xz:
-	cd $(CODEDIR) && wget -c https://cdn.kernel.org/pub/linux/kernel/v4.x/testing/linux-4.9-rc8.tar.xz
+$(CODEDIR)/$(KERNEL).tar.xz:
+	cd $(CODEDIR) && wget -c $(KERNEL_URL)
 
 
-$(WORKDIR)/linux-4.9-rc8/README: $(CODEDIR)/linux-4.9-rc8.tar.xz
+$(WORKDIR)/$(KERNEL)/README: $(CODEDIR)/$(KERNEL).tar.xz
 	tar --touch -xJvf $< -C $(WORKDIR)
 
 
-$(WORKDIR)/linux-4.9-rc8/.config: $(WORKDIR)/linux-4.9-rc8/README $(BASE)/extconfigs/linux-4.9-rc8
-	cp -f $(BASE)/extconfigs/linux-4.9-rc8 $@
+$(WORKDIR)/$(KERNEL)/.config: $(WORKDIR)/$(KERNEL)/README $(BASE)/extconfigs/$(KERNEL)
+	cp -f $(BASE)/extconfigs/$(KERNEL) $@
 
 
-$(WORKDIR)/linux-4.9-rc8/arch/arm/boot/Image: $(WORKDIR)/linux-4.9-rc8/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
+$(WORKDIR)/$(KERNEL)/arch/arm/boot/Image: $(WORKDIR)/$(KERNEL)/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH && \
-	cd $(WORKDIR)/linux-4.9-rc8 && \
+	cd $(WORKDIR)/$(KERNEL) && \
 	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make && \
 	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make modules && \
 	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make modules_install INSTALL_MOD_PATH=$(INITRAMFSDIR) && \
@@ -158,11 +171,11 @@ $(WORKDIR)/linux-4.9-rc8/arch/arm/boot/Image: $(WORKDIR)/linux-4.9-rc8/.config $
 
 
 
-$(PRODUCTSDIR)/Image: $(WORKDIR)/linux-4.9-rc8/arch/arm/boot/Image
+$(PRODUCTSDIR)/Image: $(WORKDIR)/$(KERNEL)/arch/arm/boot/Image
 	cp -f $< $@
 
 
-$(INITRAMFSDIR)/lib/modules/4.9.0-rc8/modules.dep: $(PRODUCTSDIR)/Image
+$(INITRAMFSDIR)/lib/modules/$(DEP_VERSION)/modules.dep: $(PRODUCTSDIR)/Image
 
 
 
@@ -181,7 +194,7 @@ $(PRODUCTSDIR)/initramfs.md5: $(PRODUCTSDIR)/initramfs.md5.new
 		cp -f $< $@; \
 	fi
 
-$(PRODUCTSDIR)/initramfs.igz: $(INITRAMFSDIR)/init $(INITRAMFSDIR)/bin/busybox $(INITRAMFSDIR)/lib/modules/4.9.0-rc8/modules.dep $(INITRAMFSDIR)/lib/ld-linux-armhf.so.3 $(PRODUCTSDIR)/initramfs.md5
+$(PRODUCTSDIR)/initramfs.igz: $(INITRAMFSDIR)/init $(INITRAMFSDIR)/bin/busybox $(INITRAMFSDIR)/lib/modules/$(DEP_VERSION)/modules.dep $(INITRAMFSDIR)/lib/ld-linux-armhf.so.3 $(PRODUCTSDIR)/initramfs.md5
 	cd $(INITRAMFSDIR) && \
 	find . | cpio -H newc -R +0:+0 -o | gzip -9 > $@ && \
 	cd $(BUILD)
