@@ -2,10 +2,13 @@
 BUSYBOX=1.25.1
 BUSYBOX_URL=https://www.busybox.net/downloads/busybox-$(BUSYBOX).tar.bz2
 
-KERNEL=linux-4.9
-KERNEL_VERSION=4.9
-DEP_VERSION=4.9.0
-KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/$(KERNEL).tar.xz
+KERNEL=linux-3.0.36
+KERNEL_VERSION=3.0.36
+DEP_VERSION=3.0.36+
+KERNEL_URL=https://github.com/durandmiller/linux-3.0.36-lenovo/archive/linux-3.0.36.tar.gz
+
+KERNEL_EXTRACT=x
+KERNEL_TYPE=gz
 
 
 CTNG_URL=https://github.com/crosstool-ng/crosstool-ng

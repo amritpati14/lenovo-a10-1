@@ -94,6 +94,8 @@ echo
 echo -n "(default = 1) ? "
 read -r KCHOICE
 
+KCHOICE=${KCHOICE:-1}
+
 if [ "z${KCHOICE}" != "z1" -a "z${KCHOICE}" != "z2" ]; then
 	echo "Either 1 or 2. Nothing else works."
 	exit 1
@@ -111,9 +113,6 @@ fi
 
 # ------------------------------------------------------------------
 
-
-echo >> ./config.tmp
-echo >> ./config.tmp
 
 mv -f ./config.tmp ./config
 

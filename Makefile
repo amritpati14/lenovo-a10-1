@@ -2,20 +2,6 @@
 
 include ./config
 
-BUSYBOX=1.25.1
-BUSYBOX_URL=https://www.busybox.net/downloads/busybox-$(BUSYBOX).tar.bz2
-
-KERNEL=linux-4.9
-KERNEL_VERSION=4.9
-DEP_VERSION=4.9.0
-KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/$(KERNEL).tar.xz
-
-
-CTNG_URL=https://github.com/crosstool-ng/crosstool-ng
-CTNG_REVISION=da3f8c4ec5345b709a330eebab01cd62c574295d
-
-RKFLASHTOOL_URL=https://github.com/durandmiller/rkflashtool.git
-
 
 # ------------------------------------------------------
 
@@ -148,12 +134,12 @@ $(INITRAMFSDIR)/lib/ld-linux-armhf.so.3: $(LOCALDIR)/x-tools/arm-cortexa9_neon-l
 # ---- LINUX KERNEL AND ETC ----------------------------
 
 
-$(CODEDIR)/$(KERNEL).tar.xz:
+$(CODEDIR)/$(KERNEL).tar.$(KERNEL_TYPE):
 	cd $(CODEDIR) && wget -c $(KERNEL_URL)
 
 
-$(WORKDIR)/$(KERNEL)/README: $(CODEDIR)/$(KERNEL).tar.xz
-	tar --touch -xJvf $< -C $(WORKDIR)
+$(WORKDIR)/$(KERNEL)/README: $(CODEDIR)/$(KERNEL).tar.$(KERNEL_TYPE)
+	tar --touch -x$(KERNEL_EXTRACT)vf $< -C $(WORKDIR)
 
 
 $(WORKDIR)/$(KERNEL)/.config: $(WORKDIR)/$(KERNEL)/README $(BASE)/extconfigs/$(KERNEL)
@@ -182,7 +168,7 @@ $(INITRAMFSDIR)/lib/modules/$(DEP_VERSION)/modules.dep: $(PRODUCTSDIR)/Image
 
 # ---- Initramfs rules ------------------------------------
 
-$(INITRAMFSDIR)/init: $(BASE)/parts/init
+$(INITRAMFSDIR)/init: $(BASE)/parts/init-$(KERNEL_VERSION)
 	cp -f $< $@
 
 
