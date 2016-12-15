@@ -15,8 +15,8 @@ INITRAMFSDIR=$(BUILD)/initramfs
 LOCALDIR=$(BUILD)/local
 WORKDIR=$(BUILD)/work
 
-REPODIR=$(SRCDIR)/repos
-CODEDIR=$(SRCDIR)/code
+REPODIR=$(BUILD)/repos
+CODEDIR=$(SRCDIR)
 
 RKCRC=$(REPODIR)/rkflashtool/rkcrc
 
@@ -94,17 +94,18 @@ $(INITRAMFSDIR)/bin/busybox: $(WORKDIR)/busybox-$(BUSYBOX)/busybox
 # ---- CROSSTOOLS AND CROSSCHAIN -----------------------
 
 
-$(REPODIR)/crosstool-ng:
+$(REPODIR)/crosstool-ng/bootstrap:
 	cd $(REPODIR) && git clone $(CTNG_URL) && cd $(BUILD)
 
 
-$(REPODIR)/crosstool-ng/ct-ng: $(REPODIR)/crosstool-ng
+$(REPODIR)/crosstool-ng/ct-ng: $(REPODIR)/crosstool-ng/bootstrap
 	cd $(REPODIR)/crosstool-ng && ./bootstrap && \
 	./configure --prefix=$(LOCALDIR) &&	MAKELEVEL=0 make && cd $(BUILD)
 
 
 $(LOCALDIR)/bin/ct-ng: $(REPODIR)/crosstool-ng/ct-ng
 	cd $(REPODIR)/crosstool-ng && MAKELEVEL=0 make install && cd $(BUILD)
+
 
 $(WORKDIR)/crosschain/.config: $(BASE)/extconfigs/crosstools-$(KERNEL)
 	cd $(WORKDIR)/crosschain && \
@@ -139,7 +140,8 @@ $(CODEDIR)/$(KERNEL).tar.$(KERNEL_TYPE):
 
 
 $(WORKDIR)/$(KERNEL)/README: $(CODEDIR)/$(KERNEL).tar.$(KERNEL_TYPE)
-	tar --touch -x$(KERNEL_EXTRACT)vf $< -C $(WORKDIR)
+	mkdir -p $(WORKDIR)/$(KERNEL) &&	\
+	tar --strip-components=1 --touch -x$(KERNEL_EXTRACT)vf $< -C $(WORKDIR)/$(KERNEL)
 
 
 $(WORKDIR)/$(KERNEL)/.config: $(WORKDIR)/$(KERNEL)/README $(BASE)/extconfigs/$(KERNEL)
