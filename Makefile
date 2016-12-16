@@ -15,6 +15,7 @@ INITRAMFSDIR=$(BUILD)/initramfs
 LOCALDIR=$(BUILD)/local
 WORKDIR=$(BUILD)/work
 
+OVERLAYDIR=$(BASE)/overlays
 REPODIR=$(BUILD)/repos
 CODEDIR=$(SRCDIR)
 
@@ -36,8 +37,13 @@ all: directories $(OFILESD)
 	echo "Success. Product is $${RELLINK}"
 
 
-$(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(INITRAMFSDIR)/ $(WORKDIR)/crosschain/:
+$(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(WORKDIR)/crosschain/:
 	mkdir -p $@
+
+
+$(INITRAMFSDIR)/:
+	cp -rf $(OVERLAYDIR)/initramfs $(INITRAMFSDIR)
+
 
 directories: $(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(INITRAMFSDIR)/ $(WORKDIR)/crosschain/
 
@@ -48,9 +54,6 @@ $(REPODIR)/rkflashtool/README:
 
 $(RKCRC): $(REPODIR)/rkflashtool/README
 	$(MAKE) -C $(REPODIR)/rkflashtool/
-
-
-# ------------------------------------------------------
 
 
 
@@ -129,7 +132,17 @@ $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linu
 
 $(INITRAMFSDIR)/lib/ld-linux-armhf.so.3: $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/lib/ld-linux-armhf.so.3
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH && \
-	cd $(INITRAMFSDIR) && arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/ -d . && \
+	cd $(INITRAMFSDIR) && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/lib/ -d ./lib/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/sbin/ -d ./sbin/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/etc/ -d ./etc/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/var/ -d ./var/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/usr/bin/ -d ./usr/bin/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/usr/include/ -d ./usr/include/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/usr/lib/ -d ./usr/lib/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/usr/libexec/ -d ./usr/ibexec/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/usr/sbin/ -d ./usr/sbin/ && \
+	arm-cortexa9_neon-linux-gnueabihf-populate -m -s $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot/usr/share -d ./usr/share/ && \
 	cd $(BUILD)
 
 
@@ -149,7 +162,7 @@ $(WORKDIR)/$(KERNEL)/.config: $(WORKDIR)/$(KERNEL)/README $(BASE)/extconfigs/$(K
 	cp -f $(BASE)/extconfigs/$(KERNEL) $@
 
 
-$(WORKDIR)/$(KERNEL)/arch/arm/boot/Image: $(WORKDIR)/$(KERNEL)/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
+$(WORKDIR)/$(KERNEL)/arch/arm/boot/Image: $(WORKDIR)/$(KERNEL)/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc $(INITRAMFSDIR)/
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH && \
 	cd $(WORKDIR)/$(KERNEL) && \
 	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make && \

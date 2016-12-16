@@ -21,9 +21,6 @@ mdev -s
 # Create the console
 modprobe fbcon
 
-echo "HELLO. Ready?"
-read BOBBY
-
 exec /sbin/init
 
 

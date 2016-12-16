@@ -1,0 +1,18 @@
+#!/bin/sh
+
+
+/bin/hostname -F /etc/hostname
+
+# Enable udev
+/bin/echo /sbin/mdev > /proc/sys/kernel/hotplug
+
+# Populate the dev filesystem
+/sbin/mdev -s
+
+/bin/mount -a
+
+clear
+
+/etc/init.d/rc.local
+
+
