@@ -1,6 +1,21 @@
 # Linux on the Lenovo A10 Multimode Laptop
 
 
+## Supported Versions
+
+
+* Linux 3.0.36
+  - Busybox 1.25.1
+  - Binutils 2.23.2
+  - libc 2.23
+  - gcc 4.9.4
+* Linux 4.9.0
+  - Busybox 1.25.1
+  - Binutils 2.26
+  - libc 2.24
+  - gcc 6.2.0
+
+
 
 ## Design and Layout
 

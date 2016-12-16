@@ -63,7 +63,7 @@ $(CODEDIR)/busybox-$(BUSYBOX).tar.bz2:
 $(WORKDIR)/busybox-$(BUSYBOX)/README: $(CODEDIR)/busybox-$(BUSYBOX).tar.bz2
 	tar --touch -xjvf $< -C $(WORKDIR)
 
-$(WORKDIR)/busybox-$(BUSYBOX)/.config: $(BASE)/extconfigs/busybox-$(BUSYBOX)
+$(WORKDIR)/busybox-$(BUSYBOX)/.config: $(BASE)/extconfigs/busybox-$(KERNEL_VERSION)
 	cp -f $< $@
 
 $(WORKDIR)/busybox-$(BUSYBOX)/busybox: $(WORKDIR)/busybox-$(BUSYBOX)/README $(WORKDIR)/busybox-$(BUSYBOX)/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc
@@ -88,6 +88,7 @@ $(INITRAMFSDIR)/bin/busybox: $(WORKDIR)/busybox-$(BUSYBOX)/busybox
 	LOCALDIR=$(LOCALDIR)	\
 	INITRAMFSDIR=$(INITRAMFSDIR)	\
 	make CONFIG_PREFIX=$(INITRAMFSDIR) install && \
+	rm -f $(INITRAMFSDIR)/linuxrc && \
 	cd $(BUILD)
 
 
@@ -215,8 +216,8 @@ $(PRODUCTSDIR)/parameters.img: $(BASE)/parts/parameters $(RKCRC)
 #      Initramfs <= 128MB
 
 $(OFILESD): $(PRODUCTSDIR)/sd_header.1.rc4 $(PRODUCTSDIR)/sd_header.2.rc4 $(PRODUCTSDIR)/FlashData.bin.rc4 $(PRODUCTSDIR)/FlashBoot.bin.rc4 $(PRODUCTSDIR)/unknown.1 $(PRODUCTSDIR)/unknown.2 $(PRODUCTSDIR)/Image.krn $(PRODUCTSDIR)/initramfs.igz.krn $(PRODUCTSDIR)/parameters.img
-	SIZE=`stat -c%s "$(PRODUCTSDIR)/Image.krn"` && if [ $$SIZE -gt 33554432 ]; then echo "Kernel too big. Adjust parameters file and makefile"; exit 1; fi;
-	SIZE=`stat -c%s "$(PRODUCTSDIR)/initramfs.igz.krn"` && if [ $$SIZE -gt 134217728 ]; then echo "Initramfs too big. Adjust parameters file and makefile."; exit 1; fi;
+	@SIZE=`stat -c%s "$(PRODUCTSDIR)/Image.krn"` && if [ $$SIZE -gt 33554432 ]; then echo "Kernel too big. Adjust parameters file and makefile"; exit 1; fi;
+	@SIZE=`stat -c%s "$(PRODUCTSDIR)/initramfs.igz.krn"` && if [ $$SIZE -gt 134217728 ]; then echo "Initramfs too big. Adjust parameters file and makefile."; exit 1; fi;
 	dd if=/dev/zero of=$(OFILESD) conv=sync,fsync bs=512 count=262144
 	dd if=$(PRODUCTSDIR)/sd_header.1.rc4 of=$(OFILESD) conv=notrunc,sync,fsync bs=512 seek=64
 	dd if=$(PRODUCTSDIR)/sd_header.2.rc4 of=$(OFILESD) conv=notrunc,sync,fsync bs=512 seek=65
