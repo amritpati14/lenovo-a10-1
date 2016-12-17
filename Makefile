@@ -162,7 +162,7 @@ $(WORKDIR)/$(KERNEL)/.config: $(WORKDIR)/$(KERNEL)/README $(BASE)/extconfigs/$(K
 	cp -f $(BASE)/extconfigs/$(KERNEL) $@
 
 
-$(WORKDIR)/$(KERNEL)/arch/arm/boot/Image: $(WORKDIR)/$(KERNEL)/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc $(INITRAMFSDIR)/
+$(WORKDIR)/$(KERNEL)/arch/arm/boot/zImage: $(WORKDIR)/$(KERNEL)/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc $(INITRAMFSDIR)/
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH && \
 	cd $(WORKDIR)/$(KERNEL) && \
 	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make && \
@@ -174,11 +174,11 @@ $(WORKDIR)/$(KERNEL)/arch/arm/boot/Image: $(WORKDIR)/$(KERNEL)/.config $(LOCALDI
 
 
 
-$(PRODUCTSDIR)/Image: $(WORKDIR)/$(KERNEL)/arch/arm/boot/Image
+$(PRODUCTSDIR)/zImage: $(WORKDIR)/$(KERNEL)/arch/arm/boot/zImage
 	cp -f $< $@
 
 
-$(INITRAMFSDIR)/lib/modules/$(DEP_VERSION)/modules.dep: $(PRODUCTSDIR)/Image
+$(INITRAMFSDIR)/lib/modules/$(DEP_VERSION)/modules.dep: $(PRODUCTSDIR)/zImage
 
 
 
@@ -212,8 +212,8 @@ $(PRODUCTSDIR)/%.rc4: $(BASE)/parts/%
 $(PRODUCTSDIR)/unknown.%: $(BASE)/parts/unknown.%
 	cp $< $@
 
-$(PRODUCTSDIR)/Image.krn: $(PRODUCTSDIR)/Image $(RKCRC)
-	$(RKCRC) -k $(PRODUCTSDIR)/Image $@
+$(PRODUCTSDIR)/zImage.krn: $(PRODUCTSDIR)/zImage $(RKCRC)
+	$(RKCRC) -k $(PRODUCTSDIR)/zImage $@
 
 $(PRODUCTSDIR)/initramfs.igz.krn: $(PRODUCTSDIR)/initramfs.igz $(RKCRC)
 	$(RKCRC) -k $(PRODUCTSDIR)/initramfs.igz $@
@@ -228,8 +228,8 @@ $(PRODUCTSDIR)/parameters.img: $(BASE)/parts/parameters $(RKCRC)
 #      Kernel <= 32MB
 #      Initramfs <= 128MB
 
-$(OFILESD): $(PRODUCTSDIR)/sd_header.1.rc4 $(PRODUCTSDIR)/sd_header.2.rc4 $(PRODUCTSDIR)/FlashData.bin.rc4 $(PRODUCTSDIR)/FlashBoot.bin.rc4 $(PRODUCTSDIR)/unknown.1 $(PRODUCTSDIR)/unknown.2 $(PRODUCTSDIR)/Image.krn $(PRODUCTSDIR)/initramfs.igz.krn $(PRODUCTSDIR)/parameters.img
-	@SIZE=`stat -c%s "$(PRODUCTSDIR)/Image.krn"` && if [ $$SIZE -gt 33554432 ]; then echo "Kernel too big. Adjust parameters file and makefile"; exit 1; fi;
+$(OFILESD): $(PRODUCTSDIR)/sd_header.1.rc4 $(PRODUCTSDIR)/sd_header.2.rc4 $(PRODUCTSDIR)/FlashData.bin.rc4 $(PRODUCTSDIR)/FlashBoot.bin.rc4 $(PRODUCTSDIR)/unknown.1 $(PRODUCTSDIR)/unknown.2 $(PRODUCTSDIR)/zImage.krn $(PRODUCTSDIR)/initramfs.igz.krn $(PRODUCTSDIR)/parameters.img
+	@SIZE=`stat -c%s "$(PRODUCTSDIR)/zImage.krn"` && if [ $$SIZE -gt 33554432 ]; then echo "Kernel too big. Adjust parameters file and makefile"; exit 1; fi;
 	@SIZE=`stat -c%s "$(PRODUCTSDIR)/initramfs.igz.krn"` && if [ $$SIZE -gt 134217728 ]; then echo "Initramfs too big. Adjust parameters file and makefile."; exit 1; fi;
 	dd if=/dev/zero of=$(OFILESD) conv=sync,fsync bs=512 count=262144
 	dd if=$(PRODUCTSDIR)/sd_header.1.rc4 of=$(OFILESD) conv=notrunc,sync,fsync bs=512 seek=64
@@ -238,7 +238,7 @@ $(OFILESD): $(PRODUCTSDIR)/sd_header.1.rc4 $(PRODUCTSDIR)/sd_header.2.rc4 $(PROD
 	dd if=$(PRODUCTSDIR)/FlashBoot.bin.rc4 of=$(OFILESD) conv=notrunc,sync,fsync bs=512 seek=92
 	dd if=$(PRODUCTSDIR)/unknown.1 of=$(OFILESD) conv=notrunc,sync,fsync bs=512 seek=8064
 	dd if=$(PRODUCTSDIR)/unknown.2 of=$(OFILESD) conv=notrunc,sync,fsync bs=512 seek=8065
-	dd if=$(PRODUCTSDIR)/Image.krn of=$(OFILESD) conv=notrunc,sync,fsync seek=$$((0x2000 + 0x4000))
+	dd if=$(PRODUCTSDIR)/zImage.krn of=$(OFILESD) conv=notrunc,sync,fsync seek=$$((0x2000 + 0x4000))
 	dd if=$(PRODUCTSDIR)/initramfs.igz.krn of=$(OFILESD) conv=notrunc,sync,fsync seek=$$((0x2000 + 0x14000))
 	dd if=$(PRODUCTSDIR)/parameters.img of=$(OFILESD) conv=notrunc,sync,fsync seek=$$((0x2000))
 
