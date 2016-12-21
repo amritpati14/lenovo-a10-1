@@ -23,6 +23,8 @@ RKCRC=$(REPODIR)/rkflashtool/rkcrc
 
 KEY=7C4E0304550509072D2C7B38170D1711
 
+ADDR=zreladdr-y=0x60408000  params_phys-y=0x60088000 initrd_phys-y=0x60800000
+
 
 # ------------------------------------------------------
 
@@ -165,17 +167,17 @@ $(WORKDIR)/$(KERNEL)/.config: $(WORKDIR)/$(KERNEL)/README $(BASE)/extconfigs/$(K
 $(WORKDIR)/$(KERNEL)/arch/arm/boot/zImage: $(WORKDIR)/$(KERNEL)/.config $(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/arm-cortexa9_neon-linux-gnueabihf-gcc $(INITRAMFSDIR)/
 	PATH=$(LOCALDIR)/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$$PATH && \
 	cd $(WORKDIR)/$(KERNEL) && \
-	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make && \
-	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make modules && \
-	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make modules_install INSTALL_MOD_PATH=$(INITRAMFSDIR) && \
-	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make firmware_install  INSTALL_MOD_PATH=$(INITRAMFSDIR) && \
-	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make headers_install INSTALL_HDR_PATH=$(INITRAMFSDIR) && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make ${ADDR} && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make modules $(ADDR) && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make modules_install INSTALL_MOD_PATH=$(INITRAMFSDIR) $(ADDR) && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make firmware_install  INSTALL_MOD_PATH=$(INITRAMFSDIR) $(ADDR) && \
+	ARCH="arm" CROSS_COMPILE="arm-cortexa9_neon-linux-gnueabihf-" make headers_install INSTALL_HDR_PATH=$(INITRAMFSDIR) $(ADDR) && \
 	cd $(BUILD)
 
 
 
 $(PRODUCTSDIR)/zImage: $(WORKDIR)/$(KERNEL)/arch/arm/boot/zImage
-	cp -f $< $@
+	dd if=$< of=$@ bs=4096 conv=sync 2>/dev/null
 
 
 $(INITRAMFSDIR)/lib/modules/$(DEP_VERSION)/modules.dep: $(PRODUCTSDIR)/zImage
@@ -218,7 +220,7 @@ $(PRODUCTSDIR)/zImage.krn: $(PRODUCTSDIR)/zImage $(RKCRC)
 $(PRODUCTSDIR)/initramfs.igz.krn: $(PRODUCTSDIR)/initramfs.igz $(RKCRC)
 	$(RKCRC) -k $(PRODUCTSDIR)/initramfs.igz $@
 
-$(PRODUCTSDIR)/parameters.img: $(BASE)/parts/parameters $(RKCRC)
+$(PRODUCTSDIR)/parameters.img: $(BASE)/parts/parameters-$(KERNEL_VERSION) $(RKCRC)
 	$(RKCRC) -p $(BASE)/parts/parameters $@
 
 # ---------------------------------------------------------
