@@ -45,7 +45,7 @@ $(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(WORKDIR)/crosschain/:
 
 $(INITRAMFSDIR)/:
 	cp -rf $(OVERLAYDIR)/initramfs-common $(INITRAMFSDIR)
-	if [ -d $(OVERLAYDIR)/initramfs-$(KERNEL_VERSION) ]; then tar -C $(OVERLAYDIR)/initramfs-$(KERNEL_VERSION) -czf - | tar -C $(INITRAMFSDIR) -xzvf -; fi;
+	if [ -d $(OVERLAYDIR)/initramfs-$(KERNEL_VERSION) ]; then tar -C $(OVERLAYDIR)/initramfs-$(KERNEL_VERSION) -czf - . | tar -C $(INITRAMFSDIR) -xzvf -; fi;
 
 
 directories: $(REPODIR)/ $(CODEDIR)/ $(PRODUCTSDIR)/ $(LOCALDIR)/ $(INITRAMFSDIR)/ $(WORKDIR)/crosschain/
