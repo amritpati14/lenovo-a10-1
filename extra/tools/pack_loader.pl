@@ -36,9 +36,9 @@ print FILE
         '@16C5' . # date
         '@21L' .   # var1
         'CLC'x3,  # num off size
-        'BOOT', $header_len, 0x0118, 0x1030000, 
+        'BOOT', $header_len, 0x0118, 0x1030000,
             2012, 10, 19, 12, 2, 25,
-            #2012, 1, 1, 0, 0, 0, 
+            #2012, 1, 1, 0, 0, 0,
             0x60,
             1, $header_len, $recsize,
             1, $header_len+$recsize, $recsize,
@@ -63,7 +63,7 @@ sub fill {
 sub get_fn {
     my $fn = shift;
     $fn =~ s/\..+$//;
-    (join "\x00", split '', $fn), 
+    (join "\x00", split '', $fn),
 }
 
 sub addPart {

@@ -19,7 +19,7 @@ binmode(FILE);
 
 $/ = \0x64;
 my ($magic, $len,
-    $vers, $var2, $year, $mon, $day, $h, $m, $s, $var1, 
+    $vers, $var2, $year, $mon, $day, $h, $m, $s, $var1,
     $c1, $o1, $s1,
     $c2, $o2, $s2,
     $c3, $o3, $s3) = unpack(
@@ -33,12 +33,12 @@ my ($magic, $len,
         'CLC'x3  # parts off size
     , <FILE>);
 
-printf "Version: %x.%02x\n", $vers >> 8, $vers & 0xFF; 
+printf "Version: %x.%02x\n", $vers >> 8, $vers & 0xFF;
 say '=' x 15;
-printf "Date: %02d/%02d/%4d %02d:%02d:%02d\n", $day, $mon, $year, $h, $m, $s;; 
+printf "Date: %02d/%02d/%4d %02d:%02d:%02d\n", $day, $mon, $year, $h, $m, $s;;
 say '=' x 15;
 
-printf "%3s %5s %5s %s\n", qw/no off size name/;  
+printf "%3s %5s %5s %s\n", qw/no off size name/;
 sub getAllParts { my ($c, $o, $s) = @_;  map { getPart($o + $_*$s) } (0..$c-1)  }
 
 getAllParts($c1, $o1, $s1);
@@ -50,7 +50,7 @@ sub getPart {
     $/ = \0x39;
     seek(FILE, $s, 0);
 
-    my ($len, $no, $name, $offset, $size) = unpack 
+    my ($len, $no, $name, $offset, $size) = unpack
         '@0C' . # len
         '@1L' . # num
         '@5a40' . # name

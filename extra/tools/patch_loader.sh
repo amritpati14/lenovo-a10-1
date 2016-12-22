@@ -22,7 +22,7 @@ FN=$1
 SIZE=$(stat -c %s $FN)
 PATCHSIZE=$(stat -c %s _patch.bin)
 PATCHED=$FN".patched"
-JUMP=$(( 0xFFFFFF - (INJECT - OFFSET + 8) / 4 + 1)) 
+JUMP=$(( 0xFFFFFF - (INJECT - OFFSET + 8) / 4 + 1))
 JUMP=$(printf "%06X" $JUMP | sed 's/\(..\)\(..\)\(..\)/\3\2\1/')
 
 dd if=$FN ibs=1 count=$OFFSET of=$PATCHED 2>&-

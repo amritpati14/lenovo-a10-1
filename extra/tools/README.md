@@ -1,3 +1,7 @@
+Originally from: https://gist.github.com/sarg/5028505
+--------------------------------------------------------
+
+
 Obtaining RK3066 boot ROM.
 ==========================
 
