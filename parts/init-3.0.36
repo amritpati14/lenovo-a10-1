@@ -21,6 +21,23 @@ mdev -s
 # Create the console
 modprobe fbcon
 
-exec /sbin/init
+#insmod /extra/modules/ump.ko.3.0.36+
+#insmod /extra/modules/vpu_service.ko.3.0.36+
+#insmod /extra/modules/rk29-ipp.ko.3.0.36+
+#insmod /extra/modules/rk30xxnand_ko.ko.3.0.36+
+#insmod /extra/modules/8723as.ko
+#insmod /extra/modules/mali.ko.3.0.36+
+
+
+mkdir -p /new_root
+mount /dev/mmcblk0p1 /new_root
+switch_root /new_root /sbin/init
+RC=$?
+
+if [ "${RC}" != "0" ]; then
+	echo "Failed to switch roots. Press enter to drop to recovery";
+	read
+	exec /sbin/init
+fi;
 
 

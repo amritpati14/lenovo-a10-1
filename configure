@@ -28,6 +28,7 @@ RELPATH=$(realpath --relative-to=${HOME}/src/lenovoa10 ${BASE})
 
 CONFFILE=${RELPATH}/configure
 MAKEFILE=${RELPATH}/Makefile
+BUILDROOT=${RELPATH}/extra/tools/buildsdcard.sh
 
 
 if [ "${BASE}" == "${BUILD}" ]; then
@@ -53,6 +54,7 @@ fi
 
 
 cp -f ${MAKEFILE} ./Makefile
+cp -f ${BUILDROOT} ./
 
 rm -f ./config ./config.tmp
 

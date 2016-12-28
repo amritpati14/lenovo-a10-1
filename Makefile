@@ -222,7 +222,7 @@ $(PRODUCTSDIR)/initramfs.igz.krn: $(PRODUCTSDIR)/initramfs.igz $(RKCRC)
 	$(RKCRC) -k $(PRODUCTSDIR)/initramfs.igz $@
 
 $(PRODUCTSDIR)/parameters.img: $(BASE)/parts/parameters-$(KERNEL_VERSION) $(RKCRC)
-	$(RKCRC) -p $(BASE)/parts/parameters $@
+	$(RKCRC) -p $< $@
 
 # ---------------------------------------------------------
 
