@@ -152,11 +152,11 @@ $(INITRAMFSDIR)/lib/ld-linux-armhf.so.3: $(LOCALDIR)/x-tools/arm-cortexa9_neon-l
 # ---- LINUX KERNEL AND ETC ----------------------------
 
 
-$(CODEDIR)/$(KERNEL).tar.$(KERNEL_TYPE):
+$(CODEDIR)/$(KERNEL_FILE):
 	cd $(CODEDIR) && wget -c $(KERNEL_URL)
 
 
-$(WORKDIR)/$(KERNEL)/README: $(CODEDIR)/$(KERNEL).tar.$(KERNEL_TYPE)
+$(WORKDIR)/$(KERNEL)/README: $(CODEDIR)/$(KERNEL_FILE)
 	mkdir -p $(WORKDIR)/$(KERNEL) &&	\
 	tar --strip-components=1 --touch -x$(KERNEL_EXTRACT)vf $< -C $(WORKDIR)/$(KERNEL)
 

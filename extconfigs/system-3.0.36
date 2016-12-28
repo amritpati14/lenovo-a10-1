@@ -5,7 +5,8 @@ BUSYBOX_URL=https://www.busybox.net/downloads/busybox-$(BUSYBOX).tar.bz2
 KERNEL=linux-3.0.36
 KERNEL_VERSION=3.0.36
 DEP_VERSION=3.0.36+
-KERNEL_URL=https://github.com/durandmiller/linux-3.0.36-lenovo/archive/linux-3.0.36.tar.gz
+KERNEL_URL=https://github.com/durandmiller/linux-3.0.36-lenovoA10/archive/3.0.36v1.0.tar.gz
+KERNEL_FILE=3.0.36v1.0.tar.gz
 
 KERNEL_EXTRACT=x
 KERNEL_TYPE=gz
